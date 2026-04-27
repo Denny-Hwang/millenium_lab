@@ -1,0 +1,43 @@
+name: lean-build
+
+on:
+  pull_request:
+    paths:
+      - 'formalization/**'
+      - 'candidates/**/*.lean'
+  push:
+    branches: [main]
+    paths:
+      - 'formalization/**'
+      - 'candidates/**/*.lean'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan (Lean toolchain manager)
+        run: |
+          set -euxo pipefail
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf -o elan-init.sh
+          chmod +x elan-init.sh
+          ./elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Show Lean version
+        working-directory: formalization
+        run: lean --version
+      - name: Cache mathlib build
+        uses: actions/cache@v4
+        with:
+          path: |
+            formalization/.lake
+          key: lake-${{ runner.os }}-${{ hashFiles('formalization/lean-toolchain', 'formalization/lakefile.lean') }}
+          restore-keys: |
+            lake-${{ runner.os }}-
+      - name: Lake update
+        working-directory: formalization
+        run: lake update
+      - name: Lake build
+        working-directory: formalization
+        run: lake build
