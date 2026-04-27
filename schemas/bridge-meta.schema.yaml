@@ -1,0 +1,49 @@
+$id: https://millennium-lab/schemas/bridge-meta.schema.yaml
+title: Bridge Metadata
+description: |
+  분야 간 다리(bridge)의 메타데이터. bridges/B-###-<slug>.md 의 front matter
+  YAML에 적용된다.
+type: object
+required:
+  - id
+  - domains
+  - problems
+  - maturity
+  - status
+properties:
+  id:
+    type: string
+    pattern: '^B-\d{3}$'
+  domains:
+    type: array
+    minItems: 2
+    items:
+      type: string
+      minLength: 2
+    description: 다리의 양 끝 분야. 예 [analytic-number-theory, random-matrix-theory].
+  problems:
+    type: array
+    items:
+      type: string
+      enum:
+        - 01-poincare
+        - 02-riemann
+        - 03-p-vs-np
+        - 04-yang-mills
+        - 05-navier-stokes
+        - 06-hodge
+        - 07-bsd
+    description: 본 다리가 직간접적으로 연결되는 표적 문제 목록.
+    default: []
+  maturity:
+    type: string
+    enum: [established, emerging, speculative, ai-discovered]
+  key_figures:
+    type: array
+    items: { type: string }
+    default: []
+    description: 본 다리에 본질적 기여를 한 인물.
+  status:
+    type: string
+    enum: [active, dormant, retracted]
+additionalProperties: false
