@@ -1,0 +1,49 @@
+$id: https://millennium-lab/schemas/conjecture-meta.schema.yaml
+title: Conjecture Metadata
+description: |
+  부산 추측(conjecture)의 메타데이터. conjectures/C-###/meta.yaml 적용.
+type: object
+required:
+  - id
+  - statement
+  - parent_problem
+  - parent_attempt
+  - numerical_evidence_status
+  - lean_status
+properties:
+  id:
+    type: string
+    pattern: '^C-\d{3}$'
+  statement:
+    type: string
+    minLength: 8
+    description: 자연어 또는 LaTeX 한 줄 진술.
+  parent_problem:
+    type: string
+    enum:
+      - 01-poincare
+      - 02-riemann
+      - 03-p-vs-np
+      - 04-yang-mills
+      - 05-navier-stokes
+      - 06-hodge
+      - 07-bsd
+  parent_attempt:
+    type: string
+    pattern: '^A\d{3}$'
+  numerical_evidence_status:
+    type: string
+    enum: [none, partial, strong, contradicted]
+  lean_status:
+    type: string
+    enum: [none, partial, complete]
+  references:
+    type: array
+    items:
+      type: object
+      required: [kind, ref]
+      properties:
+        kind: { type: string, enum: [paper, attempt, candidate, bridge, web] }
+        ref:  { type: string, minLength: 1 }
+    default: []
+additionalProperties: false

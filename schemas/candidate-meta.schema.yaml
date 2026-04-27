@@ -1,0 +1,80 @@
+$id: https://millennium-lab/schemas/candidate-meta.schema.yaml
+title: Candidate Metadata
+description: |
+  정식 증명 후보(candidate)의 메타데이터. candidates/PC-###/meta.yaml 적용.
+type: object
+required:
+  - id
+  - problem
+  - status
+  - claim_summary
+  - strategy_summary
+  - lemma_count
+  - formalization_progress
+  - origin_attempts
+properties:
+  id:
+    type: string
+    pattern: '^PC-\d{3}$'
+  problem:
+    type: string
+    enum:
+      - 01-poincare
+      - 02-riemann
+      - 03-p-vs-np
+      - 04-yang-mills
+      - 05-navier-stokes
+      - 06-hodge
+      - 07-bsd
+  status:
+    type: string
+    enum: [active, abandoned, published]
+  claim_summary:
+    type: string
+    minLength: 8
+    description: 한 줄 분량의 결론 요지.
+  strategy_summary:
+    type: string
+    minLength: 8
+  lemma_count:
+    type: integer
+    minimum: 0
+  formalization_progress:
+    type: integer
+    minimum: 0
+    maximum: 100
+  gaps_known:
+    type: array
+    items:
+      type: object
+      required: [id, severity, summary]
+      properties:
+        id: { type: string, pattern: '^G\d{3}$' }
+        severity: { type: string, enum: [minor, major, lethal] }
+        summary: { type: string, minLength: 4 }
+    default: []
+  origin_attempts:
+    type: array
+    minItems: 1
+    items:
+      type: string
+      pattern: '^A\d{3}$'
+  verification_status:
+    type: object
+    required: [L1, L2, L3, L4, L5, L6, L7]
+    properties:
+      L1: { type: string, enum: [n/a, pending, pass, fail] }
+      L2: { type: string, enum: [n/a, pending, pass, fail] }
+      L3: { type: string, enum: [n/a, pending, pass, fail] }
+      L4: { type: string, enum: [n/a, pending, pass, fail] }
+      L5: { type: string, enum: [n/a, pending, pass, fail] }
+      L6: { type: string, enum: [n/a, pending, pass, fail] }
+      L7: { type: string, enum: [n/a, pending, pass, fail] }
+  publication:
+    type: object
+    properties:
+      journal: { type: string }
+      doi:     { type: string }
+      published_at: { type: string, format: date }
+      settlement_until: { type: string, format: date }
+additionalProperties: false

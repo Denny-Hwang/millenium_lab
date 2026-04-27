@@ -1,0 +1,40 @@
+name: update-dashboard
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+      - name: Build derived data
+        run: python scripts/build-data.py
+      - name: Update dashboard
+        run: python scripts/update-dashboard.py
+      - name: Commit changes (if any)
+        run: |
+          set -euo pipefail
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name  "millennium-lab-bot"
+            git config user.email "millennium-lab-bot@users.noreply.github.com"
+            git add README.md docs/problems/_INDEX.md data/
+            git commit -m "chore(infra): 대시보드 갱신"
+            git push
+          else
+            echo "변경 없음"
+          fi

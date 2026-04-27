@@ -1,0 +1,90 @@
+$id: https://millennium-lab/schemas/attempt-meta.schema.yaml
+title: Attempt Metadata
+description: |
+  단일 시도(attempt)의 메타데이터. 모든 attempts/<problem>/A###/meta.yaml 은
+  본 스키마를 통과해야 한다.
+type: object
+required:
+  - id
+  - problem
+  - date
+  - model
+  - strategy
+  - duration_minutes
+  - outcome
+  - verification_status
+properties:
+  id:
+    type: string
+    pattern: '^A\d{3}$'
+    description: 정렬 가능한 불변 식별자. scripts/new-attempt.sh 가 발급.
+  problem:
+    type: string
+    enum:
+      - 01-poincare
+      - 02-riemann
+      - 03-p-vs-np
+      - 04-yang-mills
+      - 05-navier-stokes
+      - 06-hodge
+      - 07-bsd
+  date:
+    type: string
+    format: date
+    description: ISO 8601 (YYYY-MM-DD).
+  model:
+    type: string
+    minLength: 1
+    description: 사용된 모델 ID. 예 claude-opus-4-7, gpt-codex-x, human.
+  strategy:
+    type: string
+    minLength: 8
+    description: 한 단락 분량의 전략 요약.
+  duration_minutes:
+    type: integer
+    minimum: 0
+  outcome:
+    type: string
+    enum:
+      - no-progress
+      - survey
+      - flawed-attempt
+      - partial-insight
+      - novel-approach
+      - claimed-solution
+      - peer-reviewable
+  verification_status:
+    type: object
+    required: [L1, L2, L3, L4, L5, L6, L7]
+    properties:
+      L1: { type: string, enum: [n/a, pending, pass, fail] }
+      L2: { type: string, enum: [n/a, pending, pass, fail] }
+      L3: { type: string, enum: [n/a, pending, pass, fail] }
+      L4: { type: string, enum: [n/a, pending, pass, fail] }
+      L5: { type: string, enum: [n/a, pending, pass, fail] }
+      L6: { type: string, enum: [n/a, pending, pass, fail] }
+      L7: { type: string, enum: [n/a, pending, pass, fail] }
+  key_insights:
+    type: array
+    items: { type: string }
+    default: []
+  follow_ups:
+    type: array
+    items: { type: string }
+    default: []
+  references:
+    type: array
+    items:
+      type: object
+      required: [kind, ref]
+      properties:
+        kind: { type: string, enum: [paper, attempt, candidate, bridge, conjecture, web] }
+        ref:  { type: string, minLength: 1 }
+    default: []
+  novel_bridges:
+    type: array
+    items:
+      type: string
+      pattern: '^B-\d{3}$'
+    default: []
+additionalProperties: false
