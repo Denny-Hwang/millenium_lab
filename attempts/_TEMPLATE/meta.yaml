@@ -1,0 +1,22 @@
+# attempt meta — 본 파일은 schemas/attempt-meta.schema.yaml 을 따른다.
+# scripts/new-attempt.sh 가 id/problem/date/model 을 자동 채운다.
+id: TODO            # 예: A001 (스크립트가 채움)
+problem: TODO       # 예: 02-riemann
+date: TODO          # 예: 2026-04-27
+model: TODO         # 예: claude-opus-4-7
+strategy: |
+  TODO: 한 단락 분량으로 본 시도가 어떤 전략을 택했는지 기술.
+duration_minutes: 0
+outcome: no-progress      # 종료 시 정확히 1개를 골라 갱신.
+verification_status:
+  L1: n/a
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights: []
+follow_ups: []
+references: []
+novel_bridges: []
