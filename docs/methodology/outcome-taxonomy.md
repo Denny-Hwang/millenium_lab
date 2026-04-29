@@ -1,116 +1,133 @@
-# Outcome Taxonomy — 시도 결과 라벨 정의
+# Outcome Taxonomy — Attempt Result Labels
 
-모든 attempt는 종료 시 정확히 1개의 outcome 라벨을 받습니다. 본 문서는 각
-라벨의 정의와 예시, 그리고 라벨이 부여될 수 없는 경우를 명시합니다.
+Every attempt receives exactly one outcome label at termination. This
+document specifies each label's definition, examples, and the cases in
+which it cannot be assigned.
 
 ---
 
-## 라벨 일람
+## Label Index
 
-| 라벨 | 사용 가능 시점 | 한 줄 정의 |
-|------|----------------|-------------|
-| `no-progress` | 항상 | 의미 있는 진척이 없음 |
-| `survey` | 항상 | 기존 결과의 정리·요약. 새 진척 없음 |
-| `flawed-attempt` | 항상 | 시도가 명백한 결함을 가짐(가정 위반 등) |
-| `partial-insight` | 항상 | 부분적 인사이트가 후속 작업으로 이어질 만함 |
-| `novel-approach` | 항상 | 기존 문헌에 없는 접근. 후보 승격 검토 가능 |
-| `claimed-solution` | **L6 통과 후만** | 권위 학술지 게재 |
-| `peer-reviewable` | **L7 통과 후만** | 게재 후 2년 정착 완료 |
+| Label | When usable | One-line definition |
+|-------|-------------|---------------------|
+| `no-progress` | always | No meaningful progress |
+| `survey` | always | Synthesis of existing results; no new progress |
+| `flawed-attempt` | always | The attempt has a clear defect (assumption violation, etc.) |
+| `partial-insight` | always | Partial insight worth follow-up work |
+| `novel-approach` | always | An approach not present in the prior literature; candidate-promotable |
+| `claimed-solution` | **only after L6** | Publication in an authoritative journal |
+| `peer-reviewable` | **only after L7** | Two-year settlement achieved after publication |
 
 ---
 
 ## 1. `no-progress`
 
-**정의**: 시도가 어떤 새로운 인사이트·계산 결과·반례·다리도 산출하지 못함.
-시도 시간을 소비했지만 가치 있는 산출물이 없음.
+**Definition**: the attempt produces no new insight, computational
+result, counterexample, or bridge. Time was spent but no valuable
+artifact emerged.
 
-**예시**:
-- 모델이 "이 문제는 어렵습니다"만 반복함.
-- 기존 정리들의 단순 나열로 끝남.
-- 사용자 의도와 다른 문제로 표류함.
+**Examples**:
+- The model only repeats "this problem is hard."
+- The output is a flat list of known theorems.
+- The work drifts onto a different problem than intended.
 
-**행동**: result.md에 사유를 1~3문장으로. 동일 문제에서 5건 누적되면 R6
-(cross-attempt synthesis)을 호출.
+**Action**: in `result.md`, give the reason in 1–3 sentences. Once five
+such attempts on the same problem accumulate, invoke R6
+(cross-attempt synthesis).
 
 ---
 
 ## 2. `survey`
 
-**정의**: 기존 결과의 정리·요약이 잘 이루어졌으나 새 진척은 없음.
+**Definition**: existing results are well organized and summarized, but
+no new progress was made.
 
-**예시**:
-- Riemann Hypothesis 동치 명제 12개 중 8개를 정확히 정리.
-- Yang–Mills mass gap에 대한 기존 시도들의 분류.
+**Examples**:
+- Eight of twelve equivalent forms of the Riemann Hypothesis are
+  correctly catalogued.
+- Existing attempts on the Yang–Mills mass gap are classified.
 
-**행동**: 결과를 `docs/problems/<problem>/known-results.md` 또는
-`equivalent-forms.md`로 흡수.
+**Action**: absorb the result into
+`docs/problems/<problem>/known-results.md` or `equivalent-forms.md`.
 
 ---
 
 ## 3. `flawed-attempt`
 
-**정의**: 시도 결과가 명백한 결함을 가짐. 결함은 다음 중 하나 이상.
+**Definition**: the attempt is clearly flawed. The flaw is one or more
+of the following:
 
-- CMI 공식 진술이 아닌 다른 명제를 풀었음.
-- 핵심 단계에 사용된 가정이 실제로 거짓.
-- 순환 논리.
-- 알려진 반례를 무시.
+- Solved a different statement than the official CMI one.
+- A core step relies on an assumption that is in fact false.
+- Circular reasoning.
+- Ignored a known counterexample.
 
-**예시**:
-- 무한 차원에서 유한 차원 정리를 무비판적으로 적용.
-- "충분히 큰 N에 대해" 가정이 결정적인데 N에 대한 균일성이 실패.
+**Examples**:
+- Uncritically applied a finite-dimensional theorem in infinite
+  dimensions.
+- "For sufficiently large N" matters decisively, but uniformity in N
+  fails.
 
-**행동**: result.md에 결함의 정확한 위치와 종류를 기록. 동일 결함이 다른
-attempts에 보이면 `bridges/` 또는 `failed-approaches.md`로 승화.
+**Action**: in `result.md`, record the precise location and kind of the
+flaw. If the same flaw appears in other attempts, lift it into
+`bridges/` or `failed-approaches.md`.
 
 ---
 
 ## 4. `partial-insight`
 
-**정의**: 새 인사이트가 발생했으나 단독으로 후보가 되기에는 부족.
+**Definition**: a new insight emerged, but it is not sufficient to
+stand alone as a candidate.
 
-**예시**:
-- Navier–Stokes 폭발 가능 시간의 새 하한.
-- BSD에서 특정 모듈러 형식 가족의 행동 관찰.
+**Examples**:
+- A new lower bound on the blow-up time for Navier–Stokes.
+- An observation on a specific family of modular forms in BSD.
 
-**행동**: 후속 작업 제안을 result.md의 `follow_ups`에 명시. 후속 attempt에서
-이를 직접 인용.
+**Action**: state follow-ups in the `follow_ups` field of `result.md`.
+Cite this attempt directly from any successor attempt.
 
 ---
 
 ## 5. `novel-approach`
 
-**정의**: 기존 문헌에 명시적으로 없는 접근. 후보 승격이 가능할 만큼의 일관성을
-가짐.
+**Definition**: an approach that is not explicitly present in the
+existing literature, with enough internal consistency to be considered
+for candidate promotion.
 
-**예시**:
-- 두 분야 사이의 새 다리(`bridges/B-###`)를 통한 기존 정리의 재증명.
-- 새로운 형식체계 또는 표현 방식.
+**Examples**:
+- Re-proving an existing theorem via a new bridge between two fields
+  (`bridges/B-###`).
+- A new formal system or representation.
 
-**행동**: 후보 승격 가능 여부를 [`prompts/P03-lemma-extraction.md`](../../prompts/P03-lemma-extraction.md)
-로 평가. 승격하면 `candidates/PC-###/`로 이전.
+**Action**: evaluate candidate-promotion eligibility with
+[`prompts/P03-lemma-extraction.md`](../../prompts/P03-lemma-extraction.md).
+On promotion, move to `candidates/PC-###/`.
 
 ---
 
 ## 6. `claimed-solution` ⚠️
 
-**정의**: L6(권위 학술지 게재) **통과 후에만** 사용 가능.
+**Definition**: usable **only after** L6 (publication in an authoritative
+journal).
 
-**오용 시 결과**: PR 차단(`claim-integrity.yml`).
+**Misuse consequence**: PR is blocked by `claim-integrity.yml`.
 
 ---
 
 ## 7. `peer-reviewable` ✅
 
-**정의**: L7(게재 후 2년 정착) **통과 후에만** 사용 가능.
+**Definition**: usable **only after** L7 (two-year settlement after
+publication).
 
-**의미**: CMI 상금 청구 자격 절차의 학술적 요건을 만족.
+**Meaning**: the academic prerequisites for a CMI prize claim are
+satisfied.
 
 ---
 
-## 라벨 부여 절차
+## Labeling Procedure
 
-1. attempt 종료 후 `result.md` 작성.
-2. 작성자가 라벨 후보를 1개 제안.
-3. R2(result classifier) 루틴으로 후보 라벨을 검증.
-4. PR에서 라벨이 metadata 스키마와 일치하는지 자동 검사.
+1. After the attempt ends, write `result.md`.
+2. The author proposes one candidate label.
+3. The R2 (result classifier) routine validates the candidate label.
+4. The PR check automatically verifies the label matches the metadata
+   schema.

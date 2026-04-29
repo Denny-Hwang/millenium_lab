@@ -1,140 +1,158 @@
-# 증명 파이프라인 (Proof Pipeline)
+# Proof Pipeline
 
-본 문서는 한 줄짜리 가설이 어떻게 동료심사 통과 가능한 정식 증명으로 점진적
-승격되는지를 단계별로 정의합니다. 각 단계는 저장소의 어떤 디렉토리·메타·검증
-레벨과 1:1로 대응됩니다.
+This document defines, stage by stage, how a one-line hypothesis is
+gradually promoted into a peer-review-ready formal proof. Each stage maps
+1:1 to a directory, a metadata schema, and a verification level in this
+repository.
 
 ```
-가설(idea)
-  → 시도(attempt)            attempts/<problem>/A###-...
-  → 후보(candidate)          candidates/PC-###-...
-  → 형식화(formalization)    formalization/projects/<problem>/...
-  → 적대적 검증(adversarial) adversarial/proof-attacks/<candidate>/
-  → 외부 리뷰                 reviews/external/<candidate>/
-  → 학술지 투고               reviews/publication-track/<candidate>/
-  → 게재 (publication)
-  → 2년 정착 (settlement)
+idea
+  → attempt              attempts/<problem>/A###-...
+  → candidate            candidates/PC-###-...
+  → formalization        formalization/projects/<problem>/...
+  → adversarial          adversarial/proof-attacks/<candidate>/
+  → external review      reviews/external/<candidate>/
+  → publication track    reviews/publication-track/<candidate>/
+  → publication
+  → two-year settlement
 ```
 
-각 단계에는 통과 기준(검증 레벨)과 산출물(메타·본문)이 정해져 있습니다.
+Every stage has a pass criterion (a verification level) and a deliverable
+(metadata + prose).
 
 ---
 
-## 단계 1 — 가설 (idea)
+## Stage 1 — Idea
 
-- 형식: 자유 노트, 개인 스크래치 또는 issue.
-- 산출물 요건: 없음. 하지만 가설을 시도로 승격할 때는 다음을 명시해야 함.
-  - 표적 문제 ID
-  - 어느 5분야 패널의 어떤 인사이트에서 비롯되었는가
-  - 기존 attempts와의 차이
+- Form: free notes, personal scratchpad, or an issue.
+- Required deliverable: none. But to promote an idea to an attempt, the
+  following must be stated:
+  - Target problem ID.
+  - Which insight from which five-domain panel motivated it.
+  - How it differs from existing attempts.
 
-가설이 한 줄로 압축된 후 [`prompts/P01-multi-perspective.md`](../../prompts/P01-multi-perspective.md)
-필터를 통과해야 시도로 승격할 수 있습니다.
-
----
-
-## 단계 2 — 시도 (attempt)
-
-- 형식: `attempts/<problem>/A###-<date>-<model>/`
-- 산출물:
-  - `meta.yaml` (스키마: `schemas/attempt-meta.schema.yaml`)
-  - `prompt.md` (사용한 표준 프롬프트의 ID와 입력 변수)
-  - `transcript.md` (AI 대화 전문, **머지 후 동결**)
-  - `result.md` (요약 + outcome 라벨 + 인사이트 + 후속 작업 제안)
-  - `artifacts/` (그래프·계산 결과 등)
-- 종료 조건: outcome 라벨 부여.
-- 가능한 outcome: `no-progress`, `survey`, `flawed-attempt`, `partial-insight`,
-  `novel-approach`. 이 단계에서는 `claimed-solution`/`peer-reviewable` 사용 불가.
-
-시도 5건이 같은 문제에서 누적되면 R6(cross-attempt synthesis) 루틴이 자동
-권고됩니다.
+After the idea is compressed into one line, it must pass through
+[`prompts/P01-multi-perspective.md`](../../prompts/P01-multi-perspective.md)
+before promotion.
 
 ---
 
-## 단계 3 — 후보 (candidate)
+## Stage 2 — Attempt
 
-- 형식: `candidates/PC-###-<slug>/`
-- 진입 조건:
-  - 출처 attempt 1개 이상이 outcome `partial-insight`/`novel-approach`로 라벨됨.
-  - 진입 PR에서 [`prompts/P03-lemma-extraction.md`](../../prompts/P03-lemma-extraction.md)
-    실행 결과가 첨부됨.
-- 산출물:
-  - `meta.yaml` (스키마: `schemas/candidate-meta.schema.yaml`)
+- Form: `attempts/<problem>/A###-<date>-<model>/`
+- Deliverables:
+  - `meta.yaml` (schema: `schemas/attempt-meta.schema.yaml`)
+  - `prompt.md` (the standard prompt ID and input variables used)
+  - `transcript.md` (full AI conversation; **frozen after merge**)
+  - `result.md` (summary + outcome label + insights + follow-ups)
+  - `artifacts/` (graphs, computation outputs, etc.)
+- Termination: assign an outcome label.
+- Allowed outcomes: `no-progress`, `survey`, `flawed-attempt`,
+  `partial-insight`, `novel-approach`.
+  `claimed-solution` and `peer-reviewable` are forbidden at this stage.
+
+When five attempts on the same problem accumulate, R6
+(cross-attempt synthesis) is automatically recommended.
+
+---
+
+## Stage 3 — Candidate
+
+- Form: `candidates/PC-###-<slug>/`
+- Entry conditions:
+  - At least one source attempt with outcome `partial-insight` or
+    `novel-approach`.
+  - The promotion PR includes the result of running
+    [`prompts/P03-lemma-extraction.md`](../../prompts/P03-lemma-extraction.md).
+- Deliverables:
+  - `meta.yaml` (schema: `schemas/candidate-meta.schema.yaml`)
   - `claim.md`, `strategy.md`, `main-proof.md`, `gaps.md`, `attacks.md`
   - `lemmas/L##.md`, `lemmas/L##.lean`
-  - `reviews/` (받은 리뷰 보존, 머지 후 동결)
+  - `reviews/` (received reviews preserved; frozen after merge)
 
-검증 레벨 **L1**(자체 일관성)을 통과해야 후보로 등록됩니다.
-
----
-
-## 단계 4 — 형식화 (formalization)
-
-- 위치: `formalization/projects/<problem>/PC-###/`
-- 산출물: 보조정리 단위 `.lean` 파일과 `lakefile.lean` 의존성 정리.
-- 통과 기준:
-  - 각 보조정리 빌드 통과.
-  - 후보 메타의 `formalization_progress`가 갱신됨.
-  - L3 통과 = "핵심 보조정리들이 빌드되며, 주요 정리의 자연어 증명에 대응됨".
+Verification level **L1** (self-consistency) must pass before
+registration as a candidate.
 
 ---
 
-## 단계 5 — 적대적 검증 (adversarial)
+## Stage 4 — Formalization
 
-- 위치: `adversarial/proof-attacks/PC-###/`
-- 행위:
-  - 가정 약화 시도
-  - 반례 후보 탐색 ([`prompts/P06-counterexample.md`](../../prompts/P06-counterexample.md))
-  - 의도적 빈틈 탐지 ([`prompts/P05-gap-finder.md`](../../prompts/P05-gap-finder.md))
-  - 적대적 리뷰 ([`prompts/P07-adversarial-review.md`](../../prompts/P07-adversarial-review.md))
-- 통과 기준 (L4): 의도된 모든 공격이 실패하거나, 발견된 빈틈이 후보 수정으로
-  닫혔음을 PR로 증명.
-
-가능한 한 후보 작성자와 **다른 모델·다른 세션**의 에이전트가 공격을 수행합니다.
+- Location: `formalization/projects/<problem>/PC-###/`
+- Deliverables: per-lemma `.lean` files and a `lakefile.lean` capturing
+  dependencies.
+- Pass criterion:
+  - Each lemma builds.
+  - The candidate's `formalization_progress` is updated.
+  - L3 = "core lemmas build, and they correspond to the natural-language
+    proof of the main theorem."
 
 ---
 
-## 단계 6 — 외부 리뷰 (external review, L5)
+## Stage 5 — Adversarial Verification
 
-- 위치: `reviews/external/PC-###/`
-- 절차:
-  - 메인테이너가 외부 전문가 ≥3인을 섭외.
-  - 리뷰 요청서·자료 패키지 동결 후 송부.
-  - 받은 리뷰 원본은 본인 동의 없이 수정·삭제 금지.
-- 통과 기준: lethal flaw 보고 0건. 작은 빈틈은 후보로 회송하여 닫음.
+- Location: `adversarial/proof-attacks/PC-###/`
+- Activities:
+  - Assumption-weakening trials.
+  - Counterexample search
+    ([`prompts/P06-counterexample.md`](../../prompts/P06-counterexample.md)).
+  - Intentional gap discovery
+    ([`prompts/P05-gap-finder.md`](../../prompts/P05-gap-finder.md)).
+  - Adversarial review
+    ([`prompts/P07-adversarial-review.md`](../../prompts/P07-adversarial-review.md)).
+- Pass criterion (L4): every planned attack fails, or every gap found is
+  closed by a PR amending the candidate.
 
----
-
-## 단계 7 — 학술지 투고 (publication track, L6)
-
-- 위치: `reviews/publication-track/PC-###/`
-- 산출물:
-  - 투고 PDF
-  - 동료심사 라운드별 응답
-  - 게재 결정 사본
-- 통과 기준: CMI가 인정하는 권위 학술지에 **게재**.
-
-본 단계의 어떤 송부도 인간 메인테이너 서명 PR을 거칩니다.
+Whenever possible, the agent attacking is a different model or session
+from the candidate's author.
 
 ---
 
-## 단계 8 — 2년 정착 (settlement, L7)
+## Stage 6 — External Review (L5)
 
-- 행위: 게재일로부터 24개월간 다음을 모니터링.
-  - 본질적 반증
-  - 핵심 보조정리에 대한 후속 인용에서의 공백 보고
-  - errata 발생 여부
-- 통과 기준: 24개월 무결. 메타 라벨 `peer-reviewable` 확정.
-
-L7 통과 후에야 CMI 상금 청구 절차가 가능합니다(charter §6).
+- Location: `reviews/external/PC-###/`
+- Procedure:
+  - The maintainer recruits at least three external experts.
+  - The review-request letter and material package are frozen and sent.
+  - Original reviews must not be modified or deleted without consent.
+- Pass criterion: zero lethal-flaw reports. Small gaps are returned to
+  the candidate to be closed.
 
 ---
 
-## 부록 — 단계 간 회송 규칙
+## Stage 7 — Publication Track (L6)
 
-- 후보 단계에서 lethal flaw 발견 → attempt 단계로 회송 가능 (`status: abandoned`).
-- 형식화 단계에서 보조정리 결함 발견 → 후보 단계로 회송, 후보 메타의
-  `gaps_known`에 기록.
-- 외부 리뷰에서 빈틈 보고 → 적대적 검증 트랙으로 우회한 뒤 후보로 갱신.
+- Location: `reviews/publication-track/PC-###/`
+- Deliverables:
+  - Submission PDF.
+  - Per-round responses to peer review.
+  - Acceptance decision copy.
+- Pass criterion: **published** in an authoritative journal recognized
+  by CMI.
 
-회송은 부끄러움이 아니라 파이프라인의 정상 작동입니다.
+Every submission in this stage requires a human-maintainer-signed PR.
+
+---
+
+## Stage 8 — Two-Year Settlement (L7)
+
+- Activities: monitor, for 24 months after publication:
+  - Essential refutations.
+  - Reports of gaps in core lemmas surfacing in the citing literature.
+  - Whether errata have been issued.
+- Pass criterion: 24 months without an essential refutation. The
+  metadata label `peer-reviewable` is finalized.
+
+Only after L7 may a CMI prize claim be initiated (charter §6).
+
+---
+
+## Appendix — Inter-stage Return Rules
+
+- Lethal flaw discovered at the candidate stage → return to the attempt
+  stage (`status: abandoned`).
+- Lemma defect discovered during formalization → return to the candidate
+  stage; record in the candidate's `gaps_known`.
+- Gap reported during external review → reroute through adversarial
+  verification, then update the candidate.
+
+Returns are not failures — they are the pipeline working as intended.
