@@ -8,8 +8,8 @@ last_updated: 2026-04-27
 
 # Status — 01-poincare
 
-## 변경 이력
+## Change Log
 
-| 날짜 | 상태 | 사유 |
-|------|------|------|
-| 2026-04-27 | solved-2003 | 저장소 초기 스캐폴딩 시 등록. Perelman의 증명을 참고용으로만 다룸. |
+| Date | Status | Reason |
+|------|--------|--------|
+| 2026-04-27 | solved-2003 | Registered during initial repository scaffolding. Perelman's proof is treated as reference-only. |

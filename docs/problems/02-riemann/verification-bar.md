@@ -1,5 +1,10 @@
 # riemann — Verification Bar
 
-> TODO: 추후 정밀 작성. 작성 시 참고할 사항 — 본 문제 특유의 추가 검증 기준(예: 수치 영점 검증의 깊이, 격자 게이지의 격자 크기 등)을 명시. 일반 L1~L7 위에 덧붙는 조건.
+> TODO: write a precise version later. Reference points — state
+> additional verification criteria specific to this problem (e.g., depth
+> of numerical zero verification, lattice size for lattice gauge
+> theories). These are conditions added on top of the general L1–L7
+> bar.
 
-본 파일은 placeholder입니다. 표적 문제가 `active`로 전환될 때 정밀 작성합니다.
+This file is a placeholder. It will be filled in when the target problem
+transitions to `active`.
