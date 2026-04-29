@@ -1,14 +1,15 @@
-# formalization/projects/ — 문제별 형식화 작업
+# formalization/projects/ — Per-problem Formalization
 
-본 하위 디렉토리는 7개 문제별로 형식화 산출물을 묶습니다. 각 후보는
-`<problem>/PC-###/Main.lean` 을 빌드 엔트리포인트로 가지며, 보조정리는
-`candidates/PC-###/lemmas/*.lean`에 두고 본 디렉토리에서는 import 합니다.
+This sub-directory groups formalization outputs by problem. Each
+candidate has `<problem>/PC-###/Main.lean` as its build entry point;
+lemmas live under `candidates/PC-###/lemmas/*.lean` and are imported
+here.
 
-## 디렉토리 (placeholder)
+## Layout (placeholder)
 
 ```
 projects/
-  01-poincare/   # 참고용 — 새 작업 머지 안 함
+  01-poincare/   # reference only — no new work merged
   02-riemann/
   03-p-vs-np/
   04-yang-mills/
@@ -17,12 +18,13 @@ projects/
   07-bsd/
 ```
 
-> TODO: 추후 정밀 작성. 첫 후보가 본 디렉토리를 사용할 때 그 후보의
-> README 에 본 폴더로의 진입 절차를 추가합니다.
+> TODO: write a precise version later. When the first candidate uses
+> this directory, add the entry procedure to that candidate's README.
 
-## 본 폴더의 디렉토리 추가 절차
+## How to Add a Folder Here
 
-1. 후보가 등록되면 `<problem>/PC-###/` 폴더를 만든다.
-2. `Main.lean`에 후보의 모든 보조정리를 import.
-3. `lakefile.lean` 의 `lean_lib` globs는 `MillenniumLab.*` 전체를 잡으므로
-   추가 설정은 필요 없음.
+1. When a candidate is registered, create
+   `<problem>/PC-###/`.
+2. Import every lemma of the candidate from `Main.lean`.
+3. The `lakefile.lean`'s `lean_lib` globs already cover
+   `MillenniumLab.*`, so no extra configuration is needed.
