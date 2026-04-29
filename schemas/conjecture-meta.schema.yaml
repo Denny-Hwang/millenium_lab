@@ -1,7 +1,8 @@
 $id: https://millennium-lab/schemas/conjecture-meta.schema.yaml
 title: Conjecture Metadata
 description: |
-  부산 추측(conjecture)의 메타데이터. conjectures/C-###/meta.yaml 적용.
+  Metadata for a byproduct conjecture. Applies to
+  conjectures/C-###/meta.yaml.
 type: object
 required:
   - id
@@ -17,7 +18,7 @@ properties:
   statement:
     type: string
     minLength: 8
-    description: 자연어 또는 LaTeX 한 줄 진술.
+    description: One-line natural-language or LaTeX statement.
   parent_problem:
     type: string
     enum:

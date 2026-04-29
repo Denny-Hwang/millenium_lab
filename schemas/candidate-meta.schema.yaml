@@ -1,7 +1,8 @@
 $id: https://millennium-lab/schemas/candidate-meta.schema.yaml
 title: Candidate Metadata
 description: |
-  정식 증명 후보(candidate)의 메타데이터. candidates/PC-###/meta.yaml 적용.
+  Metadata for a formal proof candidate. Applies to
+  candidates/PC-###/meta.yaml.
 type: object
 required:
   - id
@@ -32,7 +33,7 @@ properties:
   claim_summary:
     type: string
     minLength: 8
-    description: 한 줄 분량의 결론 요지.
+    description: One-line summary of the conclusion.
   strategy_summary:
     type: string
     minLength: 8

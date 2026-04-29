@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# new-conjecture.sh — 새 conjecture 폴더 생성
+# new-conjecture.sh — create a new conjecture folder
 #
-# 사용법: scripts/new-conjecture.sh <problem-id> [<parent-attempt-id>]
+# Usage: scripts/new-conjecture.sh <problem-id> [<parent-attempt-id>]
 set -euo pipefail
 
 usage() {
   cat <<USAGE >&2
-사용법: $0 <problem-id> [<parent-attempt-id>]
-  problem-id        필수. 01-poincare | 02-riemann | ... | 07-bsd
-  parent-attempt-id 선택. A### 형식 (스크립트가 묻습니다).
+Usage: $0 <problem-id> [<parent-attempt-id>]
+  problem-id        required. 01-poincare | 02-riemann | ... | 07-bsd
+  parent-attempt-id optional. A### form (the script will prompt).
 USAGE
   exit 2
 }
@@ -28,19 +28,19 @@ for p in "${ALLOWED[@]}"; do
   if [[ "$p" == "$PROBLEM" ]]; then match=1; break; fi
 done
 if [[ $match -eq 0 ]]; then
-  echo "오류: 알 수 없는 problem-id '$PROBLEM'." >&2
+  echo "error: unknown problem-id '$PROBLEM'." >&2
   exit 2
 fi
 
 if [[ -z "$PARENT" ]]; then
-  read -r -p "부모 attempt ID (A### 또는 빈 줄): " PARENT
+  read -r -p "Parent attempt id (A### or empty): " PARENT
 fi
 if [[ -n "$PARENT" && ! "$PARENT" =~ ^A[0-9]{3}$ ]]; then
-  echo "오류: 부모 attempt ID 형식이 잘못됨: $PARENT" >&2
+  echo "error: invalid parent attempt id: $PARENT" >&2
   exit 2
 fi
 
-# 다음 C-### 계산
+# Compute the next C-### ID.
 last=0
 shopt -s nullglob
 for d in "$CONJ_DIR"/C-[0-9][0-9][0-9]-*; do
@@ -55,20 +55,20 @@ shopt -u nullglob
 next=$((last + 1))
 ID=$(printf "C-%03d" "$next")
 
-read -r -p "추측 슬러그(짧은 kebab-case): " SLUG
+read -r -p "Conjecture slug (short kebab-case): " SLUG
 SLUG="${SLUG:-untitled}"
 TARGET="$CONJ_DIR/${ID}-${SLUG}"
-[[ -e "$TARGET" ]] && { echo "오류: 대상 존재: $TARGET" >&2; exit 1; }
+[[ -e "$TARGET" ]] && { echo "error: target exists: $TARGET" >&2; exit 1; }
 
 cp -r "$TEMPLATE_DIR" "$TARGET"
 
 DATE="$(date -u +%Y-%m-%d)"
 
 cat > "$TARGET/meta.yaml" <<META
-# conjecture meta — schemas/conjecture-meta.schema.yaml 을 따른다.
+# conjecture meta — follows schemas/conjecture-meta.schema.yaml.
 id: ${ID}
 statement: |
-  TODO: 한 줄 진술.
+  TODO: one-line statement.
 parent_problem: ${PROBLEM}
 parent_attempt: ${PARENT:-A000}
 numerical_evidence_status: none
@@ -85,13 +85,13 @@ t = p.read_text(encoding='utf-8')
 t = t.replace("id: TODO", f"id: {_id}", 1)
 t = t.replace("parent_problem: TODO", f"parent_problem: {prob}", 1)
 t = t.replace("parent_attempt: TODO", f"parent_attempt: {parent or 'A000'}", 1)
-t = t.replace("last_updated: TODO", f"last_updated: {date}", 1)
+t = t.replace("last_updated: TODO", f'last_updated: "{date}"', 1)
 t = t.replace("# Status — TODO", f"# Status — {_id}", 1)
-t = t.replace("| TODO | none | none | 등록 |", f"| {date} | none | none | 등록 |", 1)
+t = t.replace("| TODO | none | none | registered |", f"| {date} | none | none | registered |", 1)
 p.write_text(t, encoding='utf-8')
 PY
 fi
 
-echo "OK: 새 conjecture 생성"
-echo "  폴더: $TARGET"
-echo "  ID: $ID  problem: $PROBLEM  parent: ${PARENT:-(없음)}"
+echo "OK: new conjecture created"
+echo "  folder: $TARGET"
+echo "  id: $ID  problem: $PROBLEM  parent: ${PARENT:-(none)}"
