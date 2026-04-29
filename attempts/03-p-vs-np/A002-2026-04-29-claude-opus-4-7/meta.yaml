@@ -1,0 +1,55 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A002
+problem: 03-p-vs-np
+date: "2026-04-29"
+model: claude-opus-4-7
+strategy: |
+  Lemma-extraction (P03) attempt on the AC⁰ sub-hypothesis H_AC⁰
+  derived from bridge B-002 §4.1. Takes the seven-step proof sketch
+  for "f ∉ AC⁰ ⇔ H¹(C^AC⁰_{n,s}, F_AC⁰)_f ≠ 0" and decomposes it
+  into 14 lemmas (L01–L14) with formalization-difficulty annotations
+  and three explicit barrier-audit lemmas (L11/L12/L13) per
+  verification-bar §2. Goal: turn the AC⁰ pilot from informal "open
+  direction" status into a closed symbolic dependency graph that a
+  future candidate can be registered against. Does not prove H_AC⁰.
+duration_minutes: 45
+outcome: partial-insight
+verification_status:
+  L1: pending
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "AC⁰ pilot's hardest pieces are L02 (moduli construction) and L04 (sheaf F_AC⁰); both are open problems in their own right."
+  - "Natural-proofs barrier audit (L11) is not free — explicit quantification of evaluation-algorithm failure mode is required to avoid circularity."
+  - "Equivariant cohomology stability (L08) is the bottleneck for lifting small-n numerical evidence to all n."
+  - "Dependency graph closes symbolically under assumption that L02 and L04 are constructed; this is the prerequisite gate for candidate promotion."
+follow_ups:
+  - "A003: discharge L02 — construct C^AC⁰_{n,s,d} as a quasi-projective scheme with explicit equations."
+  - "A004 (deferred, requires Macaulay2/SageMath): compute H¹ for n ≤ 4 and verify L05 ∧ L06 case-by-case."
+  - "A005: discharge L04 — explicit map φ between locally free sheaves whose kernel is F_AC⁰."
+  - "R4 (formalizer) on L01, L03, L10, L14: formalize the formalization-ready lemmas in formalization/projects/03-p-vs-np/A002/."
+  - "P07 by a different model/session: attack the dependency graph for hidden circularity (esp. L11 and L08)."
+  - "C-001 (deferred): once A004 produces small-case evidence, register the H¹-vanishing conjecture in conjectures/."
+references:
+  - kind: attempt
+    ref: "A001 — parent attempt; defines hypothesis H₀ and conflict C1"
+  - kind: bridge
+    ref: "B-001 — companion bridge for the GCT lift (constructiveness arm)"
+  - kind: bridge
+    ref: "B-002 — bridge whose §4.1 AC⁰ pilot is this attempt's input"
+  - kind: paper
+    ref: "Razborov & Rudich, Natural Proofs, J. Comput. Syst. Sci. 55(1):24–35, 1997"
+  - kind: paper
+    ref: "Baker, Gill & Solovay, Relativizations of the P=NP question, SIAM J. Comput. 4(4), 1975"
+  - kind: paper
+    ref: "Aaronson & Wigderson, Algebrization, ACM TOCT 1(1):1–54, 2008"
+  - kind: paper
+    ref: "Hartshorne, Algebraic Geometry, Springer GTM 52, 1977"
+  - kind: paper
+    ref: "Voisin, Hodge Theory and Complex Algebraic Geometry I, Cambridge, 2002"
+novel_bridges: []
