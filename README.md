@@ -21,7 +21,7 @@ Code, Codex 등) 모두를 포함합니다.
 |----|------|--------|-----------|-----------|
 | 01 | Poincaré Conjecture | solved-2003 | — | — |
 | 02 | Riemann Hypothesis | not-started | — | — |
-| 03 | P vs NP | not-started | — | — |
+| 03 | P vs NP | not-started | — | A001 (2026-04-29) |
 | 04 | Yang–Mills Existence and Mass Gap | not-started | — | — |
 | 05 | Navier–Stokes Existence and Smoothness | not-started | — | — |
 | 06 | Hodge Conjecture | not-started | — | — |
