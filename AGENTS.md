@@ -205,10 +205,10 @@ Scope and exceptions:
 - **Existing frozen files**: merged transcripts and reviews are frozen
   (§3) and must not be retroactively translated. New transcripts written
   after this policy is in force must be in English.
-- **Conflicting earlier text**: any earlier instruction permitting Korean
-  body content (in particular the previous wording of §5.5 "한국어 본문
-  가능" and CLAUDE.md §7 "한국어 본문 + 영어 키") is superseded by this
-  section.
+- **Conflicting earlier text**: any earlier instruction permitting
+  non-English body content (in particular the previous wording of §5.5
+  that allowed a Korean body and CLAUDE.md §7 that required "Korean
+  body + English keys") is superseded by this section.
 
 PRs that introduce non-English content are subject to a request for
 re-authoring.
