@@ -15,40 +15,40 @@ jobs:
           set -euo pipefail
           fail=0
           while IFS= read -r f; do
-            # 본 후보 디렉토리
+            # candidate directory
             dir="$(dirname "$f")"
-            # main-proof.md 안에 QED 또는 "증명 완료" 가 있는가?
-            if grep -qE '\b(QED|증명 완료)\b' "$f"; then
-              # main-proof.lean 존재 여부
+            # does main-proof.md contain QED or "proof complete"?
+            if grep -qiE '\b(QED|proof complete)\b' "$f"; then
+              # check for main-proof.lean
               if [[ ! -f "$dir/main-proof.lean" ]]; then
-                echo "::error file=$f::main-proof.md 에 QED/증명 완료 가 있으나 $dir/main-proof.lean 이 없음"
+                echo "::error file=$f::main-proof.md contains QED / proof complete but $dir/main-proof.lean is missing"
                 fail=1
                 continue
               fi
-              # meta.yaml 의 verification_status.L3 가 pass 인가?
+              # is meta.yaml's verification_status.L3 == pass?
               meta="$dir/meta.yaml"
               if [[ ! -f "$meta" ]]; then
-                echo "::error file=$f::meta.yaml 이 없음"
+                echo "::error file=$f::meta.yaml is missing"
                 fail=1
                 continue
               fi
               if ! grep -qE '^[[:space:]]*L3:[[:space:]]*pass\b' "$meta"; then
-                echo "::error file=$meta::QED 사용 시 verification_status.L3 가 pass 여야 합니다."
+                echo "::error file=$meta::when QED is used, verification_status.L3 must be pass"
                 fail=1
               fi
             fi
           done < <(find candidates -mindepth 2 -maxdepth 2 -name 'main-proof.md' -type f)
           if [[ $fail -ne 0 ]]; then
-            echo "claim-integrity 위반: 위 메시지 참조." >&2
+            echo "claim-integrity violation: see messages above." >&2
             exit 1
           fi
-          echo "OK: claim-integrity 통과"
+          echo "OK: claim-integrity passed"
       - name: Block edits to frozen transcripts and external reviews
         run: |
           set -euo pipefail
           base_sha="${{ github.event.pull_request.base.sha }}"
           if [[ -z "$base_sha" ]]; then
-            echo "PR 컨텍스트 아님 — 스킵"
+            echo "not a PR context — skipping"
             exit 0
           fi
           changed=$(git diff --name-only "$base_sha"...HEAD || true)
@@ -57,19 +57,19 @@ jobs:
             [[ -z "$path" ]] && continue
             case "$path" in
               attempts/*/A*/transcript.md)
-                echo "::error file=$path::머지된 attempts 의 transcript.md 는 수정 금지"
+                echo "::error file=$path::merged attempts' transcript.md is immutable"
                 violation=1
                 ;;
               candidates/*/reviews/*)
-                echo "::error file=$path::candidates/*/reviews 는 머지 후 동결"
+                echo "::error file=$path::candidates/*/reviews is frozen after merge"
                 violation=1
                 ;;
               reviews/external/*)
-                echo "::error file=$path::reviews/external 는 머지 후 동결"
+                echo "::error file=$path::reviews/external is frozen after merge"
                 violation=1
                 ;;
               reviews/publication-track/*)
-                echo "::error file=$path::reviews/publication-track 는 머지 후 동결"
+                echo "::error file=$path::reviews/publication-track is frozen after merge"
                 violation=1
                 ;;
             esac
@@ -77,4 +77,4 @@ jobs:
           if [[ $violation -ne 0 ]]; then
             exit 1
           fi
-          echo "OK: 동결 영역 위반 없음"
+          echo "OK: no frozen-area violations"
