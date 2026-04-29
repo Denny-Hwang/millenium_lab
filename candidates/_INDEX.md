@@ -1,30 +1,32 @@
-# candidates/ — 정식 증명 후보 인덱스
+# candidates/ — Formal Proof Candidate Index
 
-본 인덱스는 모든 후보를 한곳에 모아 보여줍니다. 자동 갱신 대상
+This index aggregates every candidate. Auto-updated
 (`scripts/build-data.py`).
 
 <!-- CANDIDATES:BEGIN -->
 
-| 후보 ID | 문제 | Status | L1~L7 | 형식화(%) | 출처 attempts |
-|---------|------|--------|-------|-----------|----------------|
+| Candidate ID | Problem | Status | L1–L7 | Formalization (%) | Origin attempts |
+|--------------|---------|--------|-------|-------------------|------------------|
 | _empty_ | _empty_ | _empty_ | _empty_ | _empty_ | _empty_ |
 
 <!-- CANDIDATES:END -->
 
 ---
 
-## 새 후보 만들기
+## Create a New Candidate
 
 ```bash
 scripts/new-candidate.sh <attempt-id> [<attempt-id> ...]
 ```
 
-`<attempt-id>` 1개 이상 필요. 후보의 `origin_attempts`에 자동 기록됩니다.
+At least one `<attempt-id>` is required and is recorded automatically
+in the candidate's `origin_attempts`.
 
-자세한 절차는 [`../docs/methodology/proof-pipeline.md`](../docs/methodology/proof-pipeline.md) §3
-와 [`_TEMPLATE/`](_TEMPLATE/)을 참조하세요.
+For the full procedure see
+[`../docs/methodology/proof-pipeline.md`](../docs/methodology/proof-pipeline.md) §3
+and [`_TEMPLATE/`](_TEMPLATE/).
 
-## 디렉토리 컨벤션
+## Directory Convention
 
 ```
 candidates/
@@ -39,5 +41,5 @@ candidates/
     lemmas/
       L01.md
       L01.lean
-    reviews/        ← 머지 후 동결
+    reviews/        ← frozen after merge
 ```

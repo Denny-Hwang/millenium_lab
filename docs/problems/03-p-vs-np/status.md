@@ -6,8 +6,8 @@ last_updated: 2026-04-27
 
 # Status — 03-p-vs-np
 
-## 변경 이력
+## Change Log
 
-| 날짜 | 상태 | 사유 |
-|------|------|------|
-| 2026-04-27 | not-started | 저장소 초기 스캐폴딩 시 등록. |
+| Date | Status | Reason |
+|------|--------|--------|
+| 2026-04-27 | not-started | Registered during initial repository scaffolding. |

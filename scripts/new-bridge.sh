@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# new-bridge.sh — 새 bridge 문서 생성
+# new-bridge.sh — create a new bridge document
 #
-# 사용법: scripts/new-bridge.sh <slug>
-#   <slug> 는 kebab-case (예: riemann-random-matrices)
+# Usage: scripts/new-bridge.sh <slug>
+#   <slug> in kebab-case (e.g., riemann-random-matrices)
 set -euo pipefail
 
 usage() {
   cat <<USAGE >&2
-사용법: $0 <slug>
-  slug   필수. kebab-case. 예: riemann-random-matrices
+Usage: $0 <slug>
+  slug   required. kebab-case. example: riemann-random-matrices
 USAGE
   exit 2
 }
@@ -17,7 +17,7 @@ USAGE
 SLUG="$1"
 
 if [[ ! "$SLUG" =~ ^[a-z0-9]+(-[a-z0-9]+)+$ ]]; then
-  echo "오류: slug 는 kebab-case 여야 합니다(2개 단어 이상). 입력: $SLUG" >&2
+  echo "error: slug must be kebab-case (≥ 2 words). got: $SLUG" >&2
   exit 2
 fi
 
@@ -25,9 +25,9 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BRIDGES_DIR="$REPO_ROOT/bridges"
 TEMPLATE="$BRIDGES_DIR/_TEMPLATE.md"
 
-[[ -f "$TEMPLATE" ]] || { echo "오류: $TEMPLATE 이 없습니다." >&2; exit 1; }
+[[ -f "$TEMPLATE" ]] || { echo "error: $TEMPLATE not found." >&2; exit 1; }
 
-# 다음 B-### 계산
+# Compute the next B-### ID.
 last=0
 shopt -s nullglob
 for f in "$BRIDGES_DIR"/B-[0-9][0-9][0-9]-*.md; do
@@ -43,7 +43,7 @@ next=$((last + 1))
 ID=$(printf "B-%03d" "$next")
 
 TARGET="$BRIDGES_DIR/${ID}-${SLUG}.md"
-[[ -e "$TARGET" ]] && { echo "오류: 대상 존재: $TARGET" >&2; exit 1; }
+[[ -e "$TARGET" ]] && { echo "error: target exists: $TARGET" >&2; exit 1; }
 
 cp "$TEMPLATE" "$TARGET"
 
@@ -56,7 +56,7 @@ t = t.replace("id: TODO", f"id: {_id}", 1)
 p.write_text(t, encoding='utf-8')
 PY
 
-echo "OK: 새 bridge 생성"
-echo "  파일: $TARGET"
-echo "  ID:   $ID"
-echo "  다음 단계: 본문 채우기 + bridges/_INDEX.md 갱신"
+echo "OK: new bridge created"
+echo "  file: $TARGET"
+echo "  id:   $ID"
+echo "  next: fill in the body and update bridges/_INDEX.md"

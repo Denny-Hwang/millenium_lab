@@ -1,7 +1,7 @@
 ---
-id: TODO                  # 예: B-001
-domains: [TODO, TODO]     # 예: [analytic-number-theory, random-matrix-theory]
-problems: []              # 예: [02-riemann]
+id: TODO                  # e.g., B-001
+domains: [TODO, TODO]     # e.g., [analytic-number-theory, random-matrix-theory]
+problems: []              # e.g., [02-riemann]
 maturity: speculative     # established | emerging | speculative | ai-discovered
 key_figures: []
 status: active            # active | dormant | retracted
@@ -9,31 +9,31 @@ status: active            # active | dormant | retracted
 
 # Bridge: TODO ↔ TODO
 
-> TODO: 한 단락 분량의 다리 요지.
+> TODO: one-paragraph gist of the bridge.
 
-## 1. 왜 연결되는가
+## 1. Why it connects
 
-TODO: 두 분야가 어떤 객체·언어·정리를 공유하는지. 가능하면 다이어그램 또는
-명시적 사상.
+TODO: which objects, languages, or theorems the two fields share. Use
+a diagram or explicit map where possible.
 
-## 2. 알려진 결과
+## 2. Known Results
 
-- TODO  <!-- 본 다리 위에서 이미 증명된 정리 -->
+- TODO  <!-- theorems already proved on this bridge -->
 
-## 3. 막힌 지점
+## 3. Stuck Points
 
-TODO: 본 다리가 어떤 한계에서 무너지는지(또는 미해결인지).
+TODO: where the bridge breaks down (or which questions remain open).
 
-## 4. 미개척 방향
+## 4. Open Directions
 
 - TODO
 
-## 5. 본 저장소와의 연결
+## 5. Connection to This Repository
 
-- 시도: TODO  <!-- A### -->
-- 후보: TODO  <!-- PC-### -->
-- 추측: TODO  <!-- C-### -->
+- Attempts: TODO  <!-- A### -->
+- Candidates: TODO  <!-- PC-### -->
+- Conjectures: TODO  <!-- C-### -->
 
-## 6. 참고
+## 6. References
 
-- TODO  <!-- 핵심 논문, 인물, 외부 링크 -->
+- TODO  <!-- key papers, people, external links -->

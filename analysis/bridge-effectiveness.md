@@ -1,9 +1,9 @@
-# Bridge Effectiveness (자동 갱신 대상)
+# Bridge Effectiveness (auto-updated)
 
-> TODO: 추후 정밀 작성. 어떤 bridge가 attempt들에서 자주 인용되었는지, 그리고
-> 그 인용이 실제로 candidate 또는 verification 진척으로 이어졌는지를 시계열로
-> 집계합니다.
+> TODO: write a precise version later. Aggregate which bridges are
+> cited by attempts, and whether those citations actually translate
+> into candidate or verification progress, as a time series.
 
-| Bridge | maturity | 인용한 attempts | 후보에 인용 | 효과 |
-|--------|----------|------------------|--------------|------|
-| (없음) | — | 0 | 0 | — |
+| Bridge | maturity | Citing attempts | Cited in candidates | Effect |
+|--------|----------|-----------------|----------------------|--------|
+| (none) | — | 0 | 0 | — |

@@ -33,8 +33,8 @@ jobs:
             git config user.name  "millennium-lab-bot"
             git config user.email "millennium-lab-bot@users.noreply.github.com"
             git add README.md docs/problems/_INDEX.md data/
-            git commit -m "chore(infra): 대시보드 갱신"
+            git commit -m "chore(infra): refresh dashboard"
             git push
           else
-            echo "변경 없음"
+            echo "no changes"
           fi

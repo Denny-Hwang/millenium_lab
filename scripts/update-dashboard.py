@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""update-dashboard.py — README 와 _INDEX.md 의 진행 상태 표를 자동 갱신.
+"""update-dashboard.py — refresh the progress tables in README and _INDEX.md.
 
-사용:
-  python scripts/update-dashboard.py            # 갱신
-  python scripts/update-dashboard.py --check    # 변화 있으면 종료 코드 1
+Usage:
+  python scripts/update-dashboard.py            # update
+  python scripts/update-dashboard.py --check    # exit 1 if updates are needed
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ PROBLEMS = [
 try:
     import yaml  # type: ignore
 except ImportError:
-    yaml = None  # 가벼운 폴백 사용
+    yaml = None  # lightweight fallback
 
 
 def load_yaml(path: pathlib.Path) -> Optional[dict]:
@@ -37,7 +37,7 @@ def load_yaml(path: pathlib.Path) -> Optional[dict]:
         return None
     text = path.read_text(encoding="utf-8")
     if yaml is None:
-        # 매우 단순한 yaml: key: value 한 단계만 파싱
+        # Very simple yaml: parse one level of `key: value` pairs only.
         result: dict = {}
         for line in text.splitlines():
             m = re.match(r"^([A-Za-z_][A-Za-z0-9_]*):\s*(.*)$", line)
@@ -53,7 +53,7 @@ def load_yaml(path: pathlib.Path) -> Optional[dict]:
 def read_problem_status(slug: str) -> str:
     s = load_yaml(REPO_ROOT / "docs" / "problems" / slug / "status.md")
     if not s:
-        # status.md 는 front matter 가 아니라 `---\n...\n---\n` 형식이라 단순 fallback
+        # status.md uses `---\n...\n---\n` front matter; fall back to a regex.
         text = (REPO_ROOT / "docs" / "problems" / slug / "status.md").read_text(encoding="utf-8")
         m = re.search(r"^status:\s*(\S+)", text, re.MULTILINE)
         return m.group(1) if m else "unknown"
@@ -92,7 +92,10 @@ def latest_attempt(slug: str) -> str:
 
 def render_dashboard_table() -> str:
     cand_counts = count_active_candidates()
-    rows = ["| ID | 문제 | Status | 활성 후보 | 최근 시도 |", "|----|------|--------|-----------|-----------|"]
+    rows = [
+        "| ID | Problem | Status | Active candidates | Latest attempt |",
+        "|----|---------|--------|-------------------|-----------------|",
+    ]
     for num, slug, title in PROBLEMS:
         status = read_problem_status(slug)
         cand = cand_counts.get(slug, 0)
@@ -104,8 +107,8 @@ def render_dashboard_table() -> str:
 def render_problems_table() -> str:
     cand_counts = count_active_candidates()
     rows = [
-        "| ID | 디렉토리 | 문제 | Status | 활성 후보 수 | 마지막 attempt |",
-        "|----|----------|------|--------|--------------|-----------------|",
+        "| ID | Directory | Problem | Status | Active candidates | Latest attempt |",
+        "|----|-----------|---------|--------|-------------------|-----------------|",
     ]
     for num, slug, title in PROBLEMS:
         status = read_problem_status(slug)
@@ -165,16 +168,16 @@ def main(argv: list[str]) -> int:
                 changes.append(path)
 
     if check and changes:
-        print("변경 필요:", file=sys.stderr)
+        print("Updates needed:", file=sys.stderr)
         for c in changes:
             print(f"  {c.relative_to(REPO_ROOT)}", file=sys.stderr)
         return 1
 
     if changes:
         for c in changes:
-            print(f"갱신: {c.relative_to(REPO_ROOT)}")
+            print(f"updated: {c.relative_to(REPO_ROOT)}")
     else:
-        print("변경 없음")
+        print("no changes")
     return 0
 
 

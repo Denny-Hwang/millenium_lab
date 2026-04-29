@@ -1,21 +1,22 @@
-# adversarial/ — 자체 반증 트랙
+# adversarial/ — Self-refutation Track
 
-본 디렉토리는 본 저장소의 **자기 자신을 깨려는 노력**을 보관합니다. 헌장 §4.3에
-따라, 어떤 후보도 적대적 검증 없이 외부로 나갈 수 없습니다.
+This directory holds the repository's **attempts to break itself**. Per
+charter §4.3, no candidate may leave for external review without
+adversarial verification.
 
-## 하위 구조
+## Sub-structure
 
 ```
 adversarial/
-  counterexample-search/      # 추측·후보의 결론에 대한 반례 후보 탐색
-    <target-id>/              # 예: C-001-modular-equidistribution/, PC-002-...
+  counterexample-search/      # counterexample search against conjecture / candidate conclusions
+    <target-id>/              # e.g., C-001-modular-equidistribution/, PC-002-...
       attempt-001/
         meta.yaml
         method.md
         results.md
         artifacts/
-  proof-attacks/              # 후보 증명에 대한 의도적 공격
-    <candidate-id>/           # 예: PC-002-rh-via-rmt/
+  proof-attacks/              # deliberate attacks on a candidate proof
+    <candidate-id>/           # e.g., PC-002-rh-via-rmt/
       round-001/
         meta.yaml
         attack.md
@@ -23,31 +24,36 @@ adversarial/
         artifacts/
 ```
 
-## 작업 절차
+## Procedure
 
-### 반례 후보 탐색 (counterexample-search)
+### Counterexample search
 
-1. P06 프롬프트로 의사코드를 생성.
-2. 의사코드를 `method.md`에 보존, 실행 결과는 `artifacts/`에 보존.
-3. 종합 결과 `results.md`에 다음을 기록:
-   - 결론: counterexample-found / strong-evidence-no-counterexample / inconclusive
-   - 표적 추측·후보의 메타에 어떤 라벨 변화를 권고하는지
+1. Generate pseudocode with prompt P06.
+2. Save the pseudocode in `method.md`; preserve runs in `artifacts/`.
+3. Record the round verdict in `results.md`:
+   - Verdict: counterexample-found / strong-evidence-no-counterexample
+     / inconclusive.
+   - What label change is recommended on the target conjecture's or
+     candidate's metadata.
 
-### 후보 공격 (proof-attacks)
+### Proof attack
 
-1. P07 프롬프트(또는 사람 리뷰어)로 공격 라운드 수행.
-2. 라운드 결과를 `verdict.md`에 기록 (survives / needs-patch / lethal).
-3. 라운드 종료 시 해당 후보의 `candidates/PC-###/attacks.md`에 요약 행 추가.
+1. Run an attack round via prompt P07 (or a human reviewer).
+2. Record the verdict in `verdict.md` (survives / needs-patch /
+   lethal).
+3. At the end of the round, append a summary row to the candidate's
+   `candidates/PC-###/attacks.md`.
 
-## 누가 수행하는가
+## Who Performs
 
-- 후보 작성자가 아닌 **다른 모델·다른 세션** 에이전트 또는 사람.
-- 같은 후보를 한 사람·세션이 모두 수행한 경우, 다음 라운드는 다른 주체로
-  강제됩니다.
+- A **different model / different session** agent or a human, *not*
+  the candidate's author.
+- If the same person/session has already done a round on a candidate,
+  the next round is mandatorily delegated to a different actor.
 
-## 메타
+## Metadata
 
-본 디렉토리의 메타데이터 스키마는 단계적으로 추가될 예정입니다.
+The metadata schemas for this directory will be added incrementally.
 
-> TODO: 추후 정밀 작성. 첫 후보가 등장하면 그에 맞춰 `attack-meta.schema.yaml`
-> 추가를 검토.
+> TODO: write a precise version later. Once the first candidate
+> appears, consider adding `attack-meta.schema.yaml`.

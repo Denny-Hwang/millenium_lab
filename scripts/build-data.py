@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""build-data.py — 모든 attempts 의 meta.yaml 을 모아 data/attempts.csv 생성.
+"""build-data.py — collect every attempts meta.yaml into data/attempts.csv.
 
-사용:
+Usage:
   python scripts/build-data.py
 """
 
@@ -17,7 +17,7 @@ DATA_DIR = REPO_ROOT / "data"
 try:
     import yaml  # type: ignore
 except ImportError:
-    print("오류: PyYAML 필요. pip install pyyaml", file=sys.stderr)
+    print("error: PyYAML required. pip install pyyaml", file=sys.stderr)
     sys.exit(2)
 
 
@@ -51,7 +51,7 @@ def main() -> int:
         try:
             data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         except yaml.YAMLError as e:
-            print(f"경고: {path} 파싱 실패: {e}", file=sys.stderr)
+            print(f"warning: failed to parse {path}: {e}", file=sys.stderr)
             continue
         vstat = data.get("verification_status") or {}
         rows.append({
@@ -78,7 +78,7 @@ def main() -> int:
         writer.writeheader()
         for r in rows:
             writer.writerow(r)
-    print(f"OK: {len(rows)} 행을 {out.relative_to(REPO_ROOT)} 에 기록")
+    print(f"OK: wrote {len(rows)} rows to {out.relative_to(REPO_ROOT)}")
     return 0
 
 

@@ -1,127 +1,140 @@
-# 검증 프로토콜 — L1 ~ L7
+# Verification Protocol — L1 to L7
 
-본 문서는 [`charter.md`](../../charter.md) §3에서 요약된 검증 레벨의 **상세
-통과 기준**을 정의합니다. 모든 후보·시도의 진척도는 이 표에 따라 측정됩니다.
-
----
-
-## L1 — 자체 일관성 (Self-consistency)
-
-**대상**: 후보 등록 직전.
-
-**통과 기준 (모두 충족)**:
-
-1. `claim.md`의 결론 명제가 CMI 공식 진술과 동치(또는 강한 대응 명제)임이
-   기술되어 있음.
-2. `main-proof.md`에 등장하는 모든 보조정리가 `lemmas/`에 파일을 가짐.
-3. 보조정리 사이의 의존 그래프가 닫혀 있음 (외부 정리는 **명시된 인용**으로
-   허용).
-4. 사용된 가정·공리가 `strategy.md`에 명시됨 (선택공리 사용 여부 포함).
-5. `gaps.md`에 알려진 모든 빈틈이 라벨링됨 (`severity`: minor/major/lethal).
-
-**산출물**: `verify(L1): PC-### pass` 커밋과 PR.
+This document defines the **detailed pass criteria** for the verification
+levels summarized in [`charter.md`](../../charter.md) §3. Every attempt
+and candidate measures progress against the table below.
 
 ---
 
-## L2 — 계산적 일치 (Computational consistency)
+## L1 — Self-consistency
 
-**대상**: L1 통과 후.
+**Target**: just before candidate registration.
 
-**통과 기준**:
+**Pass criteria (all must hold)**:
 
-1. 후보의 결론을 검증 가능한 작은 사례로 환원하는 케이스가 ≥3개 정의되어 있음.
-2. 각 케이스에서 수치/계산 실험 결과가 후보의 주장과 모순되지 않음.
-3. 실험 코드와 결과는 `attempts/<problem>/A###-...artifacts/` 또는
-   `candidates/PC-###/lemmas/L##/numerical/`에 보존됨.
-4. 통계적 정렬 검증(예: Riemann ↔ random matrix)이 적용 가능하면 기록.
+1. The conclusion stated in `claim.md` is described as equivalent to (or
+   a strong correspondent of) the official CMI statement.
+2. Every lemma referenced in `main-proof.md` has a file in `lemmas/`.
+3. The dependency graph among lemmas is closed (external theorems are
+   allowed only as **explicit citations**).
+4. All assumptions and axioms used are listed in `strategy.md`
+   (including whether the axiom of choice is used).
+5. Every known gap is labeled in `gaps.md` with `severity`:
+   minor/major/lethal.
 
----
-
-## L3 — 형식 검증 (Formal verification)
-
-**대상**: L2 통과 후.
-
-**통과 기준**:
-
-1. 핵심 보조정리들의 Lean 4 빌드가 CI에서 통과.
-2. `main-proof.lean`이 존재하고, 자연어 본문의 핵심 단계와 1:1 대응 주석을
-   가짐.
-3. `formalization_progress` 필드가 ≥80.
-4. `axiom`/`sorry` 사용은 명시된 외부 정리 인용 또는 알려진 빈틈에 한정.
-
-> 100%가 아니어도 L3 통과는 가능하나, 송부 자료에는 형식화되지 않은 부분의
-> 목록이 반드시 포함되어야 합니다.
+**Deliverable**: a `verify(L1): PC-### pass` commit and PR.
 
 ---
 
-## L4 — 적대적 검증 (Adversarial verification)
+## L2 — Computational Consistency
 
-**대상**: L3 통과 후 (특수한 경우 L3와 병렬 수행 가능).
+**Target**: after L1.
 
-**통과 기준**:
+**Pass criteria**:
 
-1. `adversarial/proof-attacks/PC-###/`에 다음이 모두 존재:
-   - 가정 약화 시도 ≥1
-   - 반례 후보 탐색 결과
-   - 의도된 빈틈 공격 결과
-2. 발견된 빈틈은 **후보로 회송되어 닫혔음**이 PR로 증명됨.
-3. 마지막 라운드의 공격은 **다른 모델·다른 세션**의 에이전트가 수행했음.
-
----
-
-## L5 — 외부 전문가 비공식 리뷰
-
-**대상**: L4 통과 후.
-
-**통과 기준**:
-
-1. 해당 분야 전문가 ≥3인이 비공식 리뷰를 회신.
-2. lethal flaw 보고 **0건**.
-3. minor/major 보고는 후보 수정·기록 후 다시 검토.
+1. At least three reductions of the candidate's conclusion to verifiable
+   small cases are defined.
+2. The numerical/computational outputs in each case do not contradict the
+   candidate's claim.
+3. Experiment code and outputs are preserved under
+   `attempts/<problem>/A###-.../artifacts/` or
+   `candidates/PC-###/lemmas/L##/numerical/`.
+4. Statistical alignment checks (e.g., Riemann ↔ random matrix) are
+   recorded when applicable.
 
 ---
 
-## L6 — 동료심사 통과 (Publication)
+## L3 — Formal Verification
 
-**대상**: L5 통과 후.
+**Target**: after L2.
 
-**통과 기준**:
+**Pass criteria**:
 
-1. CMI가 권위 학술지로 인정하는 저널에 게재.
-2. 게재 결정 사본과 모든 라운드의 동료심사 응답이 보존.
+1. The Lean 4 build of the core lemmas passes in CI.
+2. `main-proof.lean` exists and carries 1:1 comments mapping its core
+   steps to the natural-language version.
+3. The `formalization_progress` field is ≥80.
+4. Any use of `axiom` or `sorry` is restricted to explicitly cited
+   external theorems or to known, labeled gaps.
 
----
-
-## L7 — 2년 정착 (Settlement)
-
-**대상**: L6 통과 후 24개월.
-
-**통과 기준**:
-
-1. 본질적 반증 0건.
-2. errata 등록은 비치명적인 정정에 한정.
-3. 후속 인용에서 본질적 공백이 새로 발견되지 않음.
+> L3 may be passed without 100% formalization, but the submission package
+> must include the list of un-formalized parts.
 
 ---
 
-## 검증 레벨과 메타 라벨 대응
+## L4 — Adversarial Verification
 
-| 레벨 | 사용 가능 outcome | 사용 가능 candidate status |
-|------|-------------------|----------------------------|
-| L1 통과 | partial-insight, novel-approach | active |
-| L2~L4 통과 | (위와 동일) | active |
-| L5 통과 | (위와 동일) | active |
-| L6 통과 | claimed-solution | published |
-| L7 통과 | peer-reviewable | published |
+**Target**: after L3 (in special cases, may run in parallel with L3).
+
+**Pass criteria**:
+
+1. `adversarial/proof-attacks/PC-###/` contains all of:
+   - At least one assumption-weakening trial.
+   - Counterexample search results.
+   - Intentional gap-attack results.
+2. Every gap discovered is **returned to the candidate and closed**, with
+   the closure proved via PR.
+3. The final attack round was performed by a **different model or
+   session** from the candidate's author.
 
 ---
 
-## 검증 PR 규약
+## L5 — Informal External Expert Review
 
-각 레벨 통과는 별도 PR로 기록합니다. 커밋·PR 제목은 다음 형식.
+**Target**: after L4.
+
+**Pass criteria**:
+
+1. At least three experts in the relevant field return informal reviews.
+2. **Zero** lethal-flaw reports.
+3. Minor/major reports are addressed by candidate updates and re-reviewed.
+
+---
+
+## L6 — Peer-Reviewed Publication
+
+**Target**: after L5.
+
+**Pass criteria**:
+
+1. Published in a journal CMI recognizes as authoritative.
+2. The acceptance decision and all round-by-round peer-review exchanges
+   are preserved.
+
+---
+
+## L7 — Two-Year Settlement
+
+**Target**: 24 months after L6.
+
+**Pass criteria**:
+
+1. Zero essential refutations.
+2. Errata registrations are limited to non-fatal corrections.
+3. No essential gap newly surfaces in the citing literature.
+
+---
+
+## Verification-Level / Metadata-Label Correspondence
+
+| Level | Allowed outcomes | Allowed candidate status |
+|-------|------------------|---------------------------|
+| L1 passed | partial-insight, novel-approach | active |
+| L2–L4 passed | (same) | active |
+| L5 passed | (same) | active |
+| L6 passed | claimed-solution | published |
+| L7 passed | peer-reviewable | published |
+
+---
+
+## Verification PR Convention
+
+Each level pass is recorded as a separate PR. Commit and PR titles use
+the form:
 
 ```
-verify(L#): PC-### {요지}
+verify(L#): PC-### {one-line summary}
 ```
 
-PR 본문에는 통과 기준 체크리스트를 포함하고, 관련 산출물의 경로를 인용합니다.
+The PR body includes the pass-criterion checklist and cites the paths of
+the related artifacts.
