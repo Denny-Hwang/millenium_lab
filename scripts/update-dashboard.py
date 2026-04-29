@@ -74,20 +74,19 @@ def latest_attempt(slug: str) -> str:
     base = REPO_ROOT / "attempts" / slug
     if not base.exists():
         return "—"
-    latest = None
-    latest_date = ""
+    best: tuple[str, str] | None = None  # (date, id)
     for d in base.iterdir():
         if not d.is_dir():
             continue
         m = re.match(r"^(A\d{3})-(\d{4}-\d{2}-\d{2})-(.+)$", d.name)
         if not m:
             continue
-        if m.group(2) > latest_date:
-            latest_date = m.group(2)
-            latest = m.group(1)
-    if not latest:
+        key = (m.group(2), m.group(1))  # date first, then ID — both lex-comparable
+        if best is None or key > best:
+            best = key
+    if best is None:
         return "—"
-    return f"{latest} ({latest_date})"
+    return f"{best[1]} ({best[0]})"
 
 
 def render_dashboard_table() -> str:
