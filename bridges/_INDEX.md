@@ -10,7 +10,8 @@ Auto-updated.
 
 | ID | Field ↔ Field | Linked problems | Maturity | Status |
 |----|---------------|------------------|----------|--------|
-| _empty_ | _empty_ | _empty_ | _empty_ | _empty_ |
+| [B-001](B-001-gct-homological-circuit.md) | geometric-complexity-theory ↔ homological-complexity | 03-p-vs-np | ai-discovered | active |
+| [B-002](B-002-natural-proofs-sheaf-cohomology.md) | circuit-complexity ↔ homological-complexity | 03-p-vs-np | ai-discovered | active |
 
 <!-- BRIDGES:END -->
 
