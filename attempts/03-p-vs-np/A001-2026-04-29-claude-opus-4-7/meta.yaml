@@ -1,15 +1,17 @@
-# attempt meta — 본 파일은 schemas/attempt-meta.schema.yaml 을 따른다.
-# scripts/new-attempt.sh 가 id/problem/date/model 을 자동 채운다.
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
 id: A001
 problem: 03-p-vs-np
 date: "2026-04-29"
 model: claude-opus-4-7
 strategy: |
-  03-p-vs-np 표적의 첫 스코핑(scoping) 시도. P01(5분야 패널)을 사용하여
-  GCT × homological circuit complexity 가설("세 장벽 동시 우회를 위한
-  representation-theoretic obstruction을 sheaf cohomology로 lift")의
-  통섭적 견고성을 평가하고, 분야 간 다리 후보를 식별. 본문 증명 시도
-  없이 지형도와 다음 단계 정리화 후보를 남기는 데 목적을 둠.
+  First scoping attempt on 03-p-vs-np. Uses P01 (the five-domain panel)
+  to evaluate the consilient robustness of the GCT × homological
+  circuit complexity hypothesis ("lift the representation-theoretic
+  obstruction into sheaf cohomology to bypass the three barriers
+  simultaneously"), and to identify inter-field bridge candidates. No
+  body proof is attempted; the goal is to leave a landscape map and
+  the next-step lemma candidates.
 duration_minutes: 30
 outcome: survey
 verification_status:
@@ -21,16 +23,16 @@ verification_status:
   L6: n/a
   L7: n/a
 key_insights:
-  - "03-p-vs-np 표적 문서(statement/known-results/failed-approaches)가 모두 placeholder이므로 본격 attempt 전에 정밀화가 선행되어야 함."
-  - "GCT × homological circuit complexity 가설은 robustness 3/5; 핵심 다리 두 개(C1, C2)가 미증명."
-  - "자연증명 장벽의 usefulness 조건을 sheaf H¹ vanishing으로 재정의하는 시도는 AC⁰ 작은 사례에서 case study 가능."
-  - "양자 시각은 본 가설에서 보조 다리로 충분; 양자성 자체가 본질이 아님."
+  - "03-p-vs-np target documents (statement/known-results/failed-approaches) are all placeholders; refinement must precede serious attempts."
+  - "The GCT × homological circuit complexity hypothesis scores robustness 3/5; the two core bridges (C1, C2) are unproved."
+  - "Redefining the usefulness arm of the natural-proofs barrier as sheaf H^1 vanishing can begin as a small-case study on AC^0."
+  - "The quantum lens is sufficient as an auxiliary bridge here; quantumness is not the essence of the hypothesis."
 follow_ups:
-  - "03-p-vs-np의 statement.md / known-results.md / failed-approaches.md 정밀화 PR (별도)."
-  - "다리 후보 B-001 (가칭): GCT ↔ homological circuit complexity — scripts/new-bridge.sh gct-homological-circuit."
-  - "다리 후보 B-002 (가칭): natural proofs ↔ sheaf cohomology의 usefulness 재정의 — scripts/new-bridge.sh natural-proofs-sheaf-cohomology."
-  - "A002: AC⁰ 작은 사례에서 C1 정리화, P03(lemma-extraction) 호출."
-  - "다른 모델·세션이 P07(adversarial-review)로 본 가설을 공격."
+  - "Refine 03-p-vs-np's statement.md / known-results.md / failed-approaches.md (separate PR)."
+  - "Bridge candidate B-001 (provisional): GCT ↔ homological circuit complexity — scripts/new-bridge.sh gct-homological-circuit."
+  - "Bridge candidate B-002 (provisional): natural proofs ↔ sheaf-cohomology redefinition of usefulness — scripts/new-bridge.sh natural-proofs-sheaf-cohomology."
+  - "A002: at AC^0 small-case scale, formalize C1 into lemmas with P03 (lemma-extraction)."
+  - "A different model/session attacks this hypothesis under P07 (adversarial-review)."
 references:
   - kind: paper
     ref: "Razborov & Rudich, Natural Proofs, J. Comput. Syst. Sci. 55(1):24–35, 1997"

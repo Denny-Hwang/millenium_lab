@@ -1,161 +1,189 @@
-# Result — 결과 요약
+# Result — Summary
 
-본 attempt의 종료 시점에 작성합니다. outcome 라벨을 1개 부여하고, 핵심
-인사이트와 후속 작업 제안을 명시합니다.
-
----
-
-## 결론 한 줄
-
-GCT × homological circuit complexity 가설은 다리 후보 2개를 식별하나
-robustness 3/5에 그치며, 본 단계에서는 **scoping survey**로만 가치가 있다.
-
-## Outcome 라벨
-
-- 라벨: `survey`
-- 사유: 본 attempt는 본문 증명을 시도하지 않고, 5분야 패널을 통해 표적
-  문제의 지형도와 분야 간 다리 후보를 식별하는 데 목적을 두었다. 새로운
-  논증·반증을 제시하지 않았으므로 `partial-insight`로 보기엔 약하고,
-  다리 후보 2개를 식별했으므로 `no-progress`보다는 강하다 — 따라서
-  `survey`가 가장 정직한 라벨이다.
-
-> claimed-solution / peer-reviewable 라벨은 본 단계에서 사용 불가입니다.
-> 라벨 정의는 [`../../../docs/methodology/outcome-taxonomy.md`](../../../docs/methodology/outcome-taxonomy.md).
+Written when the attempt terminates. Assign exactly one outcome label
+and state the key insights and follow-up suggestions.
 
 ---
 
-## P01 패널 출력
+## Conclusion (one line)
 
-### 1. 패널 1차 견해
+The GCT × homological circuit complexity hypothesis identifies two
+bridge candidates but earns a robustness of 3/5; at this stage its
+value is only as a **scoping survey**.
+
+## Outcome Label
+
+- Label: `survey`
+- Reason: this attempt did not try the body proof; instead it used a
+  five-domain panel to map the target problem's landscape and identify
+  inter-field bridge candidates. It does not present new arguments or
+  refutations, so `partial-insight` is too strong; it identifies two
+  bridge candidates, so `no-progress` is too weak — `survey` is the
+  most honest label.
+
+> The labels `claimed-solution` and `peer-reviewable` are forbidden at
+> this stage. See
+> [`../../../docs/methodology/outcome-taxonomy.md`](../../../docs/methodology/outcome-taxonomy.md).
+
+---
+
+## P01 Panel Output
+
+### 1. First-pass opinions
 
 #### circuit-complexity
-회로 하한은 자연증명 장벽(Razborov–Rudich 1997)에 의해 강하게 제약된다.
-AC⁰·ACC⁰ 같은 약한 클래스에서만 superpolynomial 하한이 알려져 있고
-(Razborov–Smolensky, Williams 2011), 자연증명을 회피하려면 *largeness*,
-*constructiveness*, *usefulness* 셋 중 하나가 깨져야 한다. 본 가설은
-GCT가 *constructiveness*를, 호몰로지가 *usefulness*를 각각 재정의한다고
-주장하지만, 회로복잡도 내부 도구만으로는 세 장벽 동시 우회의 야심을
-검증할 수 없다.
+Circuit lower bounds are tightly constrained by the natural-proofs
+barrier (Razborov–Rudich 1997). Superpolynomial lower bounds are known
+only on weak classes such as AC⁰ and ACC⁰ (Razborov–Smolensky,
+Williams 2011); circumventing natural proofs requires breaking one of
+*largeness*, *constructiveness*, or *usefulness*. The hypothesis claims
+that GCT redefines *constructiveness* and that homology redefines
+*usefulness*, but circuit-complexity tools alone cannot adjudicate the
+ambition of bypassing all three barriers at once.
 
 #### geometric-complexity-theory
-Mulmuley–Sohoni 프로그램은 representation-theoretic obstruction을 통해
-V_perm ⊄ V_det 같은 대수적 분리를 추구하며, GIT 폐포·대수군 작용·
-Kronecker 계수에 의존한다. GCT는 본질적으로 비-자연(non-natural)이라는
-이론적 근거가 있으나(Bürgisser–Ikenmeyer는 일부 obstruction의 *부재*도
-증명함 — 즉 GCT는 만능이 아님), 결정적 lower bound는 멀다. 호몰로지와의
-결합 자체는 흥미롭지만, GCT의 representation 데이터를 어떤 cohomology
-이론이 보존할지는 비자명하다.
+The Mulmuley–Sohoni program seeks algebraic separations such as
+V_perm ⊄ V_det via representation-theoretic obstructions, leaning on
+GIT closures, algebraic-group actions, and Kronecker coefficients.
+There is theoretical reason to view GCT as inherently non-natural,
+though Bürgisser–Ikenmeyer have also proved the *absence* of certain
+obstructions — i.e., GCT is not a cure-all — and a decisive lower
+bound remains far. The combination with homology is interesting, but
+which cohomology theory preserves the GCT representation-theoretic
+data is not obvious.
 
 #### communication-complexity
-P vs NP의 다수 하한은 통신복잡도(disjointness, set-cover) 또는 양자우위
-(BQP vs P)로부터 유도된다. 정보이론적 시각은 entropy·mutual information·
-Kolmogorov complexity로 회로 작업을 측정하며, "non-uniform information
-bottleneck" 같은 양으로 자연증명-회피 가능성을 모색한다. 본 가설이
-제안하는 '코호몰로지 불변량'이 정보량으로 환원되는 다리는 현재 보이지
-않으며, 이것이 명시되지 않으면 본 가설은 회로복잡도 본진의 논쟁에
-참여하지 못한다.
+Many lower bounds in P vs NP descend from communication complexity
+(disjointness, set-cover) or from quantum advantage (BQP vs P). The
+information-theoretic viewpoint measures circuit work via entropy,
+mutual information, and Kolmogorov complexity, and explores
+natural-proof avoidance through quantities such as a non-uniform
+information bottleneck. Right now there is no visible bridge that
+reduces a "cohomology invariant" to such an information quantity, and
+without one the hypothesis cannot enter the central debates of
+circuit-complexity.
 
 #### homological-complexity
-위상적·호몰로지적 회로복잡도(persistent homology of computation graphs,
-sheaf cohomology of logical schemes)는 신생 분야이며, 신경망 expressivity·
-CSP의 위상적 phase transition 등에서 부분 결과가 등장한다. 회로 다양체에
-자연스러운 sheaf 구조를 부여할 수 있다면 GCT의 representation 데이터를
-cohomology 클래스로 lift할 가능성이 있다. 다만 그 lift이 *largeness*를
-유지하면서 *usefulness*를 만족할지는 미해결이며, 'sheaf 클래스 = 분리의
-증인' 주장은 현 단계에서 야심에 그친다.
+Topological / homological circuit complexity (persistent homology of
+computation graphs, sheaf cohomology of logical schemes) is a young
+field with partial results in neural-network expressivity and the
+topological phase transitions of CSPs. If a natural sheaf structure
+can be placed on the circuit variety, it might lift GCT's
+representation data into cohomology classes. Whether such a lift
+preserves *largeness* while still satisfying *usefulness* is open;
+the claim that "a sheaf class is the witness of separation" is, at
+this stage, ambition rather than result.
 
 #### quantum-complexity
-BQP vs P, BQP vs NP 분리(예: Aaronson 2009의 oracle separation)는 양자
-시각이 고전 분리에 도구를 제공할 수 있음을 시사한다. 그러나 polynomial
-method, adversary method 등 양자 하한 도구 다수는 자연증명에 빠져 있거나
-relativization 장벽 안에 갇혀 있다. 본 가설의 GCT+호몰로지 결합이
-unitary group 작용(GIT의 자연 확장)과 연결된다면 보조 다리가 될 수 있으나,
-양자성 자체가 가설의 본질은 아니다.
+Separations like BQP vs P and BQP vs NP (e.g., Aaronson 2009's oracle
+separation) suggest that the quantum lens can supply tools for the
+classical question. However, many quantum lower-bound tools (the
+polynomial method, the adversary method) are caught by natural proofs
+or trapped inside relativization. If the hypothesis's GCT + homology
+combination connects to unitary-group actions (a natural extension of
+GIT), that could be a useful auxiliary bridge — but quantumness is
+not the essence of the hypothesis.
 
-### 2. 충돌점 3개
+### 2. Three Conflicts
 
-- **C1**: '코호몰로지 불변량'이 자연증명 장벽의 *usefulness* 재정의로
-  충분한가? (homological ↔ circuit-complexity)
-- **C2**: GCT의 representation-theoretic obstruction이 호몰로지로 lift될 때
-  정보가 보존되는가? (GCT ↔ homological)
-- **C3**: 양자 도구가 본 결합에 *필수적*인가, 아니면 고전적으로도 가능한가?
-  (quantum ↔ 나머지 4분야)
+- **C1**: is a "cohomology invariant" sufficient as a redefinition of
+  the *usefulness* arm of the natural-proofs barrier?
+  (homological ↔ circuit-complexity)
+- **C2**: does the GCT representation-theoretic obstruction lift to
+  homology with information preserved? (GCT ↔ homological)
+- **C3**: is a quantum tool **essential** to this combination, or can
+  it be done classically? (quantum ↔ the other four)
 
-### 3. 충돌 종류 판정
+### 3. Conflict Classification
 
-- **C1**: 진짜 충돌 — Razborov–Rudich의 *useful*은 reflective property로
-  명문화되어 있으며, 이를 코호몰로지로 변환하는 것은 실질적 사실 주장.
-- **C2**: 진짜 충돌 — GCT는 character·plethysm 데이터에 의존하며, 이를
-  sheaf cohomology로 lift할 functor의 존재성이 미증명.
-- **C3**: 거짓 충돌(부분적) — 양자성 자체가 분리에 필수라는 주장은
-  본 가설에 없음. quantum-complexity의 입력은 보조 다리에 가깝고,
-  classical-only 패널과 사실 차이는 작음.
+- **C1**: real conflict — Razborov–Rudich's *useful* is codified as a
+  reflective property; translating it to cohomology is a substantive
+  factual claim.
+- **C2**: real conflict — GCT relies on character / plethysm data;
+  the existence of a functor that lifts this to sheaf cohomology is
+  not proved.
+- **C3**: partially false conflict — the hypothesis does not claim
+  quantumness is essential to separation. Quantum-complexity's input
+  is closer to an auxiliary bridge, and the factual gap to a
+  classical-only panel is small.
 
-### 4. 충돌 해소 데이터/계산/정리
+### 4. Resolution Data / Computations / Theorems
 
-- **C1**: BPP/poly-natural property가 sheaf H¹ 소멸로 환원되는 정확한 명제를
-  AC⁰ 수준의 작은 사례에서 정리화·검증.
-- **C2**: GCT의 polytope obstruction(Bürgisser–Ikenmeyer 2017)이 어떤 sheaf의
-  H^k로 표현될 수 있는지를 small n(예: n ≤ 4)에 대해 case study.
-- **C3**: (거짓 충돌이므로 보류) — 양자 시각은 보조 다리로만 채택.
+- **C1**: at AC⁰ scale, formalize and check the precise statement that
+  reduces a BPP/poly-natural property to sheaf H¹ vanishing.
+- **C2**: case study at small n (e.g., n ≤ 4): check which sheaf's
+  H^k can express GCT's polytope obstructions
+  (Bürgisser–Ikenmeyer 2017).
+- **C3**: (false conflict, set aside) — accept the quantum lens only
+  as an auxiliary bridge.
 
 ### 5. Multi-domain Robustness Score
 
-- **점수**: 3 / 5
-- **근거**: 가설은 야심차고 통섭적이지만, 핵심 다리(C1·C2)가 모두 미증명이며
-  현재 알려진 정리로 연결되지 않는다. 5개 분야 중 2개(GCT·호몰로지)는 가설을
-  명시적으로 지지하나, 회로복잡도·통신복잡도는 회의적이며, 양자복잡도는
-  보조적 위치에 머문다. 자연증명+상대화+대수화 동시 우회는 야심으로서는
-  올바른 방향이지만, 본 가설만으로 attempt 본진(증명 시도)을 시작하기엔
-  부족하며, 먼저 두 다리를 별도 attempt/bridge로 검증해야 한다.
+- **Score**: 3 / 5
+- **Justification**: the hypothesis is ambitious and consilient, but
+  its core bridges (C1 and C2) are unproved and not connected by any
+  currently known theorem. Of the five panels, two (GCT and homology)
+  explicitly support the hypothesis; circuit- and communication-
+  complexity are skeptical; quantum-complexity is auxiliary. The
+  ambition of bypassing natural proofs + relativization +
+  algebrization simultaneously is a legitimate direction, but this
+  hypothesis alone is not enough to start a body-proof attempt — the
+  two bridges should first be vetted as separate attempts / bridges.
 
-### 6. 기존 다리에 대한 함의
+### 6. Implications for Existing Bridges
 
-- 본 시도 시점에서 `bridges/` 디렉토리는 비어 있음. 따라서 강화/약화할 기존
-  다리는 없음.
-- **새 다리 후보**:
-  - **B-001 (가칭)**: GCT ↔ homological circuit complexity
-  - **B-002 (가칭)**: natural proofs (Razborov–Rudich) ↔ sheaf cohomology의
-    *usefulness* 재정의
+- At the time of this attempt the `bridges/` directory is empty, so
+  there are no existing bridges to strengthen or weaken.
+- **New bridge candidates**:
+  - **B-001 (provisional)**: GCT ↔ homological circuit complexity.
+  - **B-002 (provisional)**: natural proofs (Razborov–Rudich) ↔
+    sheaf-cohomology redefinition of *usefulness*.
 
 ---
 
-## 핵심 인사이트
+## Key Insights
 
-- 03-p-vs-np 표적 문서(`statement.md`, `known-results.md`,
-  `failed-approaches.md`)가 모두 placeholder이며, 본격적 attempt 이전에
-  이들을 정밀화하는 PR이 선행되어야 한다.
-- GCT × homological circuit complexity 결합은 *야심으로서는* 세 장벽 동시
-  우회의 정당한 후보이지만, 본 단계에서는 두 분야를 잇는 수학적 다리가
-  존재하지 않는다 — 다리 후보 B-001, B-002를 별도 트랙으로 진행해야 한다.
-- 자연증명 장벽의 *usefulness* 조건을 sheaf cohomology의 vanishing 조건으로
-  재정의하는 시도(C1)는 작은 회로 클래스(AC⁰)에서 case study로 시작 가능.
+- The 03-p-vs-np target documents (`statement.md`, `known-results.md`,
+  `failed-approaches.md`) are all placeholders. A PR refining them
+  must precede any serious attempt.
+- The combination of GCT and homological circuit complexity is, *as
+  ambition*, a legitimate candidate for bypassing all three barriers
+  simultaneously, but at this stage no mathematical bridge connects
+  the two fields. Bridge candidates B-001 and B-002 should be pursued
+  on separate tracks.
+- The attempt to redefine the *usefulness* condition of the
+  natural-proofs barrier as a sheaf-cohomology vanishing condition
+  (C1) can begin as a small-case study on AC⁰.
 
-## 후속 작업 제안
+## Follow-ups
 
-1. **표적 문서 정밀화** (별도 PR): 03-p-vs-np 의 statement / known-results /
-   failed-approaches 를 정밀 작성. status는 자동 갱신에 맡김
+1. **Refine the target documents** (separate PR): polish 03-p-vs-np's
+   `statement.md` / `known-results.md` / `failed-approaches.md`.
+   Status is left to the auto-updater
    (`scripts/update-dashboard.py`).
-2. **B-001 다리 등록** (`scripts/new-bridge.sh gct-homological-circuit`):
-   GCT의 representation-theoretic obstruction과 sheaf cohomology의 functor
-   대응 관계 탐색.
-3. **B-002 다리 등록** (`scripts/new-bridge.sh natural-proofs-sheaf-cohomology`):
-   Razborov–Rudich의 *useful* 조건을 H¹ 소멸로 재정의하는 시도.
-4. **A002 (다음 attempt)**: AC⁰ 작은 사례에서 C1 정리화 — P03(lemma-extraction)을
-   호출하여 보조정리 추출.
-5. **다른 모델·세션의 P07(adversarial-review)**: 본 가설을 다른 에이전트가
-   공격하여 lethal flaw 탐색.
+2. **Register bridge B-001**
+   (`scripts/new-bridge.sh gct-homological-circuit`): explore the
+   functor correspondence between GCT's representation-theoretic
+   obstructions and sheaf cohomology.
+3. **Register bridge B-002**
+   (`scripts/new-bridge.sh natural-proofs-sheaf-cohomology`): attempt
+   to redefine Razborov–Rudich's *useful* condition as H¹ vanishing.
+4. **A002 (next attempt)**: at AC⁰ small-case scale, formalize C1
+   into lemmas — invoke P03 (lemma-extraction).
+5. **P07 (adversarial-review) by a different model / session**: have
+   another agent attack this hypothesis to surface lethal flaws.
 
-## 참고
+## References
 
 - [`prompts/P01-multi-perspective.md`](../../../prompts/P01-multi-perspective.md)
 - [`docs/problems/03-p-vs-np/README.md`](../../../docs/problems/03-p-vs-np/README.md)
-- [`charter.md`](../../../charter.md) §4.1 (통섭적 접근)
-- 외부 문헌(메타데이터의 `references` 참조):
+- [`charter.md`](../../../charter.md) §4.1 (Consilient Approach)
+- External literature (also in the `references` field of the
+  metadata):
   - Razborov & Rudich, "Natural Proofs," J. Comput. Syst. Sci. 1997
   - Mulmuley & Sohoni, "Geometric Complexity Theory I/II," 2001/2008
   - Bürgisser & Ikenmeyer, "No occurrence obstructions in geometric
     complexity theory," J. AMS 2019
-  - Aaronson & Wigderson, "Algebrization: A New Barrier in Complexity Theory,"
-    ACM TOCT 2009
+  - Aaronson & Wigderson, "Algebrization: A New Barrier in Complexity
+    Theory," ACM TOCT 2009
   - Williams, "Non-uniform ACC circuit lower bounds," J. ACM 2014
