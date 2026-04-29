@@ -1,1 +1,2 @@
 id,problem,date,model,duration_minutes,outcome,L1,L2,L3,L4,L5,L6,L7,key_insights_count,follow_ups_count,novel_bridges_count
+A001,03-p-vs-np,2026-04-29,claude-opus-4-7,30,survey,n/a,n/a,n/a,n/a,n/a,n/a,n/a,4,5,0
