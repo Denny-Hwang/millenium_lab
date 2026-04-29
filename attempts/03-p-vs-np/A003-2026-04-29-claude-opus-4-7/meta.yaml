@@ -1,0 +1,53 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A003
+problem: 03-p-vs-np
+date: "2026-04-29"
+model: claude-opus-4-7
+strategy: |
+  Adversarial scoping review (P07 variant) of A002's 14-lemma
+  scaffold for H_AC⁰. P07 normally targets a candidate; A002
+  recommends HOLD on candidate promotion, so this attempt instead
+  performs an attempt-level adversarial review with full transparency
+  about the deviation. Six attack kinds applied (weaken_assumption,
+  chain_lethal_lemma_failure, domain_swap, boundary_case,
+  circular_reasoning_check, quantifier_alternation_check). Single-
+  model simulated adversary; a genuine different-model P07 round is
+  still required before any L4 verdict.
+duration_minutes: 50
+outcome: partial-insight
+verification_status:
+  L1: n/a
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "L11 (natural-proofs barrier audit) is at lethal risk: under truth-table evaluation, deciding [F_AC⁰]_f ≠ 0 is itself decidable in 2^{O(n)} time, which trivially satisfies Razborov-Rudich constructiveness — making L11 false as stated."
+  - "A new lemma L11' (quantitative non-evaluation of F_AC⁰ from short program descriptions) is the rate-limiting open problem for the entire H_0 program."
+  - "H_AC⁰'s quantifier on (s, d) was implicit and ambiguous; the intended uniform reading (∃ s = poly(n), d = O(1) ∀ f) must be made explicit, otherwise existential-pointwise reading makes H_AC⁰ trivially true."
+  - "Domain swap to AC⁰[2] does NOT over-prove: L02 moduli is gate-set-specific, so the scaffold is honest about what it claims."
+  - "Single-model adversarial review surfaces concrete patches missed by the original author; genuine cross-model rounds remain required for any L4 verdict."
+follow_ups:
+  - "A004: rewrite H_AC⁰ with explicit quantifier structure (∃ uniform s, d ∀ f). Smallest, highest-priority repair."
+  - "A005: state and attempt to prove L11' quantitative non-evaluation lemma. May spawn sub-attempts."
+  - "A006: discharge L02 quasi-projectivity and irreducibility patches."
+  - "A007: discharge L08 base-case patch (n=0,1)."
+  - "R6 cross-attempt synthesis after A007: re-evaluate H_0 against verification-bar §2 with new L11' obstruction."
+  - "Genuine cross-model P07 round: charter §4.3 requires a different model/session for L4."
+references:
+  - kind: attempt
+    ref: "A001 — defines H_0 and conflict C1 from P01 panel"
+  - kind: attempt
+    ref: "A002 — target of this adversarial review; provides 14-lemma scaffold"
+  - kind: bridge
+    ref: "B-002 — supplies H_AC⁰; affected by the L11' identification"
+  - kind: paper
+    ref: "Razborov & Rudich, Natural Proofs, J. Comput. Syst. Sci. 55(1):24–35, 1997"
+  - kind: paper
+    ref: "Razborov, Lower bounds for the size of circuits of bounded depth with basis {&, ⊕}, Mat. Zametki 41(4), 1987"
+  - kind: paper
+    ref: "Smolensky, Algebraic methods in the theory of lower bounds for Boolean circuit complexity, STOC, 1987"
+novel_bridges: []
