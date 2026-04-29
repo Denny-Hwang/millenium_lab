@@ -35,7 +35,7 @@ properties:
   model:
     type: string
     minLength: 1
-    description: Model ID used. Example: claude-opus-4-7, gpt-codex-x, human.
+    description: Model ID used (e.g., claude-opus-4-7, gpt-codex-x, human).
   strategy:
     type: string
     minLength: 8
