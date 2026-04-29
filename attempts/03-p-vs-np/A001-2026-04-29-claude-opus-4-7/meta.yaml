@@ -1,0 +1,45 @@
+# attempt meta — 본 파일은 schemas/attempt-meta.schema.yaml 을 따른다.
+# scripts/new-attempt.sh 가 id/problem/date/model 을 자동 채운다.
+id: A001
+problem: 03-p-vs-np
+date: "2026-04-29"
+model: claude-opus-4-7
+strategy: |
+  03-p-vs-np 표적의 첫 스코핑(scoping) 시도. P01(5분야 패널)을 사용하여
+  GCT × homological circuit complexity 가설("세 장벽 동시 우회를 위한
+  representation-theoretic obstruction을 sheaf cohomology로 lift")의
+  통섭적 견고성을 평가하고, 분야 간 다리 후보를 식별. 본문 증명 시도
+  없이 지형도와 다음 단계 정리화 후보를 남기는 데 목적을 둠.
+duration_minutes: 30
+outcome: survey
+verification_status:
+  L1: n/a
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "03-p-vs-np 표적 문서(statement/known-results/failed-approaches)가 모두 placeholder이므로 본격 attempt 전에 정밀화가 선행되어야 함."
+  - "GCT × homological circuit complexity 가설은 robustness 3/5; 핵심 다리 두 개(C1, C2)가 미증명."
+  - "자연증명 장벽의 usefulness 조건을 sheaf H¹ vanishing으로 재정의하는 시도는 AC⁰ 작은 사례에서 case study 가능."
+  - "양자 시각은 본 가설에서 보조 다리로 충분; 양자성 자체가 본질이 아님."
+follow_ups:
+  - "03-p-vs-np의 statement.md / known-results.md / failed-approaches.md 정밀화 PR (별도)."
+  - "다리 후보 B-001 (가칭): GCT ↔ homological circuit complexity — scripts/new-bridge.sh gct-homological-circuit."
+  - "다리 후보 B-002 (가칭): natural proofs ↔ sheaf cohomology의 usefulness 재정의 — scripts/new-bridge.sh natural-proofs-sheaf-cohomology."
+  - "A002: AC⁰ 작은 사례에서 C1 정리화, P03(lemma-extraction) 호출."
+  - "다른 모델·세션이 P07(adversarial-review)로 본 가설을 공격."
+references:
+  - kind: paper
+    ref: "Razborov & Rudich, Natural Proofs, J. Comput. Syst. Sci. 55(1):24–35, 1997"
+  - kind: paper
+    ref: "Mulmuley & Sohoni, Geometric Complexity Theory I, SIAM J. Comput. 31(2):496–526, 2001"
+  - kind: paper
+    ref: "Bürgisser & Ikenmeyer, No occurrence obstructions in geometric complexity theory, J. AMS 32(1):163–193, 2019"
+  - kind: paper
+    ref: "Aaronson & Wigderson, Algebrization: A New Barrier in Complexity Theory, ACM TOCT 1(1):1–54, 2009"
+  - kind: paper
+    ref: "Williams, Non-uniform ACC circuit lower bounds, J. ACM 61(1):1–32, 2014"
+novel_bridges: []
