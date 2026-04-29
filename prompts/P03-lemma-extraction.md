@@ -1,86 +1,91 @@
-# P03 — Lemma Extraction (보조정리 추출)
+# P03 — Lemma Extraction
 
-## 사용 시점
+## When to Use
 
-- attempt가 outcome `partial-insight`/`novel-approach`로 종료되었고, 후보
-  승격을 검토할 때.
-- 또는 후보 작성 초기에 자연어 증명을 검증 가능한 단위로 쪼갤 때.
+- When an attempt ends with outcome `partial-insight` /
+  `novel-approach` and you are evaluating candidate promotion.
+- Or when, early in candidate authoring, you split a natural-language
+  proof into verifiable units.
 
-## 입력 변수
+## Input Variables
 
-- `${ATTEMPT_PATH}` — 대상 attempt 폴더 경로.
-- `${PROBLEM_ID}` — 표적 문제.
-- `${PROOF_TEXT}` — 자연어 증명 본문.
+- `${ATTEMPT_PATH}` — path to the source attempt folder.
+- `${PROBLEM_ID}` — target problem.
+- `${PROOF_TEXT}` — body of the natural-language proof.
 
-## 사전 읽기 파일
+## Prerequisite Reading
 
 - `${ATTEMPT_PATH}/result.md`
 - `candidates/_TEMPLATE/`
 - `schemas/candidate-meta.schema.yaml`
 
-## 프롬프트 본문
+## Prompt Body
 
 ```
-다음 자연어 증명을 검증 가능한 보조정리들로 분해하세요.
+Decompose the following natural-language proof into verifiable lemmas.
 
-증명 본문:
+Proof:
 """
 ${PROOF_TEXT}
 """
 
-규칙:
-1. 각 보조정리는 다음을 가져야 합니다.
-   - 한 문장 진술
-   - 의존하는 공리·외부 정리·앞선 보조정리 목록
-   - 형식화 난이도 추정 (low/medium/high)
-   - 알려진 빈틈(없으면 'none')
-2. 보조정리는 의존 그래프가 닫히도록 분해하세요. 본문에서 암묵적으로 사용된
-   사실은 명시 보조정리로 끌어내세요.
-3. 외부 정리는 인용으로 처리(직접 보조정리화 금지). 인용 형식은
-   '[Author Year, Theorem N]'.
-4. 보조정리 ID는 L01부터 순차 부여. 의존이 깊은 보조정리는 더 큰 번호.
-5. 마지막에 의존 그래프를 mermaid 또는 ASCII로 그리세요.
+Rules:
+1. Each lemma must carry:
+   - A one-sentence statement.
+   - A list of axioms / external theorems / preceding lemmas it depends
+     on.
+   - An estimated formalization difficulty (low / medium / high).
+   - Known gaps (or "none").
+2. Decompose so the dependency graph is closed. Surface implicit facts
+   used in the body as explicit lemmas.
+3. External theorems are handled as citations (do not turn them into
+   lemmas). Citation format: '[Author Year, Theorem N]'.
+4. Lemma IDs run from L01 upward. Deeper-dependency lemmas get larger
+   numbers.
+5. At the end, draw the dependency graph in mermaid or ASCII.
 
-산출물은 마크다운, 6개 섹션 헤더로.
+Produce Markdown with the six section headers below.
 ```
 
-## 출력 형식 명세
+## Output Format
 
 ```markdown
-## 1. 보조정리 목록
-### L01 — {제목}
-- 진술: ...
-- 의존: ...
-- 난이도: low/medium/high
-- 빈틈: ...
-(반복)
+## 1. Lemma list
+### L01 — {title}
+- Statement: ...
+- Dependencies: ...
+- Difficulty: low/medium/high
+- Gaps: ...
+(repeat)
 
-## 2. 외부 인용 목록
+## 2. External citations
 - [Author Year, Theorem N]
 - ...
 
-## 3. 의존 그래프
+## 3. Dependency graph
 ```mermaid
 graph TD
   L01 --> L02
   ...
 ```
 
-## 4. 사용된 가정 일람
-- 선택공리 사용 여부
+## 4. List of assumptions used
+- Whether the axiom of choice is used
 - ...
 
-## 5. 형식화 우선순위 추천
-- 첫 번째로 형식화할 보조정리: L0X (사유)
+## 5. Recommended formalization priority
+- First lemma to formalize: L0X (reason)
 - ...
 
-## 6. candidate 승격 권고
-- 권고 여부: yes/no
-- 사유: ...
+## 6. Candidate promotion recommendation
+- Recommendation: yes / no
+- Reason: ...
 ```
 
-## 후속 작업
+## Follow-ups
 
-- 권고가 yes이면 `scripts/new-candidate.sh ${ATTEMPT_ID}` 실행.
-- 보조정리 목록을 `candidates/PC-###/lemmas/` 하위 파일들로 이전.
-- 첫 번째 형식화 우선순위는 P04로 진입.
+- If the recommendation is yes, run
+  `scripts/new-candidate.sh ${ATTEMPT_ID}`.
+- Migrate the lemma list into files under
+  `candidates/PC-###/lemmas/`.
+- Send the highest-priority lemma into P04.

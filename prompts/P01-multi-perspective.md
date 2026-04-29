@@ -1,23 +1,25 @@
-# P01 — Multi-Perspective Panel (5분야 패널)
+# P01 — Multi-Perspective Panel (five-domain panel)
 
-## 사용 시점
+## When to Use
 
-- 가설을 시도(attempt)로 승격하기 직전, 또는
-- 시도 초반 30분 내에 한 번.
+- Just before promoting an idea into an attempt, or
+- Within the first 30 minutes of an attempt.
 
-본 프롬프트는 단일 분야 시각의 함정을 깨기 위해 5개 분야의 패널을 강제합니다.
-charter §4.1(통섭적 접근)의 의무 항목입니다.
+This prompt forces a five-domain panel to break the trap of a
+single-field viewpoint. It is mandatory under charter §4.1 (consilient
+approach).
 
-## 입력 변수
+## Input Variables
 
-- `${PROBLEM_ID}` — 표적 문제 (예: `02-riemann`).
-- `${HYPOTHESIS}` — 한 줄 가설.
-- `${PANEL_DOMAINS}` — 정확히 5개의 분야 슬러그 배열.
-  예: `["analytic-number-theory", "random-matrix-theory", "operator-algebras",
-        "dynamical-systems", "combinatorics"]`.
-- `${KNOWN_BRIDGES}` — 본 문제에 이미 인용된 다리 ID 목록 (없으면 빈 배열).
+- `${PROBLEM_ID}` — target problem (e.g., `02-riemann`).
+- `${HYPOTHESIS}` — one-line hypothesis.
+- `${PANEL_DOMAINS}` — exactly five domain slugs, e.g.,
+  `["analytic-number-theory", "random-matrix-theory",
+    "operator-algebras", "dynamical-systems", "combinatorics"]`.
+- `${KNOWN_BRIDGES}` — list of bridge IDs already cited for this problem
+  (empty list if none).
 
-## 사전 읽기 파일
+## Prerequisite Reading
 
 - `charter.md`
 - `docs/methodology/proof-pipeline.md`
@@ -26,67 +28,70 @@ charter §4.1(통섭적 접근)의 의무 항목입니다.
 - `docs/problems/${PROBLEM_ID}/known-results.md`
 - `bridges/_INDEX.md`
 
-## 프롬프트 본문
+## Prompt Body
 
 ```
-당신은 5명의 전문가 패널을 사회로서 진행합니다. 표적 문제는 ${PROBLEM_ID}이며,
-가설은 다음과 같습니다.
+You are moderating a panel of five experts. The target problem is
+${PROBLEM_ID} and the hypothesis is:
 
   "${HYPOTHESIS}"
 
-패널 구성: ${PANEL_DOMAINS}
+Panel composition: ${PANEL_DOMAINS}
 
-규칙:
-1. 각 분야를 한 사람의 전문가로 의인화하여, 각자 1차 견해를 1단락으로 진술하게
-   하세요. 다른 분야의 인사이트를 '번역'한 표현을 우선합니다.
-2. 다음으로 패널 사이의 충돌점을 정확히 3개 추출하세요.
-3. 충돌점마다 그 충돌이 거짓 충돌(언어 차이)인지 진짜 충돌(사실 주장 차이)인지
-   판정하세요.
-4. 진짜 충돌마다, 다음 단계의 시도가 어떤 데이터/계산/정리를 확보하면 충돌을
-   해소할 수 있는지 1줄로 제시하세요.
-5. 마지막에 본 가설이 통섭적으로 견고한지 (multi-domain robustness) 1~5점
-   척도로 채점하고, 그 점수의 근거를 1단락으로 제시하세요.
-6. 이미 인용된 다리(${KNOWN_BRIDGES})를 본 가설이 어떻게 강화/약화하는지
-   언급하세요.
+Rules:
+1. Personify each field as a single expert and have each give a
+   one-paragraph first-pass opinion. Prefer phrasings that "translate"
+   insights from other fields.
+2. Extract exactly three points of conflict among the panelists.
+3. For each conflict, decide whether it is a false conflict (a
+   linguistic difference) or a real conflict (a difference in factual
+   claims).
+4. For each real conflict, give a one-line answer to: which data,
+   computation, or theorem would the next attempt need to resolve the
+   conflict?
+5. At the end, score the hypothesis for multi-domain robustness on a
+   1–5 scale and justify the score in a paragraph.
+6. State how the hypothesis strengthens or weakens any already-cited
+   bridges (${KNOWN_BRIDGES}).
 
-산출물은 마크다운으로, 6개 섹션을 그대로 따릅니다.
+Produce Markdown with the six section headers below.
 ```
 
-## 출력 형식 명세
+## Output Format
 
 ```markdown
-## 1. 패널 1차 견해
-### {도메인1}
+## 1. First-pass opinions
+### {domain1}
 ...
-### {도메인2}
+### {domain2}
 ...
-(5개)
+(five total)
 
-## 2. 충돌점 3개
+## 2. Three conflicts
 - C1: ...
 - C2: ...
 - C3: ...
 
-## 3. 충돌 종류 판정
-- C1: 거짓/진짜 — 사유
+## 3. Conflict classification
+- C1: false / real — reason
 - C2: ...
 - C3: ...
 
-## 4. 충돌 해소 데이터/계산/정리
+## 4. Resolution data / computations / theorems
 - C1: ...
 - C2: ...
 - C3: ...
 
-## 5. Multi-domain Robustness Score
-- 점수: N/5
-- 근거: ...
+## 5. Multi-domain robustness score
+- Score: N/5
+- Justification: ...
 
-## 6. 기존 다리에 대한 함의
-- B-###: 강화/약화 — 이유
+## 6. Implications for existing bridges
+- B-###: strengthen / weaken — reason
 ```
 
-## 후속 작업
+## Follow-ups
 
-- robustness ≥ 4 → attempt 승격 권장.
-- robustness ≤ 2 → 가설 폐기 또는 재구성.
-- 새 다리 후보가 식별되면 → P02 호출.
+- robustness ≥ 4 → recommend promotion to attempt.
+- robustness ≤ 2 → discard or re-formulate the hypothesis.
+- If new bridge candidates are identified → invoke P02.

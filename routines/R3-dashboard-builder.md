@@ -1,34 +1,40 @@
 # R3 — Dashboard Builder
 
-## 호출 방법
+## Invocation
 
 ```
-사용자: R3
+user: R3
 ```
 
-또는 GitHub Actions(`.github/workflows/update-dashboard.yml`)에서 자동 실행.
+Or auto-run by GitHub Actions
+(`.github/workflows/update-dashboard.yml`).
 
-## 입력
+## Input
 
-없음. 저장소 전체를 스캔합니다.
+None. The routine scans the entire repository.
 
-## 단계별 작업
+## Steps
 
-1. `python scripts/build-data.py` 실행 → `data/attempts.csv` 등 생성.
-2. `python scripts/update-dashboard.py` 실행:
-   - `README.md`의 `<!-- DASHBOARD:BEGIN --> ... <!-- DASHBOARD:END -->` 사이를
-     7개 문제의 status·활성 후보 수·최근 attempt 정보로 갱신.
-   - `docs/problems/_INDEX.md`의 `<!-- PROBLEMS:BEGIN --> ...` 갱신.
-   - `attempts/_INDEX.md`, `candidates/_INDEX.md`,
-     `conjectures/_INDEX.md`, `bridges/_INDEX.md`도 같은 방식으로 갱신.
-3. `--check` 모드면 변경이 있으면 종료 코드 1, 없으면 0.
-4. 변경이 있다면 다음 메시지로 커밋: `chore(infra): 대시보드 갱신`.
+1. Run `python scripts/build-data.py` → produces `data/attempts.csv`
+   and friends.
+2. Run `python scripts/update-dashboard.py`:
+   - Refresh the table in `README.md` between
+     `<!-- DASHBOARD:BEGIN -->` and `<!-- DASHBOARD:END -->` with the
+     seven problems' status, active candidate counts, and latest
+     attempts.
+   - Refresh the table in `docs/problems/_INDEX.md` between
+     `<!-- PROBLEMS:BEGIN -->` and its end.
+   - Refresh `attempts/_INDEX.md`, `candidates/_INDEX.md`,
+     `conjectures/_INDEX.md`, `bridges/_INDEX.md` similarly.
+3. In `--check` mode, exit code 1 if any change is needed, else 0.
+4. If changes exist, commit with message: `chore(infra): refresh dashboard`.
 
-## 출력
+## Output
 
-- 갱신된 README/INDEX 파일들.
-- (CI 모드) 자동 PR 또는 main 직접 커밋.
+- Updated README and INDEX files.
+- (CI mode) Auto PR or direct commit to main.
 
-## 주의
+## Notes
 
-- `analysis/` 하위는 본 루틴이 직접 갱신하지 않습니다. 별도 분석 루틴이 처리.
+- Files under `analysis/` are not refreshed by this routine. A separate
+  analysis routine handles them.
