@@ -1,9 +1,9 @@
-# conjecture meta — schemas/conjecture-meta.schema.yaml 을 따른다.
+# conjecture meta — follows schemas/conjecture-meta.schema.yaml.
 id: TODO
 statement: |
-  TODO: 한 줄 또는 LaTeX 진술.
-parent_problem: TODO   # 예: 02-riemann
-parent_attempt: TODO   # 예: A012
+  TODO: one-line or LaTeX statement.
+parent_problem: TODO   # e.g., 02-riemann
+parent_attempt: TODO   # e.g., A012
 numerical_evidence_status: none   # none | partial | strong | contradicted
-lean_status: none                  # none | partial | complete
+lean_status: none                 # none | partial | complete
 references: []

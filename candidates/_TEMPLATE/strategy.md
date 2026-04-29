@@ -1,36 +1,37 @@
-# Strategy — 증명 전략
+# Strategy — Proof Strategy
 
-본 후보가 어떤 큰 그림으로 결론에 도달하려 하는지를 한 문서에 압축합니다.
+A single-file compression of the big-picture strategy by which this
+candidate aims to reach the conclusion.
 
 ---
 
-## 한 단락 요약
+## One-paragraph Summary
 
 TODO
 
-## 전략 단계
+## Strategy Steps
 
 1. TODO
 2. TODO
 3. TODO
 
-## 사용한 다리(bridges)
+## Bridges Used
 
-- TODO  <!-- 예: B-007 (analytic-number-theory ↔ random-matrix-theory) -->
+- TODO  <!-- e.g., B-007 (analytic-number-theory ↔ random-matrix-theory) -->
 
-## 출처 attempts
+## Origin Attempts
 
-- TODO  <!-- A### 형식. meta.yaml 의 origin_attempts 와 일치해야 함 -->
+- TODO  <!-- A### form. Must match meta.yaml's origin_attempts. -->
 
-## 핵심 보조정리 목록
+## Core Lemma List
 
 - L01: TODO
 - L02: TODO
 
-## 의존 외부 정리
+## External Theorems Depended On
 
-- TODO  <!-- 인용 가능한 외부 정리 -->
+- TODO  <!-- citable external theorems -->
 
-## 알려진 빈틈
+## Known Gaps
 
-- TODO  <!-- gaps.md 의 G### 와 일치해야 함 -->
+- TODO  <!-- must match G### entries in gaps.md -->

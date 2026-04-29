@@ -1,23 +1,29 @@
-# Gaps — 알려진 빈틈
+# Gaps — Known Gaps
 
-본 파일은 후보가 알고 있는 모든 빈틈을 등록합니다. **숨기지 마세요.** 빈틈을
-숨기면 적대적 검증과 외부 리뷰에서 신뢰가 무너집니다.
+This file registers every gap the candidate is aware of. **Do not hide
+them.** Hidden gaps destroy trust at adversarial verification and
+external review.
 
 ---
 
-## 빈틈 목록
+## Gap List
 
-| ID | 위치 | 심각도 | 요지 | 닫힘 여부 |
-|----|------|--------|------|-----------|
+| ID | Location | Severity | Summary | Status |
+|----|----------|----------|---------|--------|
 | G001 | TODO | minor/major/lethal | TODO | open/closed |
 
-> 심각도 정의:
-> - **minor** — 본 결론에 영향 없음. 부수 보조정리의 형식화 미완 등.
-> - **major** — 본 결론의 일부 사례에서 우회로가 필요.
-> - **lethal** — 본 결론을 부정할 수 있는 가능성. 즉시 적대적 검증으로 회송.
+> Severity definitions:
+> - **minor** — does not affect the conclusion (e.g., an auxiliary
+>   lemma's formalization is incomplete).
+> - **major** — a workaround is needed for some cases of the
+>   conclusion.
+> - **lethal** — could falsify the conclusion. Route immediately to
+>   adversarial verification.
 
-## 닫기 절차
+## Closing Procedure
 
-1. 빈틈 닫는 PR을 만들 때 본 표의 "닫힘 여부"를 `closed`로 갱신.
-2. 닫힘 사유를 `attacks.md` 또는 새 보조정리에 인용.
-3. lethal 빈틈을 닫지 못하면 후보 status를 `abandoned`로 전환.
+1. When opening a PR that closes a gap, update its "Status" to
+   `closed` in this table.
+2. Cite the closure reason in `attacks.md` or in a new lemma.
+3. If a lethal gap cannot be closed, transition the candidate's status
+   to `abandoned`.

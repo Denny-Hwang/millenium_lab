@@ -1,16 +1,17 @@
-# Statement — 추측 진술
+# Statement — Conjecture
 
-> TODO: 정밀한 진술. 가능하면 LaTeX 수식 포함.
+> TODO: precise statement. Include LaTeX equations where helpful.
 
-## 동기
+## Motivation
 
-TODO: 본 추측이 어떤 attempt에서 어떻게 떠올랐는지.
+TODO: how this conjecture surfaced — from which attempt, in what way.
 
-## 본 문제와의 관계
+## Relationship to the Parent Problem
 
-TODO: 부모 문제 해결에 어떻게 기여할 수 있는지(또는 무관한지).
+TODO: how it could contribute to solving the parent problem (or why it
+is independent of it).
 
-## 강함/약함 관계
+## Strength / Weakness Relations
 
-- 본 추측이 참이면 → TODO
-- 본 추측이 거짓이면 → TODO
+- If this conjecture is true → TODO
+- If this conjecture is false → TODO

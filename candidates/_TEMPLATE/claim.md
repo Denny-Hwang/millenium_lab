@@ -1,25 +1,26 @@
-# Claim — 결론 명제
+# Claim — Conclusion Statement
 
-본 후보가 주장하는 결론을 정밀히 기술합니다.
+State precisely what this candidate claims.
 
 ---
 
-## 결론 명제
+## Conclusion
 
-> TODO: 정확한 명제. CMI 공식 진술과의 동치 또는 강함/약함 관계도 명시.
+> TODO: the precise statement. Also state its relationship
+> (equivalence / strength / weakness) to the official CMI statement.
 
-## CMI 공식 진술과의 관계
+## Relationship to the CMI Official Statement
 
-- [ ] 본 명제는 CMI 공식 진술과 동치이다.
-- [ ] 본 명제는 CMI 공식 진술보다 강하다 (그 이유: TODO).
-- [ ] 본 명제는 CMI 공식 진술보다 약하다 (그 이유: TODO. 본 후보는 부분 결과로 등록).
+- [ ] This statement is equivalent to the official CMI statement.
+- [ ] This statement is **stronger** than the CMI statement (reason: TODO).
+- [ ] This statement is **weaker** than the CMI statement (reason: TODO; this candidate is registered as a partial result).
 
-## 핵심 가정
+## Core Assumptions
 
-- TODO  <!-- 사용된 공리·외부 정리·해석학적 가정 등 모두 명시 -->
+- TODO  <!-- list every axiom, external theorem, analytic hypothesis -->
 
-## 결론 명제의 형식체계
+## Formal System(s) of the Statement
 
-- [ ] 자연어
+- [ ] Natural language
 - [ ] LaTeX
-- [ ] Lean 4 명세 (위치: TODO)
+- [ ] Lean 4 specification (location: TODO)
