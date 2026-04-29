@@ -44,4 +44,6 @@ references:
     ref: "Aaronson & Wigderson, Algebrization: A New Barrier in Complexity Theory, ACM TOCT 1(1):1–54, 2009"
   - kind: paper
     ref: "Williams, Non-uniform ACC circuit lower bounds, J. ACM 61(1):1–32, 2014"
-novel_bridges: []
+novel_bridges:
+  - B-001
+  - B-002
