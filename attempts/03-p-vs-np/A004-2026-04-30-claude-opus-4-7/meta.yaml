@@ -1,0 +1,55 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A004
+problem: 03-p-vs-np
+date: "2026-04-30"
+model: claude-opus-4-7
+strategy: |
+  Patch-only attempt. Discharge the two lowest-difficulty A003
+  follow-ups: rewrite H_AC⁰ with explicit existential-uniform
+  quantifier structure (∃ s = n^{O(1)}, d = O(1), ∀ n, f) to close
+  A003-A6; replace L11 (truth-table evaluator non-existence,
+  refuted by A003-A5) with L11' on succinct-program-description
+  inputs to close A003-A5. Lemmas L05, L06, L10 are restated to
+  reference the uniform witnesses; all other A002 lemmas are
+  carried over by reference. The remaining A003 patches (A1
+  quasi-projectivity, A2 irreducibility, A4 base case) are out of
+  scope and deferred to A006 / A007.
+duration_minutes: 30
+outcome: partial-insight
+verification_status:
+  L1: pending
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "H_AC⁰ v2: ∃ s = n^{O(1)}, d = O(1), ∀ n, f — quantifier order is load-bearing; the ∀∃ reading is a tautology and is now explicitly excluded."
+  - "L11 (truth-table evaluator) is provably false; L11' restricts the input domain to succinct program descriptions of length poly(n), excluding the trivial AC⁰-enumeration evaluator by length."
+  - "G008 (L11' open at meta-complexity grade) replaces G006 as the rate-limiting bottleneck of the H_0 program."
+  - "L06 difficulty upgrades from low to medium because the proof must hold for the chosen uniform (s, d), not an f-specific choice."
+follow_ups:
+  - "A005: state and begin to prove L11' (succinct-input non-evaluation of F_AC⁰)."
+  - "A006: discharge L02 quasi-projectivity (A003-A1) and irreducibility / component-uniformity (A003-A2)."
+  - "A007: discharge L08 base case (A003-A4) at n ∈ {0, 1}."
+  - "B-002 maturity re-rating contingent on A005 progress on L11'."
+  - "Cross-model adversarial round on H_AC⁰ v2 + L11' (charter §4.3 prerequisite for any L4 verdict)."
+  - "R6 cross-attempt synthesis after A005–A007 land; re-run docs/problems/03-p-vs-np/verification-bar.md §2 audit."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A001-2026-04-29-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A002-2026-04-29-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A003-2026-04-29-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-002-natural-proofs-sheaf-cohomology.md"
+  - kind: paper
+    ref: "Razborov–Rudich 1997, Natural Proofs, J. Comput. Syst. Sci. 55(1):24–35."
+  - kind: paper
+    ref: "Hirahara 2018, on non-black-box complexity of MCSP."
+  - kind: paper
+    ref: "Carmosino–Impagliazzo–Kabanets–Kolokolova 2016, meta-complexity foundations."
+novel_bridges: []
