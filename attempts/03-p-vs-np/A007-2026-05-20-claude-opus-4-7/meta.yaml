@@ -1,0 +1,76 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A007
+problem: 03-p-vs-np
+date: "2026-05-20"
+model: claude-opus-4-7
+strategy: |
+  Strategic commitment + initial route work along (R1)
+  sheaf-on-ambient. First, weigh the A006 (R1) vs (R2) split with
+  five explicit reasons and commit provisionally to (R1) (identity
+  preservation, bridge alignment to B-002, novelty, Razborov-Rudich
+  engagement, negative-result asymmetry). Then propose
+  Construction A: F_{AC^0}^A = eval^* I_{N_{(s,d)}}, the pullback
+  via the eval morphism of the ideal sheaf of non-AC^0 truth
+  tables. Test Construction A at the smallest non-vacuous case
+  (n, s, d) = (2, 3, 2), where XOR and XNOR exclude themselves
+  from AC^0_{(3,2)} by gate-count arithmetic. Report the
+  negative finding (Construction A trivializes — gives zero
+  cohomology because the non-AC^0 set is disjoint from each
+  topology's eval image, reducing the pullback to the structure
+  sheaf, which has H^1 = 0 on rational Grassmannian products).
+  Sketch two refinements (A' twisted line bundle; A'' relative
+  Ext) as next-attempt targets. Out of scope: rigorous
+  construction of A' or A''; larger-case tests (require
+  Macaulay2 / SageMath); GL_n-equivariance reconsideration.
+duration_minutes: 240
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: pass
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Strategic commitment to (R1) sheaf-on-ambient is justified by an asymmetry argument: (R1) might fail but failing supplies new evidence about B-002; (R2) succeeds modestly but adds little to the existing GCT literature. Try (R1) first; revisit (R2) as a fallback with explicit negative evidence if (R1) hits an obstacle within 3-5 attempts."
+  - "Construction A (F_{AC^0}^A = eval^* I_{N_{(s,d)}}) supplies the right structural shape but gives trivial cohomology at (n, s, d) = (2, 3, 2): the non-AC^0 set N_{(3,2)} = {chi_XOR, chi_XNOR} is disjoint from each topology's eval image, so the pullback degenerates to the structure sheaf with H^1 = 0 on the Grassmannian product."
+  - "The (2, 3, 2) test is non-vacuous: XOR and XNOR each require 5 gates after counting NOT as a separate gate, exceeding s = 3. So 2 of 16 Boolean functions on 2 bits are not in AC^0_{(3,2)}, providing the first concrete f not in AC^0_{(s,d)} to test constructions against."
+  - "The f-dependence must enter at the sheaf level, not only at the cocycle level. Two refinements proposed for next attempts: A' (twisted line bundle L_f = eval^* O(D_f) for an f-specific divisor D_f, giving c_1(L_f) in H^2); A'' (relative Ext^1(O_B, O_AMB) with f-dependence from restriction to the f-specific Boolean component)."
+  - "Naturality is a new lethal-grade constraint (G013): any f-dependent twist must be canonical with respect to the symmetries of the problem; ad-hoc twists do not engage the Razborov-Rudich framework."
+follow_ups:
+  - "A008: work out Construction A' (twisted line bundle) at (2, 3, 2); verify c_1(L_f) discriminates XOR from x_1 AND x_2."
+  - "A009: parallel work on Construction A'' (relative Ext) at (2, 3, 2)."
+  - "A010: discharge L08 base case (A003-A4 from A003); deferred since A005, independent of (R1) refinement work."
+  - "A011: explicit polynomial coordinates for the eval morphism on ambient (G014)."
+  - "Larger-case extension (n,s,d) = (3,5,3) requires Macaulay2 / SageMath; container does not have it."
+  - "(R1) abandonment trigger: if A008 + A009 + A011 fail to produce a working F_{AC^0} with biconditional within 3 follow-up attempts, the program revisits (R2) with the negative evidence formalized as a B-002 verdict."
+  - "L11' attack (deferred since A004): begin once F_{AC^0} construction is settled."
+  - "Cross-model adversarial pass on the (R1) commitment (charter §4.3). Natural attack: argue (R2) was the right choice; if reason 5 (asymmetry) does not survive the attack, the commitment must be revisited."
+  - "R6 cross-attempt synthesis after A008-A010. Seven attempts on H_AC^0 now exist (A001-A007)."
+  - "B-001 status: record that H_AC^0 has not committed to (R2) but retains it as fallback."
+  - "B-002 status: record the Construction A trivialization finding and the A' / A'' refinement plan."
+  - "docs/primer/field-primers/03-p-vs-np.md revision: promote the (R1) commitment, Construction A / A' / A'' shapes, and the asymmetry argument into §7."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A002-2026-04-29-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A005-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A006-2026-05-20-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-001-gct-homological-circuit.md"
+  - kind: bridge
+    ref: "bridges/B-002-natural-proofs-sheaf-cohomology.md"
+  - kind: web
+    ref: "docs/primer/field-primers/03-p-vs-np.md"
+  - kind: paper
+    ref: "Hartshorne, Algebraic Geometry, Springer GTM 52, 1977 — Ch. III §6 (Ext functor)."
+  - kind: paper
+    ref: "Mumford, Fogarty, Kirwan, Geometric Invariant Theory, 3rd ed., Springer, 1994."
+  - kind: paper
+    ref: "Mulmuley & Sohoni, Geometric Complexity Theory I, SIAM J. Comput. 31 (2001) 496-526."
+  - kind: paper
+    ref: "Razborov & Rudich, Natural Proofs, J. Comput. Syst. Sci. 55(1):24-35, 1997."
+novel_bridges: []
