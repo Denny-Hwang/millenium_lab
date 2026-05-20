@@ -1,0 +1,65 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A006
+problem: 03-p-vs-np
+date: "2026-05-20"
+model: claude-opus-4-7
+strategy: |
+  Concrete computation. Discharge A005's G010 by writing the
+  explicit Plücker equations of the L02 v2 Grassmannian-product
+  construction at the smallest non-trivial case (n, s, d) = (2, 3,
+  2). Enumerate the DAG topologies (three classes T1, T2, T3),
+  identify each Grassmannian factor, and cut out the Boolean-
+  evaluation locus inside each ambient. Compute the dimension of
+  the Boolean locus and compare to the ambient dimension. Use the
+  result to supply direct evidence on G009 (the discrete-reading
+  collapse of A005): does the construction's positive-dimensional
+  ambient rescue the program, or does the Boolean restriction
+  re-introduce 0-dimensionality? If the latter, make the two
+  available strategic escapes explicit (sheaf-on-ambient
+  interpretation R1; pivot to arithmetic / GCT moduli R2). Out of
+  scope: full GL_n-equivariance check (only S_n is straightforward
+  in this construction); larger cases requiring computer algebra
+  (Macaulay2 / SageMath unavailable in this container).
+duration_minutes: 120
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: pass
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "At (n, s, d) = (2, 3, 2) the Boolean-evaluation locus has dimension 0 in every topology / fan-in subcomponent, even though the ambient Grassmannian-product is up to 2-dimensional (T3 with both intermediates fan-in 1). The L02 v2 construction does not escape G009; it relocates the collapse to the ambient-vs-restriction interface."
+  - "Explicit Plücker equations are written: per fan-in-1 wire on inputs (a,b) ∈ {0,1}^2, the constraints p_a(p_a − 1) = 0 etc. give a 0-dimensional reduced subscheme of P^1, with the projective solution set being the two standard-basis-spanned wirings (1:0), (0:1)."
+  - "Two strategic escape routes are now explicit: (R1) sheaf-on-ambient — define F_{AC^0} on the full Grassmannian product with Boolean locus encoded as support/vanishing, compute H^1 on the ambient; (R2) pivot to arithmetic / GCT moduli — drop the Boolean restriction, use a positive-dimensional moduli with AC^0-membership as a closed-subscheme or representation-theoretic condition. (R1) preserves B-002 directly; (R2) makes B-001 load-bearing."
+  - "Equivariance subtlety surfaced (G011): the Boolean-evaluation equations are S_n-equivariant (input permutation) but not GL_n-equivariant (linear change of basis). A002 and A005 used GL_n; the H_AC^0 statement may need relaxing to S_n-equivariance or restating with a different ambient."
+follow_ups:
+  - "A007: discharge A003-A4 (L08 base case at n ∈ {0, 1}); independent of A006."
+  - "A008: short strategic-decision attempt on (R1) vs (R2). Produce a commitment with justification; update B-001 and B-002 status accordingly."
+  - "A009+ along (R1): define F_{AC^0} on the Grassmannian-product ambient; prove [F]_f has predicted vanishing / non-vanishing behavior when restricted to the Boolean locus."
+  - "A009+ along (R2): rewrite L02 as arithmetic-circuit moduli; recover analogs of L05 / L06 in GCT setting."
+  - "Extend A006 to (n, s, d) = (3, 5, 2) or (2, 5, 3) once Macaulay2 / SageMath access is available; verify the dimension-0 pattern holds."
+  - "L11' attack (deferred since A004): begin once (R1) vs (R2) decision is made. G008 remains the longest-pole open lemma; L11' is independent of G009 in formulation but depends on F_{AC^0} construction which depends on the strategic choice."
+  - "R6 cross-attempt synthesis after A007, A008, A009 land. Five attempts (A001–A006) now satisfy charter §4.4's threshold for cross-attempt synthesis."
+  - "docs/primer/field-primers/03-p-vs-np.md §7 revision: promote 'Boolean-evaluation locus', 'discrete-reading collapse made concrete', '(R1) vs (R2) strategic escape', 'S_n vs GL_n equivariance' into the primer."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A002-2026-04-29-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A005-2026-05-20-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-001-gct-homological-circuit.md"
+  - kind: bridge
+    ref: "bridges/B-002-natural-proofs-sheaf-cohomology.md"
+  - kind: web
+    ref: "docs/primer/notation.md"
+  - kind: web
+    ref: "docs/primer/field-primers/03-p-vs-np.md"
+  - kind: paper
+    ref: "Hartshorne, Algebraic Geometry, Springer GTM 52, 1977 — Ch. III §3 (cohomology of affine schemes)."
+  - kind: paper
+    ref: "Mulmuley & Sohoni, Geometric Complexity Theory I, SIAM J. Comput. 31 (2001) 496-526."
+novel_bridges: []
