@@ -1,0 +1,67 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A009
+problem: 03-p-vs-np
+date: "2026-05-21"
+model: claude-opus-4-7
+strategy: |
+  Trigger-decisive attempt for A007's (R1) abandonment criterion as
+  sharpened by A008. Test the most natural Ext^2-based construction
+  at T3 both-fan-in-1 ambient: F_{AC^0}^{A'''} := Ext^2(O_B,
+  O_{P^1 x P^1}) ≅ Q^4, with [F]_f the characteristic function of
+  "Boolean points realizing f" in the 4-dim class space. Compute
+  for four representative Boolean functions: x_1, x_1 AND x_2, x_2
+  (in AC^0), and XOR (not in AC^0 per A007). Determine whether
+  the construction satisfies A002 L05's biconditional direction
+  ([F]_f != 0 iff f not in AC^0). If yes, (R1) survives; if no,
+  trigger fires and the program pivots to (R2) GCT-style
+  arithmetic moduli. Out of scope: alternative responses
+  (biconditional flip; complementary-construction route);
+  implementation of the (R2) pivot itself.
+duration_minutes: 90
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: pass
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "The Ext^2 construction at T3 discriminates f via [F]_f in Q^4, but with the biconditional direction COMPLETELY INVERTED: [F]_f != 0 iff f IS in AC^0, not iff f is NOT in AC^0. This is structural: cohomology classes naturally supported on the Boolean locus detect realized Boolean functions, not non-realized ones."
+  - "Three responses considered: (a) flip the biconditional in L05, but this loses the natural-proofs motivation since Razborov-Rudich is about hard-detection properties not easy-detection; (b) complementary construction on AMB minus B, possibly the right direction but with open f-dependent cocycle assignment; (c) trigger (R2) abandonment. Decision: (c)."
+  - "Five consecutive (R1) attempts (A005-A009) have failed to produce a coherent-sheaf class with A002 L05's biconditional direction. The accumulated evidence is sufficient to formalize the (R1) negative finding as a B-002 status revision (downgrade to 'explored-with-negative-findings') and pivot to (R2)."
+  - "G017 (new, major): the natural cohomology class supported on the Boolean locus has inverted biconditional direction. G018 (new, lethal-if-unresolved): the (R2) pivot requires a fresh statement of AC^0-membership as a representation-theoretic obstruction in the Mulmuley-Sohoni framework specialized to AC^0; no published formulation exists."
+follow_ups:
+  - "A010 (first (R2) attempt): state GCT-L02 — the arithmetic-circuit moduli for (n, s, d) = (2, 3, 2), with explicit representation-theoretic identification of the AC^0 sub-moduli. Mulmuley-Sohoni framework specialized to AC^0."
+  - "B-002 status revision: downgrade from ai-discovered to explored-with-negative-findings; attach A005-A009 as evidence."
+  - "B-001 status revision: promote to load-bearing for post-pivot program; maturity stays ai-discovered pending GCT reformulation in A010."
+  - "L05 / L06 / L10 deprecation in favor of GCT-L05, GCT-L06, GCT-L10 (pending A010+)."
+  - "L11' re-interpretation in arithmetic-circuit-evaluator terms."
+  - "R6 cross-attempt synthesis: with (R1) trajectory closed, look back at A001-A009 to identify lessons. Strongly motivated; can run in parallel with A010."
+  - "Possible (R1) refinement via Response (b) complementary construction — recorded but not scheduled; future team if so motivated."
+  - "Cross-model adversarial pass on A009 trigger decision; natural attack: was Response (a) prematurely rejected?"
+  - "docs/primer/field-primers/03-p-vs-np.md revision: promote the (R1) to (R2) pivot history into §7 glossary deltas."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A002-2026-04-29-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A005-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A007-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A008-2026-05-21-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-001-gct-homological-circuit.md"
+  - kind: bridge
+    ref: "bridges/B-002-natural-proofs-sheaf-cohomology.md"
+  - kind: web
+    ref: "docs/primer/field-primers/03-p-vs-np.md"
+  - kind: paper
+    ref: "Mulmuley & Sohoni, Geometric Complexity Theory I, SIAM J. Comput. 31 (2001) 496-526."
+  - kind: paper
+    ref: "Bürgisser & Ikenmeyer, No occurrence obstructions in geometric complexity theory, J. AMS 32 (2019) 163-193."
+  - kind: paper
+    ref: "Razborov & Rudich, Natural Proofs, J. Comput. Syst. Sci. 55 (1997) 24-35."
+novel_bridges: []
