@@ -1,0 +1,60 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A008
+problem: 03-p-vs-np
+date: "2026-05-21"
+model: claude-opus-4-7
+strategy: |
+  Decisive test of A007's two refinements. Construction A'
+  (twisted line bundle F_f = eval^* O(D_f) for perpendicular
+  hyperplane D_f through chi_f) and A'' (relative Ext
+  Ext^1(O_B, O_AMB)) are computed at (n, s, d) = (2, 3, 2) on
+  two ambient choices: T1 fan-in-1 (= P^1) and T3 both fan-in-1
+  (= P^1 x P^1). XOR vs x_1 AND x_2 is the discrimination witness
+  (XOR is not in AC^0_{(3, 2)} by gate-count arithmetic per A007).
+  Consolidates A007's separately planned A008 and A009 into one
+  attempt to give a more conclusive verdict on the (R1)
+  abandonment trigger. Out of scope: A009-class richer-invariant
+  variants (Ext^2; divisor-component-as-class); larger ambients
+  (require Macaulay2 / SageMath); cross-model adversarial pass.
+duration_minutes: 150
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: pass
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "All four (refinement, ambient) combinations fail to discriminate XOR from x_1 AND x_2 at the first-cohomology / first-Chern-class level: A' at T1 fan-in-1 gives the same pullback divisor; A' at T3 gives the same class (1,1) in Pic(P^1 x P^1); A'' at T1 fan-in-1 has H^1(skyscraper) = 0; A'' at T3 has Ext^1 = 0 (right degree is Ext^2 for 2-dim ambient)."
+  - "Discrimination does exist at richer invariants: A' at T3 gives an irreducible (1,1) curve for XOR vs a reducible (1,1) curve for x_1 AND x_2; A'' at T3 has nontrivial Ext^2 = Q^4 supporting f-dependent classes. The H_AC^0 program's natural target invariant may be Ext^k for k matching ambient dimension, not Ext^1 as A002 L05 framed it."
+  - "G015 (lethal-if-unresolved): A002 L05's H^1 framing is dimension-1-specific; in 2-dim ambient the right cohomological degree is Ext^2. L05 (and consequently L06, L10, B-002) needs restating with k-dependent cohomological degree."
+  - "G016 (major): if discrimination uses divisor-component invariants rather than Picard classes, the natural-proofs framework (targeting coherent-sheaf cohomology) does not automatically engage. A separate analysis of Razborov-Rudich applicability to richer-invariant escapes is required."
+  - "Abandonment trigger NOT activated: the failures are at the wrong cohomological degree, not at the route level. A009 should test the Ext^2 / richer-invariant variant; if that also fails to produce a discriminating coherent-sheaf class in any degree, then (R2) abandonment is triggered."
+follow_ups:
+  - "A009 (sharpened, critical for abandonment trigger): test Ext^2 variant of A'' at T3 with f-dependence via restriction to f-specific Boolean component; also test divisor-component invariants formalized via intermediate Jacobian or codimension-2 Chow groups."
+  - "L05 restatement in light of G015: replace 'H^1' with 'Ext^k' for k matching ambient dimension; propagate to L06, L10, B-002."
+  - "A010: L08 base case (deferred again; minor and independent)."
+  - "A011: explicit eval coordinates (deferred again; minor)."
+  - "B-002 status revision: (i) (R1) commitment recorded; (ii) cohomological-degree shift; (iii) abandonment trigger criteria. Maturity stays at ai-discovered."
+  - "R6 cross-attempt synthesis: 8 H_AC^0 attempts now exist (A001-A008); the pattern construction-test-fail-refine is pronounced; cross-attempt synthesis would identify common failure modes."
+  - "Cross-model adversarial pass on A008 negative findings. Natural attack: argue H^1 was the right choice in A002 L05 and these failures rule out (R1)."
+  - "L11' attack: still deferred until (R1) cohomological framework is settled."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A005-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A006-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A007-2026-05-20-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-002-natural-proofs-sheaf-cohomology.md"
+  - kind: web
+    ref: "docs/primer/notation.md"
+  - kind: paper
+    ref: "Hartshorne, Algebraic Geometry, Springer GTM 52, 1977 — Ch. III §§ 5-6."
+  - kind: paper
+    ref: "Eisenbud, The Geometry of Syzygies, Springer GTM 229, 2005."
+novel_bridges: []
