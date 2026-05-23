@@ -16,6 +16,27 @@ status: active
 > $\mathbf{P} \ne \mathbf{NP}$. First surfaced explicitly in
 > attempt A001 on 03-p-vs-np.
 
+## 0. Status — active, load-bearing (post-pivot)
+
+**As of 2026-05-21 this bridge is the load-bearing route for the
+03-p-vs-np program.** The companion bridge
+[B-002](B-002-natural-proofs-sheaf-cohomology.md) (the "(R1)"
+sheaf-cohomology route) was explored across attempts A005–A009 and
+moved to `dormant` after hitting the *Boolean-rigidity* obstruction
+(registered as conjecture
+[C-001](../conjectures/C-001-boolean-rigidity-sheaf-obstruction/)).
+A009 pivoted the program to the "(R2)" arithmetic-circuit route, which
+this bridge underwrites: arithmetic circuits form positive-dimensional
+families, so they are not subject to the 0-dimensional Boolean-locus
+collapse that defeated B-002.
+
+The immediate next step on this bridge is A010: state **GCT-L02** —
+the arithmetic-circuit moduli at $(n,s,d)=(2,3,2)$ with a
+representation-theoretic identification of the AC⁰ sub-locus
+(Mulmuley–Sohoni specialized to AC⁰; the absence of any published such
+formulation is the lethal-grade gap G018 from A009). `maturity`
+remains `ai-discovered` until a small-case lift is exhibited.
+
 ## 1. Why it connects
 
 GCT and homological circuit complexity already share the **algebraic

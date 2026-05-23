@@ -4,7 +4,7 @@ domains: [circuit-complexity, homological-complexity]
 problems: [03-p-vs-np]
 maturity: ai-discovered
 key_figures: []
-status: active
+status: dormant
 ---
 
 # Bridge: Natural Proofs (Razborov–Rudich) ↔ Sheaf Cohomology
@@ -15,6 +15,44 @@ status: active
 > The hope is that a non-natural property witnessed by H¹ vanishing
 > escapes the cryptographic obstruction of the natural-proofs theorem.
 > First surfaced explicitly in attempt A001 on 03-p-vs-np.
+
+## 0. Status — dormant (explored, negative findings)
+
+**As of 2026-05-21 this bridge is `dormant`.** It was the load-bearing
+bridge for the H_AC⁰ sheaf-cohomology program (the "(R1)" route),
+pursued across attempts A005–A009 and stopped there. The
+`status: dormant` value is the schema-valid encoding of "explored with
+negative findings": the `maturity` enum has no negative-findings
+level, so the substance is recorded here in prose.
+
+What the (R1) exploration established:
+
+- **Boolean rigidity.** The locus of Boolean circuits inside any
+  algebraic moduli is 0-dimensional (verified explicitly at
+  $(n,s,d)=(2,3,2)$ in A006), so coherent-sheaf cohomology restricted
+  to it vanishes (Hartshorne III.3.5). The non-vanishing $H^1$ this
+  bridge needs is structurally absent on the Boolean locus.
+- **Construction trivialization / inversion.** Every coherent-sheaf
+  construction tried (A007 eval-pullback; A008 twisted line bundle and
+  relative Ext; A009 $\mathrm{Ext}^2$) either gave $H^1 = 0$, lived in
+  the wrong cohomological degree, or detected AC⁰-membership with the
+  **inverted** biconditional direction.
+- **Distilled obstruction.** The negative knowledge is registered as
+  conjecture
+  [C-001](../conjectures/C-001-boolean-rigidity-sheaf-obstruction/):
+  *no coherent sheaf on a Boolean-circuit moduli admits a class
+  assignment $f \mapsto [F]_f$ with $[F]_f \neq 0 \iff f \notin
+  \mathrm{AC}^0$.*
+
+**Reactivation trigger.** This bridge returns to `active` only if a
+future attempt provides a *non-coherent* invariant (constructible /
+perverse sheaf, or a Hodge-theoretic class) that escapes C-001, or
+refutes C-001 directly. Until then the program's load-bearing bridge
+is [B-001](B-001-gct-homological-circuit.md), via the
+arithmetic-circuit "(R2)" route, which sidesteps Boolean rigidity
+because arithmetic circuits form positive-dimensional families.
+
+The original proposal text below is retained verbatim for the record.
 
 ## 1. Why it connects
 
