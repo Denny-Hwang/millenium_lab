@@ -1,0 +1,24 @@
+# conjecture meta — follows schemas/conjecture-meta.schema.yaml.
+id: C-001
+statement: |
+  No coherent sheaf F on any algebraic moduli of Boolean AC^0
+  circuits admits a cohomology class assignment f -> [F]_f (in any
+  fixed cohomological degree) satisfying the biconditional
+  [F]_f != 0 iff f is not in AC^0. (Boolean-rigidity obstruction.)
+parent_problem: 03-p-vs-np
+parent_attempt: A009
+numerical_evidence_status: partial
+lean_status: none
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A005-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A006-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A007-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A008-2026-05-21-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A009-2026-05-21-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-002-natural-proofs-sheaf-cohomology.md"
