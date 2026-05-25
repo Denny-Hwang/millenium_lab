@@ -1,0 +1,55 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A011
+problem: 03-p-vs-np
+date: "2026-05-25"
+model: claude-opus-4-7
+strategy: |
+  Test A010's idea (ii): the monotone-arithmetic moduli, the only
+  identified candidate that might escape BOTH C-001 (Boolean
+  rigidity) and G019 (Boolean-vs-arithmetic gap). State the moduli
+  of monotone arithmetic circuits (gates +, x with non-negative
+  scalar weights). Test at (2,3,2) whether monotone realizability
+  tracks AC^0 / monotone-Boolean complexity, using AND/OR/XOR/NAND
+  as witnesses and examining the representation question
+  (multilinear-over-Q vs Boolean semiring vs continuous semiring).
+  Determine whether the monotone route escapes or reproduces the
+  dual obstruction. Out of scope: real-algebraic / o-minimal or
+  bounded-cancellation models (speculative, deferred); enacting any
+  dormancy decision (user's per charter §3).
+duration_minutes: 90
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: pass
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "The monotone-arithmetic moduli reproduces the dilemma rather than escaping it. Over Q (non-negative coefficients) it mis-tracks: OR is monotone-Boolean-trivial but its multilinear-over-Q polynomial x1 + x2 - x1x2 has a negative coefficient, so OR is not monotone-arith-realizable over Q. The faithful encoding is over the Boolean semiring B, but there scalars are discrete {0,1} so the moduli is 0-dimensional (rigid, C-001 returns); a continuous semiring restores positive-dimensionality but loses Boolean-ness (G019)."
+  - "The discrete-vs-continuous obstruction is route-independent (G020): across Boolean (R1), arithmetic (R2), and monotone (R2') encodings, the moduli is either 0-dimensional (faithful to Boolean hardness, rigid) or positive-dimensional (hardness-blind). No encoding tried is simultaneously positive-dimensional and Boolean-hardness-faithful."
+  - "Structural source: Boolean complexity is intrinsically discrete; algebraic-geometric tools are intrinsically continuous; faithfully bridging them is itself the open problem. The H_0 / H_AC^0 program rediscovered this wall from three angles with explicit small-case witnesses (OR, XOR)."
+  - "No forward route is currently identified. A010's dormancy recommendation is strongly reinforced and made route-independent. The reactivation condition sharpens to: a moduli that is simultaneously positive-dimensional and faithful to Boolean hardness."
+follow_ups:
+  - "User decision on dormancy (charter §3 / R6 step 5). A010 and A011 both recommend it; A011 makes it route-independent."
+  - "Register C-002 (G020, the discrete-vs-continuous wall) as a conjecture generalizing C-001. Recommended regardless of the dormancy decision, to preserve the negative-knowledge asset."
+  - "Cross-link C-001 <-> C-002 <-> G019 as the rigidity / gap / wall family."
+  - "Speculative future target (out of current scope): a positive-dimensional AND hardness-faithful moduli via real-algebraic / o-minimal handling of semialgebraic Boolean loci, or a bounded-cancellation model strictly between monotone and full arithmetic."
+  - "R6 refresh incorporating A010, A011 and the G020 headline."
+  - "Consider other Millennium problems (all not-started, primers ready) for a fresh start if 03-p-vs-np's main program goes dormant."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A006-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A010-2026-05-25-claude-opus-4-7/"
+  - kind: conjecture
+    ref: "conjectures/C-001-boolean-rigidity-sheaf-obstruction/"
+  - kind: paper
+    ref: "Jerrum & Snir, Some exact complexity results for straight-line computations over semirings, J. ACM 29 (1982) 874-897."
+  - kind: paper
+    ref: "Valiant, Negation can be exponentially powerful, Theoret. Comput. Sci. 12 (1980) 303-314."
+  - kind: paper
+    ref: "Razborov, Lower bounds on the monotone complexity of some Boolean functions, Dokl. Akad. Nauk SSSR 281 (1985)."
+novel_bridges: []
