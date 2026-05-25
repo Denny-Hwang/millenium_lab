@@ -1,0 +1,57 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A010
+problem: 03-p-vs-np
+date: "2026-05-25"
+model: claude-opus-4-7
+strategy: |
+  First (R2) attempt per A009's pivot. State GCT-L02 — the
+  arithmetic-circuit moduli M^arith_{n,s,d} (gates +, x, with
+  Q-scalar weights) replacing the Boolean L02 v2 — and verify it
+  escapes Boolean rigidity (it is honestly positive-dimensional
+  because edge weights are continuous parameters). Then test at
+  (n, s, d) = (2, 3, 2) whether arithmetic-circuit realizability of
+  the multilinear representing polynomial p_f tracks Boolean
+  AC^0-membership of f, using XOR (Boolean-AC^0-hard at (3,2)) as
+  the witness. Report honestly whether (R2) escapes one obstruction
+  only to face another. Out of scope: monotone / bounded-cancellation
+  moduli (idea (ii), deferred to A011); enacting any dormancy
+  decision (user's per charter §3).
+duration_minutes: 120
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: pass
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "GCT-L02 (the (R2) arithmetic-circuit moduli) escapes Boolean rigidity: it is honestly positive-dimensional because edge scalar weights are continuous parameters, so there is no 0-dimensional collapse (the defect that defeated (R1) / C-001)."
+  - "But it does NOT track AC^0-membership. XOR's representing polynomial p_XOR = x_1 + x_2 - 2 x_1 x_2 is arithmetic-realizable at size 2 / depth 2, while XOR is Boolean-AC^0-hard at (3,2) (needs >3 Boolean gates per A007). Arithmetic complexity of p_f does not track f's AC^0 complexity."
+  - "The two routes face DUAL obstructions: (R1) Boolean moduli -> 0-dim rigidity (C-001); (R2) arithmetic moduli -> hardness-blindness (G019, the Boolean-vs-arithmetic gap). Any algebraic-geometric moduli either keeps Boolean structure (rigid) or relaxes to arithmetic (hardness-blind)."
+  - "This is the known algebraic-vs-Boolean complexity gap, rediscovered internally with concrete small-case witnesses on both horns. Honest recommendation: consider moving the H_0 / H_AC^0 program to dormant, with reactivation conditioned on a monotone / bounded-cancellation moduli that escapes both C-001 and G019."
+follow_ups:
+  - "User decision on dormancy (charter §3 / R6 step 5). This attempt recommends dormant for the H_0 / H_AC^0 program; it does not enact it."
+  - "If continuing: A011 — explore monotone-arithmetic moduli (idea (ii)); does restricting to monotone circuits give a moduli that is positive-dimensional AND tracks AC^0 hardness? Entry: Jerrum-Snir 1982, Valiant monotone lower bounds."
+  - "If pausing: register G019 as conjecture C-002 (Boolean-vs-arithmetic gap), analogous to C-001, preserving the negative-knowledge asset."
+  - "Cross-link C-001 <-> G019 as dual obstructions."
+  - "R6 refresh once A011 or the dormancy decision lands; the dual-obstruction finding is the headline lesson of A001-A010."
+  - "Deferred items (L08 base case A003-A4; eval coordinates G014; L11' attack) remain deferred; moot if the program goes dormant."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A006-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A009-2026-05-21-claude-opus-4-7/"
+  - kind: conjecture
+    ref: "conjectures/C-001-boolean-rigidity-sheaf-obstruction/"
+  - kind: bridge
+    ref: "bridges/B-001-gct-homological-circuit.md"
+  - kind: paper
+    ref: "Mulmuley & Sohoni, Geometric Complexity Theory I, SIAM J. Comput. 31 (2001) 496-526."
+  - kind: paper
+    ref: "Jerrum & Snir, Some exact complexity results for straight-line computations over semirings, J. ACM 29 (1982) 874-897."
+  - kind: paper
+    ref: "Valiant, Completeness classes in algebra, STOC 1979."
+novel_bridges: []
