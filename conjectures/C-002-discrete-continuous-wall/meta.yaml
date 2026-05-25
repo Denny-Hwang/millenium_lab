@@ -1,0 +1,24 @@
+# conjecture meta — follows schemas/conjecture-meta.schema.yaml.
+id: C-002
+statement: |
+  Discrete-vs-continuous wall: no algebraic-geometric moduli of
+  circuits is simultaneously (a) positive-dimensional and (b)
+  faithful to Boolean hardness. Every encoding faithful to Boolean
+  (or monotone-Boolean) complexity is 0-dimensional (rigid); every
+  positive-dimensional encoding is hardness-blind. Generalizes
+  C-001 across Boolean, arithmetic, and monotone encodings.
+parent_problem: 03-p-vs-np
+parent_attempt: A011
+numerical_evidence_status: partial
+lean_status: none
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A005-2026-05-20-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A009-2026-05-21-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A010-2026-05-25-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A011-2026-05-25-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-001-gct-homological-circuit.md"
