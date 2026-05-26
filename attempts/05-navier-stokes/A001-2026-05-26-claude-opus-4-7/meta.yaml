@@ -1,0 +1,68 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A001
+problem: 05-navier-stokes
+date: "2026-05-26"
+model: claude-opus-4-7
+strategy: |
+  First attempt on 05-navier-stokes, opened after the 03-p-vs-np
+  H_0 / H_AC^0 program went dormant. P01 multi-perspective panel
+  (mandatory per charter §4.1) on five domains (nonlinear-pde,
+  harmonic-analysis, probability, computational-fluid-dynamics,
+  information-theory; matches the README's Candidate Consilient
+  Fields). Hypothesis: a single critical scale-invariant scalar
+  functional Φ(u, t) decides 3D NSE regularity, equivalent across
+  the five fields. Test whether each field produces a coherent
+  candidate Φ and whether the candidates are mutually equivalent.
+  Out of scope: technical proof work (P03+); bridge registration
+  (P02, deferred to A003/A004); filling problem-doc placeholders
+  (deferred to a follow-up).
+duration_minutes: 90
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Each of the five consilient fields produces a coherent candidate Φ in its native vocabulary (PDE: L^3; harmonic analysis: BMO^{-1} / B^{-1}_{∞,∞}; probability: long-time enstrophy-dissipation under SNS invariant measure; CFD: Kolmogorov microscale η/Δx, analytically enstrophy; information theory: vorticity entropy-production rate). The cross-domain translatability part of the hypothesis is confirmed."
+  - "But the candidates are NOT equivalent norms (C1, the principal substantive finding). L^3, BMO^{-1}, entropy-production etc. are critical (scale-invariant) but strictly inclusion-ordered; controlling one does not control the others. The hypothesis's strict 'same Φ up to equivalence' claim fails on its face."
+  - "Weakened reformulation survives: regularity is decided by SOME element of an ordered family of critical functionals; the question is which family member is bounded along smooth flows. This organizes a refined next attempt."
+  - "Two future bridge candidates surface: B-003 (harmonic-analysis ↔ PDE on critical-norm equivalences, resolves C1); B-004 (CFD ↔ PDE on rigorous turbulence closure, resolves C3). Neither registered yet (P02 deferred)."
+  - "Methodology lesson FROM 03-p-vs-np dormancy: before opening many attempts on this problem, set a direction-commitment protocol + pivot trigger early (analogous to A007's belated route commitment in the dormant program)."
+follow_ups:
+  - "A002: tighten the hypothesis to 'regularity is decided by some element of an ordered family of critical functionals'; enumerate the strict-inclusion ladder of critical norms with current best bounds. Either refined P01 or P03 lemma extraction."
+  - "A003: P02 bridge discovery for the B-003 candidate (harmonic-analysis ↔ PDE, critical-norm equivalence ladder)."
+  - "A004: P02 bridge discovery for the B-004 candidate (CFD ↔ PDE, rigorous turbulence closure)."
+  - "Fill in docs/problems/05-navier-stokes/{statement, equivalent-forms, known-results, failed-approaches, verification-bar}.md from the primer field-notes + this panel. Currently all are placeholders."
+  - "Update docs/primer/field-primers/05-navier-stokes.md §7 (glossary deltas) with the panel's candidate-Φ vocabulary."
+  - "Set explicit pivot triggers EARLY for this problem (apply 03-p-vs-np A007 lesson): direction commitment (global regularity vs blowup) by A005, with pivot trigger if the chosen direction stalls in 3 follow-up attempts."
+references:
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/README.md"
+  - kind: web
+    ref: "docs/primer/field-primers/05-navier-stokes.md"
+  - kind: web
+    ref: "analysis/cross-synthesis/03-p-vs-np-2026-05-21.md"
+  - kind: paper
+    ref: "Leray, Sur le mouvement d'un liquide visqueux emplissant l'espace, Acta Math. 63 (1934) 193-248."
+  - kind: paper
+    ref: "Caffarelli, Kohn, Nirenberg, Partial regularity of suitable weak solutions of the Navier-Stokes equations, Comm. Pure Appl. Math. 35 (1982) 771-831."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, L^{3,∞}-solutions of the Navier-Stokes equations and backward uniqueness, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Koch & Tataru, Well-posedness for the Navier-Stokes equations, Adv. Math. 157 (2001) 22-35."
+  - kind: paper
+    ref: "Bourgain & Pavlovic, Ill-posedness of the Navier-Stokes equations in a critical space in 3D, J. Funct. Anal. 255 (2008) 2233-2247."
+  - kind: paper
+    ref: "Tao, Finite time blowup for an averaged three-dimensional Navier-Stokes equation, J. AMS 29 (2016) 601-674."
+  - kind: paper
+    ref: "Buckmaster & Vicol, Nonuniqueness of weak solutions to the Navier-Stokes equation, Ann. of Math. 189 (2019) 101-144."
+  - kind: paper
+    ref: "Isett, A proof of Onsager's conjecture, Ann. of Math. 188 (2018) 871-963."
+  - kind: paper
+    ref: "Flandoli & Romito, Markov selections for the 3D stochastic Navier-Stokes equations, Probab. Theory Related Fields 140 (2008) 407-458."
+novel_bridges: []  # B-003 / B-004 candidates surfaced but not registered (follow-ups A003/A004 will use P02 to register).
