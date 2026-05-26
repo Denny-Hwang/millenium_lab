@@ -1,0 +1,63 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A002
+problem: 05-navier-stokes
+date: "2026-05-26"
+model: claude-opus-4-7
+strategy: |
+  Refine A001's hypothesis via P03 lemma-extraction (minor variant).
+  A001 panel surfaced C1 (candidate critical Φ's are not equivalent
+  norms). This attempt enumerates the strict-inclusion ladder of
+  critical norms for 3D NSE (Ḣ^{1/2} ⊂ L^3 ⊂ Ḃ^0_{3,q} ⊂
+  Ḃ^{-1+3/p}_{p,q} ⊂ BMO^{-1} ⊂ Ḃ^{-1}_{∞,∞}), attaches the known
+  critical-norm theorem at each step (Fujita-Kato, ESS, Cannone-
+  Meyer, Koch-Tataru, Bourgain-Pavlovic), notes the Ladyzhenskaya-
+  Prodi-Serrin family transverse to the ladder, and lists the open
+  pairwise embedding-along-flow questions as the program's
+  dependency-graph backbone. The catalog refines C1 from
+  "candidates unrelated" to "candidates in a strict-inclusion
+  chain; question is which step has a bounded a-priori norm."
+  Out of scope: any new theorem, new gap, or new candidate.
+duration_minutes: 90
+outcome: survey
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "The critical-norm ladder for 3D NSE is six steps (Ḣ^{1/2} ⊂ L^3 ⊂ Ḃ^0_{3,q} ⊂ Ḃ^{-1+3/p}_{p,q} ⊂ BMO^{-1} ⊂ Ḃ^{-1}_{∞,∞}), with the Ladyzhenskaya-Prodi-Serrin family (L^q_t L^p_x, 2/q + 3/p = 1) transverse to it. Each step has a known critical-norm theorem (Fujita-Kato; ESS 2003; Cannone-Meyer 1995; Koch-Tataru 2001; Bourgain-Pavlovic 2008)."
+  - "ESS 2003 is the keystone bridging theorem: L^∞_t L^3_x bound along smooth flow implies regularity. If we can bound L^∞_t L^3 from all decaying data, CMI (A) is resolved. The single-Φ hypothesis from A001 naturally collapses to 'Φ = L^3' as the operational target."
+  - "Koch-Tataru's BMO^{-1} marks the upper edge of currently-tractable critical spaces; above it (Ḃ^{-1}_{∞,∞}) the equation is ill-posed. So the ladder has a meaningful interval (Ḣ^{1/2} through BMO^{-1}) where well-posedness questions live."
+  - "A001's C1 refines from 'not equivalent' to 'strictly inclusion-ordered with the open question being WHICH ladder step admits a large-data L^∞_t bound along smooth flows.' The pairwise embedding-along-flow questions form the program's dependency-graph backbone."
+follow_ups:
+  - "A003: P02 bridge discovery for B-003 candidate (harmonic-analysis ↔ PDE on critical-norm embedding-along-flow questions). Formalize the ladder as a bridge."
+  - "A004: P02 bridge discovery for B-004 candidate (CFD ↔ PDE on rigorous turbulence closure)."
+  - "A005: direction-commitment attempt per A001 follow-up #6 (global-regularity vs blowup; explicit pivot trigger)."
+  - "Primer update: promote the six-step ladder + LPS family into docs/primer/field-primers/05-navier-stokes.md §3 (Minimum vocabulary)."
+  - "A006+ lemma-extraction: pick one open embedding-along-flow question (e.g., BMO^{-1} → L^3) and attempt P03 decomposition of a candidate proof scheme."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A001-2026-05-26-claude-opus-4-7/"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/equivalent-forms.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/known-results.md"
+  - kind: web
+    ref: "docs/primer/field-primers/05-navier-stokes.md"
+  - kind: paper
+    ref: "Fujita & Kato, On the Navier-Stokes initial value problem I, Arch. Rat. Mech. Anal. 16 (1964) 269-315."
+  - kind: paper
+    ref: "Cannone, Ondelettes, paraproduits et Navier-Stokes, Diderot, 1995."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, L^{3,∞}-solutions of the Navier-Stokes equations and backward uniqueness, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Koch & Tataru, Well-posedness for the Navier-Stokes equations, Adv. Math. 157 (2001) 22-35."
+  - kind: paper
+    ref: "Bourgain & Pavlovic, Ill-posedness of the Navier-Stokes equations in a critical space in 3D, J. Funct. Anal. 255 (2008) 2233-2247."
+  - kind: paper
+    ref: "Lemarié-Rieusset, The Navier-Stokes Problem in the 21st Century, CRC 2nd ed., 2018."
+novel_bridges: []
