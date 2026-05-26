@@ -1,0 +1,54 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A004
+problem: 05-navier-stokes
+date: "2026-05-26"
+model: claude-opus-4-7
+strategy: |
+  P02 bridge discovery between computational-fluid-dynamics and
+  nonlinear-pde, triggered by A001's C3 finding (continuum vs
+  discretized framing gap). Goal: register B-004 as a repository
+  asset formalizing the sub-Kolmogorov-scale-to-continuum question.
+  Output: B-004 file with six sections populated; this attempt's
+  transcript / result documents the P02 procedure (five shared
+  objects spanning energy spectrum, structure functions,
+  dissipation, vortex stretching, Hou-Luo scenarios; three
+  transformations T1-T3; one false-bridge possibility analogous to
+  a natural-proofs-style finite-resolution barrier). Out of scope:
+  any technical work on T1-T3; direction-commitment (deferred to
+  A005).
+duration_minutes: 75
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Five candidate shared objects between CFD and nonlinear-PDE on 05-navier-stokes: (1) energy spectrum / Kolmogorov cascade (established); (2) structure functions and ζ_p exponents (emerging; Onsager 1949 → Isett 2018 for Euler); (3) dissipation rate (established); (4) vortex stretching (emerging; Constantin-Fefferman 1993); (5) Hou-Luo 2014 targeted blowup scenarios (speculative)."
+  - "The COMPOSITE 'continuum-limit-from-finite-resolution' framing as a single B-### bridge object is new (the gap is widely recognized in informal discussions but not formalized as a bridge). Maturity speculative — softer than B-003's ai-discovered — because the composite is not yet developed in the literature."
+  - "Three transformations: T1 (continuum-limit theorem from DNS sequences); T2 (sub-Kolmogorov rigor: CFD-bounded → continuum-bounded in critical norms — couples directly to B-003); T3 (Hou-Luo-scenario rigor: convert axisymmetric high-Re near-blowup into Type-II or smoothness theorem)."
+  - "False-bridge possibility: the continuum limit may be genuinely discontinuous beyond any CFD resolution — a sub-Kolmogorov feature could change qualitatively (smooth → singular) when Δx_k → 0, invisible to any finite simulation. Structurally analogous to a natural-proofs barrier on the CFD-PDE side. Even if it obtains, the bridge's content is the gap-delineation."
+  - "Together with B-003, the 05-navier-stokes program now has the two-bridge scaffold covering both A001 C1 (HA-PDE direction) and C3 (CFD-PDE direction). Direction-commitment (A005) is the natural next step."
+follow_ups:
+  - "A005: direction-commitment attempt (per A001 follow-up #6 and 03-p-vs-np lesson). Commit to global-regularity (B-003 + T1/T2; B-004 + T2 + B-003) or blowup (B-004 + T3 Type-II) with explicit pivot trigger."
+  - "bridges/_INDEX.md update: add B-004 entry."
+  - "Primer update: promote the two-bridge structure into docs/primer/field-primers/05-navier-stokes.md §7."
+  - "Optional early R6 cross-attempt snapshot after A004 (four attempts is unusually early but the program has a coherent scaffold; methodological contrast with 03-p-vs-np)."
+  - "B-003 and B-004 cross-link: explicit citation of how T2 of B-004 feeds into B-003's questions."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A001-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A003-2026-05-26-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: bridge
+    ref: "bridges/B-004-cfd-pde-rigorous-turbulence-closure.md"
+  - kind: paper
+    ref: "Kolmogorov (1941), Frisch (1995), CKN (1982), Constantin-Fefferman (1993), Hou-Luo (2014), Tao (2016), Isett (2018), Buckmaster-Vicol (2019), Constantin-Foias (1988), Lemarié-Rieusset (2018) — full citations in B-004 §6."
+novel_bridges:
+  - "B-004"
