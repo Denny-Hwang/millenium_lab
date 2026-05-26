@@ -1,0 +1,48 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A003
+problem: 05-navier-stokes
+date: "2026-05-26"
+model: claude-opus-4-7
+strategy: |
+  P02 bridge discovery between harmonic-analysis and nonlinear-pde,
+  triggered by A001's C1 finding and A002's ladder catalog. Goal:
+  register B-003 formalizing the spatial-embedding ↦ along-flow
+  implication framing as a repository asset. Output: B-003 file
+  with six sections populated; this attempt's transcript / result
+  documents the P02 procedure (five shared objects, maturity,
+  strongest candidate with three transformations T1-T3, one
+  false-bridge possibility). Out of scope: any technical work on
+  T1-T3 (deferred to A006+); B-004 (deferred to A004).
+duration_minutes: 75
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Five candidate shared objects between harmonic-analysis and nonlinear-PDE on 05-navier-stokes: (1) the critical-norm ladder; (2) Littlewood-Paley decomposition; (3) Bony paraproduct; (4) bilinear estimates in critical spaces; (5) heat semigroup smoothing. Items 1-3 and 5 are established; item 4 is established for small data, emerging for large-data along-flow."
+  - "The COMPOSITE framing 'spatial-embedding X ⊂ Y in the critical-norm ladder ↦ along-flow implication L^∞_t X ⇒ L^∞_t Y' is ai-discovered in this session (implicit in literature but not explicit as a bridge object). Registered as B-003."
+  - "Three concrete transformations T1-T3 proposed: T1 (BMO^{-1} → L^3 along-flow closes CMI(A) via ESS); T2 (small-large data interpolation via HA tools); T3 (HA-language quantification of the Tao 2016 barrier). T1 is the highest-leverage open transformation."
+  - "False-bridge possibility identified: Bourgain-Pavlovic 2008 ill-posedness in Ḃ^{-1}_{∞,∞} caps the ladder; the bridge could collapse to ESS 2003 alone if large-data along-flow bounds fail uniformly above L^3. Even in that worst case the bridge's content is the barrier itself — analogous to relativization on the P-vs-NP side."
+follow_ups:
+  - "A004: register B-004 (CFD ↔ PDE on rigorous turbulence closure; resolves A001 C3)."
+  - "A005: direction-commitment attempt per A001 follow-up #6."
+  - "A006+: pick T1 (BMO^{-1} → L^3 along-flow) and run P03 lemma extraction on a candidate proof scheme. First substantive technical attempt on B-003."
+  - "bridges/_INDEX.md update: add B-003 entry to the index listing."
+  - "Primer update: promote the spatial-embedding ↦ along-flow framing into docs/primer/field-primers/05-navier-stokes.md §7."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A001-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A002-2026-05-26-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: paper
+    ref: "Fujita & Kato (1964), Cannone (1995), Koch & Tataru (2001), ESS (2003), Bourgain & Pavlovic (2008), Tao (2016), Buckmaster & Vicol (2019), Lemarié-Rieusset (2018), Bergh & Löfström (1976), Triebel (1983), Bony (1981) — full citations in B-003 §6."
+novel_bridges:
+  - "B-003"
