@@ -1,7 +1,7 @@
 ---
 id: 03-p-vs-np
 title: P vs NP
-status: not-started
+status: dormant
 ---
 
 # 03 — P vs NP
