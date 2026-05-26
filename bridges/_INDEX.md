@@ -13,6 +13,7 @@ Auto-updated.
 | [B-001](B-001-gct-homological-circuit.md) | geometric-complexity-theory ↔ homological-complexity | 03-p-vs-np | ai-discovered | active |
 | [B-002](B-002-natural-proofs-sheaf-cohomology.md) | circuit-complexity ↔ homological-complexity | 03-p-vs-np | ai-discovered | dormant |
 | [B-003](B-003-critical-norm-equivalence-along-flow.md) | harmonic-analysis ↔ nonlinear-pde | 05-navier-stokes | ai-discovered | active |
+| [B-004](B-004-cfd-pde-rigorous-turbulence-closure.md) | computational-fluid-dynamics ↔ nonlinear-pde | 05-navier-stokes | speculative | active |
 
 <!-- BRIDGES:END -->
 
