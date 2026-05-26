@@ -1,0 +1,68 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A005
+problem: 05-navier-stokes
+date: "2026-05-26"
+model: claude-opus-4-7
+strategy: |
+  Direction-commitment attempt per A001 follow-up #6 and the
+  03-p-vs-np dormancy lesson (commit early, set falsifiable
+  triggers). User has explicitly chosen (α) global regularity with
+  B-003's T1 (BMO^{-1} → L^3 along-flow) as the next attack
+  vector. Decompose T1 into T1a (small-data), T1b (large-data),
+  T1c (Tao-barrier audit). Stage A006 (T1a, P03), A007 (T1b, P03),
+  A008 (P07 adversarial barrier audit on A006/A007). Set
+  falsifiable 3-attempt pivot trigger (Pivot 1: switch route to
+  T2 / B-004; Pivot 2: switch direction to (β); Pivot 3:
+  dormancy). Apply verification-bar.md §7 four-barrier pre-audit.
+  Out of scope: technical work on T1 (deferred to A006+); enacting
+  the (α) commitment as a status.md note (deferred follow-up).
+duration_minutes: 90
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Program commits to (α) global regularity targeting L^3 via B-003 / T1 (BMO^{-1} → L^3 along-flow). T1's conditional structure makes 3-attempt falsifiability meaningful. Combined with ESS 2003, T1 would strengthen the sufficient condition from L^3 to BMO^{-1} (Koch-Tataru endpoint)."
+  - "T1 decomposed into T1a (small-data; plausibly provable via instantaneous smoothing in Koch-Tataru regime), T1b (large-data; structurally hard, the genuinely open case), T1c (Tao-barrier audit identifying NSE-specific cancellation absent in averaged-NSE). Each is a falsifiable sub-target."
+  - "Stage A006 (T1a, P03), A007 (T1b, P03), A008 (P07 adversarial audit). Falsifiable 3-attempt pivot trigger: if none of (a) T1a proof, (b) precise T1b lemma-graph, (c) T1 falsification is produced by A008, switch route or direction. Max budget before dormancy: 7 attempts (A006-A012)."
+  - "Applies 03-p-vs-np late-commitment lesson EARLY: H_AC^0 reached A007 before route-committing; here A005. Triggers set for A008 rather than after 5-attempt accumulation."
+  - "Verification-bar §7 pre-audit: T1 consistent with all four NSE barriers (supercriticality; Tao 2016 averaged-NSE; Buckmaster-Vicol non-uniqueness; CFD-continuum gap). A006-A008 must close in detail."
+follow_ups:
+  - "A006: P03 lemma extraction on T1a (small-data BMO^{-1} → L^3 along-flow). First concrete technical step on the committed route."
+  - "A007: P03 lemma extraction on T1b (large-data)."
+  - "A008: P07 adversarial review of A006/A007 against verification-bar §7 (Tao-barrier + supercriticality)."
+  - "At each of A006-A008: re-evaluate the pivot trigger."
+  - "Primer update: promote T1a/T1b/T1c structure into docs/primer/field-primers/05-navier-stokes.md §7."
+  - "Status.md note: add a Change Log entry to docs/problems/05-navier-stokes/status.md recording the (α) commitment."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A001-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A002-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A003-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A004-2026-05-26-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: bridge
+    ref: "bridges/B-004-cfd-pde-rigorous-turbulence-closure.md"
+  - kind: web
+    ref: "analysis/cross-synthesis/03-p-vs-np-2026-05-21.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+  - kind: paper
+    ref: "Koch & Tataru, Well-posedness for the Navier-Stokes equations, Adv. Math. 157 (2001) 22-35."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, L^{3,∞}-solutions of the Navier-Stokes equations and backward uniqueness, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Tao, Finite time blowup for an averaged 3D Navier-Stokes equation, J. AMS 29 (2016) 601-674."
+  - kind: paper
+    ref: "Lemarié-Rieusset, The Navier-Stokes Problem in the 21st Century, CRC 2nd ed. 2018, Chapters 9-10."
+novel_bridges: []
