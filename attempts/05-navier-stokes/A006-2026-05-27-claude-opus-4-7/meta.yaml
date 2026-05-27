@@ -1,0 +1,62 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A006
+problem: 05-navier-stokes
+date: "2026-05-27"
+model: claude-opus-4-7
+strategy: |
+  First technical attempt under the A005 direction commitment to
+  (α) global regularity via B-003 / T1. P03 lemma extraction on
+  T1a (small-data BMO^{-1} → L^3 along-flow). Decompose T1a into
+  sub-lemmas L_T1a_1 through L_T1a_5 with explicit difficulty and
+  dependencies. Inside the CMI initial-data class (smooth,
+  divergence-free, decaying per Fefferman 2000 §A) check whether
+  T1a is trivial (Kato + Koch-Tataru agreement on the common
+  small-data regime) or substantive (Koch-Tataru small but L^3
+  large). Identify gaps with G_### labels; perform partial
+  verification-bar pre-audit; evaluate the A005 pivot trigger.
+  Out of scope: a literature audit on the bilinear estimate
+  G_T1a_1 (deferred); P07 adversarial barrier audit (deferred to
+  A008).
+duration_minutes: 120
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "T1a decomposes cleanly inside the CMI initial-data class into a TRIVIAL sub-case (u_0 small in both BMO^{-1} and L^3 — by L_T1a_3 Kato/Koch-Tataru agreement + L_T1a_4 Kato endpoint) and a SUBSTANTIVE sub-case L_T1a_5 (small BMO^{-1} but possibly large L^3). The trivial sub-case adds nothing to Kato 1964."
+  - "L_T1a_5 has non-trivial CMI examples (widely-separated bump construction): N decoupled smooth bumps each contributing ε_KT/(2N) to BMO^{-1} but a fixed amount to L^3, giving total BMO^{-1} ~ ε_KT/2 but L^3 ~ N^{1/3} arbitrarily large. The substantive sub-case is non-vacuous."
+  - "L_T1a_5 is OPEN. The bilinear estimate ||B(u,v)||_{L^∞_t L^3} ≲ ||u||_{X_KT} ||v||_{X_KT} (or similar) bridging the Koch-Tataru class X_KT to L^3 is not in the literature in the form needed (G_T1a_1)."
+  - "G_T1a_3 (NEW program-level concern): T1a + ESS yields only 'small BMO^{-1} ⇒ regularity', a Koch-Tataru-style statement already known in form. T1a's leverage for the (α) program is LIMITED. The genuine payoff target is T1b (large-data) — A007. A005's commitment statement did not anticipate this leverage limit."
+  - "A006 does NOT fire the A005 pivot trigger: criterion (a) is partially met (trivial sub-case proved); criteria (b) and (c) await A007/A008. The 3-attempt trigger window remains open. G_T1a_3 motivates prioritizing A007 over additional T1a work."
+follow_ups:
+  - "A007 (the prioritized payoff target per G_T1a_3): P03 lemma extraction on T1b (large-data BMO^{-1} → L^3 along-flow). Given G_T1a_3, A007 carries the program's real load."
+  - "A008: P07 adversarial review per verification-bar §7 (Tao-barrier audit on whatever A006/A007 produced)."
+  - "Re-evaluate the pivot trigger at A008. G_T1a_3 means a strong A007 result is needed to justify continuing on T1; if A007 also surfaces a leverage concern, Pivot 1 may be warranted ahead of schedule."
+  - "Optional low-priority: literature audit on G_T1a_1 (Auscher-Frey-Monniaux; Albritton borderline-regularity criteria — do they state L_T1a_5 in some form?)."
+  - "Primer update: add the trivial-vs-substantive split as a methodological note in docs/primer/field-primers/05-navier-stokes.md §7."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/statement.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/known-results.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+  - kind: paper
+    ref: "Kato, Strong L^p-solutions of the Navier-Stokes equation in R^m, with applications to weak solutions, Math. Z. 187 (1984) 471-480."
+  - kind: paper
+    ref: "Koch & Tataru, Well-posedness for the Navier-Stokes equations, Adv. Math. 157 (2001) 22-35."
+  - kind: paper
+    ref: "Lemarié-Rieusset, The Navier-Stokes Problem in the 21st Century, CRC 2nd ed., 2018, Chapter 9."
+  - kind: paper
+    ref: "Fefferman, Existence and Smoothness of the Navier-Stokes Equation, CMI problem description (2000), Appendix A."
+novel_bridges: []
