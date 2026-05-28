@@ -1,0 +1,66 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A008
+problem: 05-navier-stokes
+date: "2026-05-28"
+model: claude-opus-4-7
+strategy: |
+  Third attempt in A005's 3-attempt window. P07 adversarial review
+  on A006 + A007 / T1 program. Runs seven attacks: A1 weaken-
+  assumption (Koch-Tataru threshold); A2 chain-failure
+  (hypothetical L_T1a_5 counterexample); A3 domain-swap (R^3 vs
+  T^3); A4 circular-reasoning (T1b chain); A5 quantifier-
+  alternation (T1b bound dependence); A6 NSE-specific
+  tao_barrier_resolution_audit on G_T1b_1's eventual proof
+  approach; A7 weaken-assumption (energy hypothesis weakening to
+  weak solutions). Goal: audit at the RESOLUTION level beyond
+  A007's lemma-statement-level audit, and re-evaluate A005's
+  pivot trigger. Caveat: ideal P07 uses a different model/session
+  than the authors; here same session — adversarial discipline
+  enforced explicitly. Out of scope: actually executing the
+  patches (A009+ work).
+duration_minutes: 120
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: pending
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Seven adversarial attacks on A006 + A007. Five survive cleanly (A1, A3, A4, A5, A7); two flag needs-patch (A2, A6); zero lethal. Round verdict: partial. A006 and A007 are structurally sound."
+  - "A6 (tao_barrier_resolution_audit, the substantive finding) flags that A007's Tao-barrier audit passed at the LEMMA-STATEMENT level, but G_T1b_1's eventual PROOF could use only paraproduct estimates that also work on averaged NSE — failing the audit at the RESOLUTION level. A009+ must specify the approach (reject paraproduct-only; require vorticity or direct-energy-method)."
+  - "A3 (R^3 vs T^3 domain-swap) confirms T1b's substantive content is R^3-specific (sub-case (A)): on T^3 the BMO^{-1} ⊂ L^∞ ⊂ L^3 embedding trivializes L_T1b_3b. Program's focus is correctly placed; recommend explicit sub-case distinction in a future B-003 / A007 revision."
+  - "A005 pivot trigger: criterion (b) achieved (A007 + A008 confirmation). Trigger does NOT fire. The (α) program continues per the committed route. 3 attempts used (A006-A008); 4 remain in the budget before dormancy."
+  - "Window assessment vs dormant 03-p-vs-np A005-A007 equivalent: the (α) program is BETTER positioned — clean Duhamel decomposition with single named bottleneck G_T1b_1, vs the dormant program's dual obstruction + route-independent wall at the equivalent point. The early commitment + early audit discipline is paying off."
+follow_ups:
+  - "A009 (Patch 2, highest priority): specify the approach to G_T1b_1 (paraproduct / vorticity / direct energy method). REJECT paraproduct-only as barrier-blocked. Run statement-level audit on the specific choice; then attempt proof sketch of L_T1b_3b."
+  - "A010 or parallel (Patch 1): literature audit for a possible L_T1a_5 counterexample (Albritton 2018+; Auscher-Frey-Monniaux; Bourgain-Pavlovic). If found, T1a-substantive fails and T1a's content shrinks to a Kato rephrasing."
+  - "R^3 vs T^3 explicit distinction in B-003 / A007 revision."
+  - "Budget tracking: A005 set max 7 attempts before dormancy threshold (A006-A012); 3 used; 4 remain."
+  - "Primer update: promote seven-attack P07 template + A6 resolution-vs-statement-level distinction into primer §7 (and proof-techniques.md as meta-note on adversarial audits)."
+  - "Optional mid-arc R6: 8 attempts on 05-navier-stokes now exist (A001-A008); a methodological R6 contrasting with the dormant 03-p-vs-np would be a useful asset."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A006-2026-05-27-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A007-2026-05-28-claude-opus-4-7/"
+  - kind: web
+    ref: "analysis/cross-synthesis/03-p-vs-np-2026-05-21.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+  - kind: paper
+    ref: "Tao, Finite time blowup for an averaged 3D Navier-Stokes equation, J. AMS 29 (2016) 601-674."
+  - kind: paper
+    ref: "Koch & Tataru, Well-posedness for the Navier-Stokes equations, Adv. Math. 157 (2001) 22-35."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, L^{3,∞}-solutions of the Navier-Stokes equations and backward uniqueness, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Buckmaster & Vicol, Nonuniqueness of weak solutions to the Navier-Stokes equation, Ann. of Math. 189 (2019) 101-144."
+  - kind: paper
+    ref: "Lemarié-Rieusset, The Navier-Stokes Problem in the 21st Century, CRC 2nd ed., 2018, Chapters 9-10."
+novel_bridges: []
