@@ -1,0 +1,39 @@
+# conjecture meta — follows schemas/conjecture-meta.schema.yaml.
+id: C-003
+statement: |
+  No proof of the conditional implication "u in L^∞_t BMO^{-1} on
+  [0, T) implies u in L^∞_t L^q on [0, T) for some q in (3, 6]"
+  for smooth 3D incompressible Navier-Stokes solutions from CMI
+  initial data simultaneously (a) passes the Tao-barrier audit
+  (uses the divergence-free condition essentially, in a way
+  averaged NSE cannot replicate), AND (b) reduces to estimates
+  that are local in Littlewood-Paley / Bony frequency
+  decomposition. Equivalently: the global-in-frequency div-free
+  cancellation and the local-per-frequency-block estimates
+  required for BMO^{-1} → L^q control are structurally
+  incompatible.
+parent_problem: 05-navier-stokes
+parent_attempt: A011
+numerical_evidence_status: partial
+lean_status: none
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A006-2026-05-27-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A007-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A008-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A009-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A010-2026-05-28-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: paper
+    ref: "Tao, Finite time blowup for an averaged 3D Navier-Stokes equation, J. AMS 29 (2016) 601-674."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Bony, Calcul symbolique et propagation des singularités, Ann. ENS 14 (1981) 209-246."

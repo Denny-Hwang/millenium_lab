@@ -1,0 +1,60 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A011
+problem: 05-navier-stokes
+date: "2026-05-28"
+model: claude-opus-4-7
+strategy: |
+  Register conjecture C-003 (regularity-equivalence / non-local-
+  cancellation wall) per A010 follow-up §1. Consolidate the (α)
+  arc's negative findings (G_T1b_1 from A007 unique Duhamel
+  bottleneck; G_T1b_3 from A009 direct L^p degeneration; G_T1b_4
+  from A009 vorticity degeneration; A010's paraproduct-hybrid
+  non-existence + global-vs-local structural finding) into a
+  unified route-family-independent meta-statement. Follow the
+  C-001 / C-002 precedents (dormant 03-p-vs-np program) for
+  format and registration. Out of scope: Pivot evaluation
+  (deferred to A012); B-003 status revision (deferred to
+  post-A012); enacting any dormancy (user-approval-only).
+duration_minutes: 90
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "C-003 registered: a route-family-independent meta-conjecture asserting no proof of the BMO^{-1} → L^q implication (large-data, smooth, q ∈ (3, 6]) on 3D NSE simultaneously (a) passes the Tao-barrier audit AND (b) reduces to LP/Bony-local frequency estimates. The (α)-arc analog of C-001/C-002 from the dormant 03-p-vs-np program."
+  - "C-003 absorbs G_T1b_1 (A007), G_T1b_3 (A009), G_T1b_4 (A009), and A010's paraproduct-hybrid non-existence finding into a single statement. The relationship mirrors C-002's absorption of (G009 + G019 + monotone reproduction) for 03-p-vs-np."
+  - "Strength/weakness: if C-003 is TRUE, the (α)-route via B-003/T1 cannot succeed without a fundamentally new technique outside the surveyed family; pivot is justified. If FALSE, the disproof IS a proof of the implication, which combined with ESS 2003 closes CMI (A) on R^3 — exact-equivalent in strength to '(A) is provable via the (α) family.'"
+  - "Operationally, C-003 controls A012's Pivot evaluation. If taken seriously (surveyed family exhausted), Pivot 1 (B-004 + T2) or Pivot 3 (dormancy recommendation) are realistic options."
+  - "The 7-attempt budget logic from A005 worked. A005-A007 produced clean lemma graph; A008-A010 exhausted direct techniques; A011 registers the asset; A012 closes with Pivot selection. Discipline contrasts with 03-p-vs-np which committed late and reached dormancy via a longer arc."
+follow_ups:
+  - "A012: Pivot evaluation. Three options: Pivot 1 (route change to B-004 + T2 sub-Kolmogorov / CFD-PDE); Pivot 2 ((β) blowup via B-004/T3 Hou-Luo Type-II); Pivot 3 (dormancy recommendation, user-approval-required)."
+  - "Mid-arc R6 (strongly motivated): 11 attempts on 05-navier-stokes (A001-A011); methodological-contrast R6 with dormant 03-p-vs-np. Could combine with A012's Pivot evaluation in a single PR."
+  - "B-003 status review after A012: if Pivot 1/2/3 selected, B-003 may transition to dormant (parallel to B-002 in PR #18)."
+  - "Cross-link C-001 ↔ C-002 ↔ C-003 in a future conjectures/_INDEX.md update (analogous to bridges/_INDEX.md)."
+  - "verification-bar.md §7 update per A010 follow-up #4: add 'global-vs-local cancellation mismatch' as a fifth NSE barrier."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A007-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A009-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A010-2026-05-28-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: web
+    ref: "analysis/cross-synthesis/03-p-vs-np-2026-05-21.md"
+  - kind: paper
+    ref: "Tao, Finite time blowup for an averaged 3D Navier-Stokes equation, J. AMS 29 (2016) 601-674."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Bony, Calcul symbolique et propagation des singularités, Ann. ENS 14 (1981) 209-246."
+novel_bridges: []
