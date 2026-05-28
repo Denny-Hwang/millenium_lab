@@ -1,0 +1,66 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A007
+problem: 05-navier-stokes
+date: "2026-05-28"
+model: claude-opus-4-7
+strategy: |
+  Second technical attempt under A005's (α) direction commitment.
+  Per A006's G_T1a_3 (T1a leverage limited; T1b is the genuine
+  payoff), A007 attacks T1b via P03 lemma extraction. Decompose
+  T1b using Duhamel as structural backbone: linear part (L_T1b_2,
+  trivial); bilinear part (L_T1b_3, the crux). Sub-decompose
+  L_T1b_3 into the routine time-integral L_T1b_3a (heat-kernel
+  estimate + Hölder, given an auxiliary L^q control) and the
+  unique bottleneck L_T1b_3b (auxiliary L^q control from
+  L^∞_t BMO^{-1} hypothesis). Identify gap G_T1b_1 (lethal-if-
+  unresolved) as the unique technical bottleneck; G_T1b_2 (major)
+  for ESS iteration. Audit against the Tao barrier: Duhamel uses
+  Leray projector + ∇·u = 0 structurally, so the lemma-statement
+  level satisfies the audit; A008 must verify any G_T1b_1
+  resolution also preserves this. Goal: satisfy A005 trigger
+  criterion (b). Out of scope: a proof attempt on G_T1b_1
+  (deferred to A009+); literature audit on Albritton-style
+  borderline criteria.
+duration_minutes: 150
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "T1b decomposes via Duhamel into L_T1b_1 (Duhamel formula, trivial for smooth solutions); L_T1b_2 (linear part in L^3, trivial); L_T1b_3 (bilinear, the crux). The Duhamel form uses the Leray projector P and ∇·u=0 explicitly — the Tao-barrier-relevant structure."
+  - "L_T1b_3 sub-decomposes into L_T1b_3a (routine time-integral via heat-kernel estimate + Hölder, given an auxiliary L^q control with q ∈ (3,6]) and L_T1b_3b (THE auxiliary L^q control, derived from the L^∞_t BMO^{-1} hypothesis plus smoothness + energy). L_T1b_3a is low-difficulty; L_T1b_3b is the unique bottleneck."
+  - "G_T1b_1 (lethal-if-unresolved): establishing L_T1b_3b. Heuristic: BMO^{-1} is the LARGEST critical Banach space; L^q for q > 3 is STRICTLY smaller; so the implication is a regularity strengthening at the critical scale, lacking a known bootstrap mechanism. Albritton-style borderline criteria attack this but have not closed it. G_T1b_2 (major): ESS iteration to close (A) requires uniform-in-T constants."
+  - "Tao-barrier audit satisfied at the lemma-statement level: Duhamel uses P + ∇·u = 0 explicitly (pressure cancellation), structural ingredients absent from averaged NSE. Caveat: G_T1b_1's resolution must continue to use these non-trivially; A008 (P07) must verify."
+  - "A005 trigger criterion (b) — 'a precise lemma-graph + gap labels for T1b consistent with the Tao-barrier audit' — is ACHIEVED. The pivot trigger does NOT fire. The 05-navier-stokes program continues per the committed (α) route. First attempt to bring the (α) commitment into satisfactory trigger territory."
+follow_ups:
+  - "A008: P07 adversarial review of A006 + A007 against verification-bar §7. Specifically verify that possible G_T1b_1 resolutions cannot bypass the Leray-projector requirement (audit at resolution level)."
+  - "A009+: pick G_T1b_1 and attempt direct technical attack — paraproduct decomposition on BMO^{-1} scale, or Beale-Kato-Majda-style vorticity bridge from BMO^{-1} to L^q."
+  - "Re-evaluate the program at A009. If G_T1b_1 turns out to require a non-Leray-projector estimate (failing Tao-barrier), Pivot 1 may be warranted."
+  - "Cross-reference G_T1b_1 with G_T1a_1 (A006). Both ask for a bilinear estimate at BMO^{-1} scale targeting L^3/L^q. Unified treatment may emerge in A009."
+  - "Primer update: promote trivial-vs-substantive split (A006) + L_T1b_3b bottleneck (A007) into docs/primer/field-primers/05-navier-stokes.md §7."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A006-2026-05-27-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/known-results.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, L^{3,∞}-solutions of the Navier-Stokes equations and backward uniqueness, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Koch & Tataru, Well-posedness for the Navier-Stokes equations, Adv. Math. 157 (2001) 22-35."
+  - kind: paper
+    ref: "Tao, Finite time blowup for an averaged 3D Navier-Stokes equation, J. AMS 29 (2016) 601-674."
+  - kind: paper
+    ref: "Lemarié-Rieusset, The Navier-Stokes Problem in the 21st Century, CRC 2nd ed., 2018, Chapters 9-10."
+novel_bridges: []
