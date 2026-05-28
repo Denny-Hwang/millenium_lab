@@ -1,0 +1,70 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A010
+problem: 05-navier-stokes
+date: "2026-05-28"
+model: claude-opus-4-7
+strategy: |
+  Discharge A009 follow-up §1 (third-approach exploration) and
+  absorb A006 Patch 1 (literature audit) into one attempt. Survey
+  Albritton 2018+, Auscher-Frey-Monniaux, Lemarié-Rieusset 2018,
+  Cheskidov-Shvydkoy 2014 for BMO^{-1} → L^q large-data results.
+  Sketch the paraproduct-with-cancellation hybrid: Bony
+  decomposition u·∇u = T_u(∇u) + T_{∇u}(u) + R(u,∇u), examine
+  where ∇·u = 0 enters per block. Verdict: does the hybrid escape
+  both A008-A6 (paraproduct-only blocked) and A009 (direct
+  degeneration)? Honest expected outcome: the hybrid does NOT
+  escape — the cancellation is non-local in frequency — and the
+  obstruction is intrinsic. Out of scope: any new technique
+  beyond surveyed families; the C-003 registration (deferred to
+  A011); Pivot selection (deferred to A012).
+duration_minutes: 150
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Literature audit on Albritton 2018+, Auscher-Frey-Monniaux, Lemarié-Rieusset 2018, Cheskidov-Shvydkoy 2014: no published BMO^{-1} → L^q result for large data. G_T1b_3 is genuinely open. Discharges A006 Patch 1 — no L_T1a_5 counterexample located either."
+  - "Paraproduct-with-cancellation hybrid sketch via Bony decomposition: ∇·u = 0 does NOT enter per-frequency-block paraproduct estimates. Δ_j(∇·u) = 0 holds (Fourier-localized) but products S_{j-1}(u)·Δ_j(∇u) do NOT inherit divergence-freeness. The cancellation appears only at the AGGREGATE L^2 identity (∫ u·P(u·∇u) = 0), which is GLOBAL in frequency."
+  - "Therefore: a paraproduct-with-cancellation hybrid that satisfies both A008-A6 (Tao-barrier pass) AND escapes A009 degeneration DOES NOT EXIST in the surveyed family. Paraproduct-only fails A008-A6; paraproduct-with-aggregate-cancellation reduces to energy/vorticity which A009 showed degenerates."
+  - "STRUCTURAL INSIGHT: the ∇·u = 0 cancellation is global-in-frequency; the BMO^{-1} → L^q implication requires a local per-frequency-block estimate. The mismatch makes T1b structurally hard. This is the (α)-program analog of the route-independent C-002 wall (03-p-vs-np)."
+  - "A005 trigger does NOT literally fire (criterion (b) lemma graph still correct), but the program's viability is significantly weakened. Honest recommendation: A011 registers C-003 (regularity-equivalence / non-local-cancellation wall); A012 selects Pivot."
+follow_ups:
+  - "A011: register conjecture C-003 (regularity-equivalence / non-local-cancellation wall) as the formal asset — analog of C-001 for the dormant 03-p-vs-np program. Generalize G_T1b_3 + G_T1b_4 + the global-vs-local finding into a unified statement."
+  - "A012: Pivot evaluation. Pivot 1 (B-004 + T2 sub-Kolmogorov rigor) is most plausible — structurally orthogonal to direct PDE. Pivot 2 ((β) blowup, B-004/T3). Pivot 3 (dormancy recommendation) — user decision required."
+  - "Mid-arc R6 (strongly motivated): 10 attempts on 05-navier-stokes (A001-A010); methodological-contrast R6 with 03-p-vs-np becomes the natural consolidation, possibly co-located with A012's Pivot evaluation."
+  - "Update verification-bar §7: add 'global-vs-local cancellation mismatch' as a fifth barrier in the NSE-specific audit table."
+  - "B-003 §3 Stuck points update: add A009/A010 findings explicitly (paraproduct-hybrid non-locality)."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A006-2026-05-27-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A007-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A008-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A009-2026-05-28-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: web
+    ref: "analysis/cross-synthesis/03-p-vs-np-2026-05-21.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+  - kind: paper
+    ref: "Bony, Calcul symbolique et propagation des singularités, Ann. ENS 14 (1981) 209-246."
+  - kind: paper
+    ref: "Bahouri, Chemin, Danchin, Fourier Analysis and Nonlinear Partial Differential Equations, Springer, 2011."
+  - kind: paper
+    ref: "Albritton, Blow-up criteria for the Navier-Stokes equations in non-endpoint critical Besov spaces, Anal. PDE 11 (2018) 1415-1456."
+  - kind: paper
+    ref: "Lemarié-Rieusset, The Navier-Stokes Problem in the 21st Century, CRC 2nd ed., 2018, Chapters 9-11."
+  - kind: paper
+    ref: "Cheskidov, Shvydkoy, A unified approach to regularity problems for the 3D Navier-Stokes equations, JMFM 16 (2014) 263-273."
+novel_bridges: []
