@@ -1,0 +1,70 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A009
+problem: 05-navier-stokes
+date: "2026-05-28"
+model: claude-opus-4-7
+strategy: |
+  Execute A008's Patch 2 on G_T1b_1. Commit to a specific approach
+  (paraproduct-only REJECTED per A008-A6), run statement-level
+  Tao-barrier audit on the choice, sketch the proof, identify
+  sub-bottlenecks as new gaps. Selected: approach (i) direct L^p
+  energy method on u (cleanest expression of ∇·u = 0 cancellation).
+  Cross-checked: approach (ii) vorticity L^p energy method.
+  Approach (iii) Constantin-Fefferman geometric requires
+  direction-Lipschitz as hypothesis — not given by L^∞_t BMO^{-1};
+  doesn't apply. Out of scope: A006 Patch 1 (literature audit for
+  L_T1a_5 counterexample, deferred to A010); third
+  (paraproduct-with-cancellation hybrid) approach (deferred).
+duration_minutes: 150
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: pending
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Selected approach (i) direct L^p energy method on u. Statement-level Tao-barrier audit PASSES: convection term cancels by ∇·u = 0 via integration by parts (∫|u|^{p-2}u·(u·∇u) = -(1/p)∫(∇·u)|u|^p = 0); averaged NSE does NOT have this cancellation."
+  - "After convection cancellation, pressure term remains. Calderón-Zygmund + Hölder reduces the closure to needing L^∞_t L^∞_x control on u — NOT given by L^∞_t BMO^{-1}. NEW GAP G_T1b_3 (major-but-not-lethal): derive uniform L^∞_t L^∞_x from L^∞_t BMO^{-1} + smoothness + energy. G_T1b_3 is roughly equivalent in difficulty to closing (A) directly."
+  - "Cross-check: approach (ii) vorticity L^p energy method passes statement-level audit symmetrically (vorticity convection cancels by ∇·u = 0), but reduces to vortex stretching obstruction, requiring vorticity-direction Lipschitz (Constantin-Fefferman 1993 hypothesis) NOT given by L^∞_t BMO^{-1}. NEW GAP G_T1b_4 (major-but-not-lethal) symmetric to G_T1b_3."
+  - "Cross-approach finding (substantive negative): BOTH non-barrier-blocked direct approaches degenerate — they relocate G_T1b_1 to a regularity-equivalent gap (G_T1b_3 or G_T1b_4) rather than closing it. Structurally similar in spirit to the route-independent wall A011 identified for 03-p-vs-np (conjecture C-002), though here tested on two approaches not all."
+  - "A005 trigger does NOT fire: criterion (b) (lemma-graph consistent with audit) was achieved by A007 and remains. But A009 motivates A010 to either find a third approach (paraproduct-with-cancellation hybrid; spectral ladder; Albritton literature) or extract the relocation finding as a permanent asset (analog of C-001)."
+follow_ups:
+  - "A010: identify a candidate third approach — paraproduct-with-cancellation hybrid; Galerkin/spectral-projection ladder; Albritton 2018+ literature audit (also discharges A006 Patch 1)."
+  - "A011 (if A010 fails): extract G_T1b_3 + G_T1b_4 as a formal conjecture C-003 (regularity-equivalence obstruction) — analog of C-001 for the dormant 03-p-vs-np program."
+  - "A012 (if A010 + A011 inconclusive): prepare Pivot 1 (route change within α) or Pivot 2 (switch to β)."
+  - "Mid-arc R6 (now strongly motivated): 9 attempts on 05-navier-stokes (A001-A009); methodological-contrast R6 with the dormant 03-p-vs-np becomes informative."
+  - "Update verification-bar §7 to add a fifth barrier: 'regularity-equivalent reduction' — a proof technique that reduces (A) to an equivalent regularity question is not making progress."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A006-2026-05-27-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A007-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A008-2026-05-28-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: web
+    ref: "analysis/cross-synthesis/03-p-vs-np-2026-05-21.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+  - kind: paper
+    ref: "Stein, Singular Integrals and Differentiability Properties of Functions, Princeton, 1970."
+  - kind: paper
+    ref: "Brezis & Gallouet, Nonlinear Schrödinger evolution equations, Nonlinear Anal. 4 (1980) 677-681."
+  - kind: paper
+    ref: "Constantin & Fefferman, Direction of vorticity and the problem of global regularity for the Navier-Stokes equations, Indiana Univ. Math. J. 42 (1993) 775-789."
+  - kind: paper
+    ref: "Beale, Kato, Majda, Remarks on the breakdown of smooth solutions for the 3-D Euler equations, Comm. Math. Phys. 94 (1984) 61-66."
+  - kind: paper
+    ref: "Koch & Tataru, Well-posedness for the Navier-Stokes equations, Adv. Math. 157 (2001) 22-35."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, L^{3,∞}-solutions of the Navier-Stokes equations and backward uniqueness, Russian Math. Surveys 58 (2003) 211-250."
+  - kind: paper
+    ref: "Tao, Finite time blowup for an averaged 3D Navier-Stokes equation, J. AMS 29 (2016) 601-674."
+novel_bridges: []
