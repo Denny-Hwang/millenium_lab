@@ -1,0 +1,69 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A012
+problem: 05-navier-stokes
+date: "2026-06-30"
+model: claude-opus-4-7
+strategy: |
+  Final attempt of A005's 7-attempt budget. Pivot evaluation
+  given C-003 (A011's intrinsic-wall conjecture). Three options
+  per A005 §4: Pivot 1 (B-004 + T2 sub-Kolmogorov / CFD-PDE);
+  Pivot 2 ((β) blowup via B-004/T3 Hou-Luo Type-II); Pivot 3
+  (dormancy recommendation). C-003-orthogonality is the
+  selection criterion. Decision: Pivot 1 — stays in (α)
+  direction, switches route family to one outside C-003's
+  quantification (CFD-derived bounds use convergence arguments,
+  not LP locality). New mini-trigger window for A013-A015 with
+  explicit pass/fail criteria. Companion: mid-arc R6
+  cross-synthesis on A001-A011 at
+  analysis/cross-synthesis/05-navier-stokes-2026-06-30.md.
+  Out of scope: technical work on T2 (deferred to A013+); B-003
+  status revision (deferred to separate PR); enacting any
+  dormancy.
+duration_minutes: 75
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "Pivot 1 selected: route change within (α) from B-003/T1 to B-004/T2 (sub-Kolmogorov / CFD-PDE bridge). Reasons: stays in α direction; C-003-orthogonal (CFD evidence is outside the direct-PDE family C-003 quantifies over); B-004 already registered (PR #25); Pivot 2 / 3 remain in reserve."
+  - "Pivot 2 ((β) blowup) and Pivot 3 (dormancy) held in reserve. Dormancy would be premature — 03-p-vs-np precedent applied after BOTH (R1) and (R2) tried; here only one route family exhausted."
+  - "New mini-trigger window A013-A015: A013 P03 on T2; A014 technical bottleneck; A015 P07 audit. Falsifiability criterion (b'): precise lemma-graph + gap labels for T2 consistent with BOTH Tao-barrier AND C-003-orthogonality (proof must NOT reduce to LP/Bony-local direct-PDE estimates)."
+  - "Extended budget: 9 more attempts (A013-A021) max before dormancy is seriously on the table: 3 for Pivot 1, 3 for Pivot 2 if Pivot 1 fails, then dormancy."
+  - "A005's 7-attempt budget closes with 7 partial-insight outcomes. Compared to dormant 03-p-vs-np A005-A011 equivalent span (7 partial-insight + dormancy enacted): 05-NS reaches the same structural point with one fewer pivot due to early-commitment discipline. Pattern is methodologically tighter."
+follow_ups:
+  - "A013 (next): P03 lemma-extraction on T2 (CFD sub-Kolmogorov rigor) per B-004 §4. First technical attempt on Pivot 1 route."
+  - "A014-A015 per the new mini-trigger window plan."
+  - "B-003 status revision (deferred from A011 follow-up §3): mark dormant after Pivot 1 begins (parallel to B-002 in PR #18). Separate companion PR."
+  - "B-004 status revision: promote from speculative to ai-discovered (or higher) as it becomes load-bearing."
+  - "verification-bar.md §7 update (from A010 follow-up #4): add 'global-vs-local cancellation mismatch' as a fifth NSE barrier."
+  - "C-003 status note: parent-attempt A011, but operationally now also influenced by A012; consider adding A012 to C-003's references in a future minor PR."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A005-2026-05-26-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A007-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A009-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A010-2026-05-28-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A011-2026-05-28-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-003-critical-norm-equivalence-along-flow.md"
+  - kind: bridge
+    ref: "bridges/B-004-cfd-pde-rigorous-turbulence-closure.md"
+  - kind: web
+    ref: "conjectures/C-003-regularity-equivalence-nonlocal-cancellation/"
+  - kind: web
+    ref: "analysis/cross-synthesis/05-navier-stokes-2026-06-30.md"
+  - kind: web
+    ref: "analysis/cross-synthesis/03-p-vs-np-2026-05-21.md"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+novel_bridges: []
