@@ -1,0 +1,71 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A013
+problem: 05-navier-stokes
+date: "2026-06-30"
+model: claude-opus-4-7
+strategy: |
+  First technical attempt under A012's Pivot 1 commitment (route
+  change to B-004 / T2 CFD sub-Kolmogorov rigor; structurally
+  orthogonal to C-003). P03 lemma extraction on T2 — "if a CFD
+  sequence is bounded in a critical norm at every resolution
+  Δx_k > 0, then the continuum solution is bounded in that
+  critical norm." Decompose via discrete → continuum backbone
+  (setup, compactness, identification, semi-continuity). Identify
+  the unique bottleneck (L_T2_2 critical-norm compactness) and
+  three approaches (concentration-compactness; Aubin-Lions;
+  spectral). Run Tao-barrier audit + C-003-orthogonality audit
+  per A012's mini-trigger criterion (b'). Out of scope: technical
+  attack on G_T2_1 (A014's role); P07 audit (A015's role);
+  housekeeping (B-003 dormant, B-004 maturity revision,
+  verification-bar §7 update — deferred to post-A015).
+duration_minutes: 120
+outcome: partial-insight
+verification_status:
+  L1: pass
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "T2 decomposes via discrete → continuum backbone into L_T2_1 (discrete NSE setup, ∇·u = 0 preserved by construction); L_T2_2 (critical-norm compactness, the crux); L_T2_3 (limit identification with continuum NSE); L_T2_4 (norm semi-continuity)."
+  - "L_T2_2 sub-decomposes into three approaches: (i) concentration-compactness (Bahouri-Gallagher 1999); (ii) Aubin-Lions (classical); (iii) spectral (LP-block-local). (i) and (ii) are most natural and Tao-barrier compatible at resolution; (iii) needs care."
+  - "G_T2_1 (lethal-if-unresolved): establish L_T2_2 critical-norm compactness for discrete-NSE sequences. Comparable to or harder than Gallagher-Iftimie-Planchon 2003 profile decomposition for NSE. G_T2_2 (major): uniform CFD hypothesis sup_k ||u_{Δx_k}||_X ≤ M is empirical, not derived; downstream of T2's role. G_T2_3 (major): discretization scheme choice affects convergence."
+  - "Tao-barrier audit: PASS at statement level (∇·u_{Δx} = 0 preserved by construction; limit inherits). Approaches (i), (ii) pass at resolution. C-003-orthogonality: VERIFIED — T2 is a discrete → continuum TRANSFER theorem, NOT a BMO^{-1} → L^q implication. C-003's quantification does not apply to T2. Pivot 1 is on solid structural footing."
+  - "A012 mini-trigger criterion (b') ACHIEVED: precise lemma graph + gap labels + Tao-barrier audit + C-003-orthogonality verification. Pivot 1's mini-trigger does NOT fire at A013. First attempt to satisfy a new-route trigger criterion WITHOUT prior wall-like obstructions (contrast favorably with A006-A011 arc on B-003/T1)."
+follow_ups:
+  - "A014 (next per A012's mini-window): technical attempt on G_T2_1 (critical-norm compactness). Choose between (i) concentration-compactness and (ii) Aubin-Lions; sketch the proof."
+  - "A015: P07 adversarial audit on A013 + A014 against verification-bar §7. Analog of A008 for the new route."
+  - "At each of A014-A015: re-evaluate the Pivot 1 mini-trigger."
+  - "Deferred housekeeping (after A015 cleanly): B-003 status → dormant (parallel to B-002 in PR #18); B-004 maturity speculative → ai-discovered; verification-bar.md §7 fifth barrier (global-vs-local cancellation mismatch)."
+  - "G_T2_2 deferred — uniform CFD bound derivation is a separate program; T2 itself is a transfer theorem and does not need G_T2_2 closed to be useful machinery."
+references:
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A012-2026-06-30-claude-opus-4-7/"
+  - kind: attempt
+    ref: "attempts/05-navier-stokes/A007-2026-05-28-claude-opus-4-7/"
+  - kind: bridge
+    ref: "bridges/B-004-cfd-pde-rigorous-turbulence-closure.md"
+  - kind: web
+    ref: "conjectures/C-003-regularity-equivalence-nonlocal-cancellation/"
+  - kind: web
+    ref: "docs/problems/05-navier-stokes/verification-bar.md"
+  - kind: web
+    ref: "analysis/cross-synthesis/05-navier-stokes-2026-06-30.md"
+  - kind: paper
+    ref: "Temam, Navier-Stokes Equations, North-Holland, 1977."
+  - kind: paper
+    ref: "Bahouri & Gallagher, Inégalités de Strichartz précisées pour l'équation des ondes, Bull. SMF 127 (1999) 491-544."
+  - kind: paper
+    ref: "Gallagher, Iftimie, Planchon, Asymptotics and stability for global solutions of the Navier-Stokes equations, Ann. Inst. Fourier 53 (2003) 1387-1424."
+  - kind: paper
+    ref: "Lions, The concentration-compactness principle in the calculus of variations, parts I + II, Ann. IHP, 1984."
+  - kind: paper
+    ref: "Aubin, Un théorème de compacité, C. R. Acad. Sci. Paris 256 (1963) 5042-5044."
+  - kind: paper
+    ref: "Lemarié-Rieusset, The Navier-Stokes Problem in the 21st Century, CRC 2nd ed., 2018, Chapter 16."
+  - kind: paper
+    ref: "Escauriaza, Seregin, Šverák, Russian Math. Surveys 58 (2003) 211-250."
+novel_bridges: []
