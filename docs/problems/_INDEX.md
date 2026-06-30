@@ -18,7 +18,7 @@ version wins.)
 | 02 | [02-riemann](02-riemann/) | Riemann Hypothesis | not-started | 0 | — |
 | 03 | [03-p-vs-np](03-p-vs-np/) | P vs NP | dormant | 0 | A011 (2026-05-25) |
 | 04 | [04-yang-mills](04-yang-mills/) | Yang–Mills Existence and Mass Gap | not-started | 0 | — |
-| 05 | [05-navier-stokes](05-navier-stokes/) | Navier–Stokes Existence and Smoothness | active | 0 | A012 (2026-06-30) |
+| 05 | [05-navier-stokes](05-navier-stokes/) | Navier–Stokes Existence and Smoothness | active | 0 | A013 (2026-06-30) |
 | 06 | [06-hodge](06-hodge/) | Hodge Conjecture | not-started | 0 | — |
 | 07 | [07-bsd](07-bsd/) | Birch and Swinnerton-Dyer Conjecture | not-started | 0 | — |
 

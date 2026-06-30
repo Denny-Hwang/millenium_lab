@@ -24,7 +24,7 @@ contributors include both humans and agents (Claude Code, Codex, etc.).
 | 02 | Riemann Hypothesis | not-started | — | — |
 | 03 | P vs NP | dormant | — | A011 (2026-05-25) |
 | 04 | Yang–Mills Existence and Mass Gap | not-started | — | — |
-| 05 | Navier–Stokes Existence and Smoothness | active | — | A012 (2026-06-30) |
+| 05 | Navier–Stokes Existence and Smoothness | active | — | A013 (2026-06-30) |
 | 06 | Hodge Conjecture | not-started | — | — |
 | 07 | Birch and Swinnerton-Dyer Conjecture | not-started | — | — |
 
