@@ -22,7 +22,7 @@ contributors include both humans and agents (Claude Code, Codex, etc.).
 |----|---------|--------|-------------------|-----------------|
 | 01 | Poincaré Conjecture | solved-2003 | — | — |
 | 02 | Riemann Hypothesis | not-started | — | — |
-| 03 | P vs NP | dormant | — | A011 (2026-05-25) |
+| 03 | P vs NP | active | — | A012 (2026-07-04) |
 | 04 | Yang–Mills Existence and Mass Gap | not-started | — | — |
 | 05 | Navier–Stokes Existence and Smoothness | active | — | A013 (2026-06-30) |
 | 06 | Hodge Conjecture | not-started | — | — |

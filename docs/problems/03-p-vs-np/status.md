@@ -1,7 +1,7 @@
 ---
 id: 03-p-vs-np
-status: dormant
-last_updated: 2026-05-25
+status: active
+last_updated: 2026-07-04
 ---
 
 # Status — 03-p-vs-np
@@ -12,6 +12,19 @@ last_updated: 2026-05-25
 |------|--------|--------|
 | 2026-04-27 | not-started | Registered during initial repository scaffolding. |
 | 2026-05-25 | dormant | H₀ / H_AC⁰ program (A001–A011) reached a route-independent obstruction (conjecture C-002, discrete-vs-continuous wall): every algebraic-geometric encoding of circuit complexity tried is either 0-dimensional (Boolean-faithful, rigid) or positive-dimensional (hardness-blind). No forward route currently identified. Status was never formally lifted from `not-started` to `active` during the A005–A011 arc; this PR makes both transitions explicit (`not-started → active → dormant`). User-approved per charter §3 / failure-criteria §3. |
+| 2026-07-04 | active | Re-activated by explicit user direction to re-attempt the problem, testing dormancy re-activation trigger (1) head-on: A012 runs a P01 five-domain panel on the semialgebraic-relaxation hypothesis (extension complexity / psd rank / SOS-degree as positive-dimensional hardness-tracking invariants; o-minimal tameness as finiteness control). A012 ended `partial-insight`, which per failure-criteria §4 automatically proposes returning to `active`. Honest note: A012's substantive finding is that trigger (1)'s semialgebraic/o-minimal wording does **not** cross the C-002 wall (see A012 result.md — the Rothvoss 2014 and 3-XOR/SOS inversions witness that positive-dimensional semialgebraic invariants track *model-restricted* hardness only; the wall relocates to the model-lift step). The problem is `active` because work is again in progress, with the remaining untested direction (bounded-cancellation arithmetic models) and the refined model-lift question as the forward paths. |
+
+## Re-activation (2026-07-04)
+
+A012 (P01 panel, model claude-fable-5) tested re-activation trigger
+(1)'s first candidate direction — semialgebraic / o-minimal — and
+found it refines rather than crosses the wall. See
+`attempts/03-p-vs-np/A012-2026-07-04-claude-fable-5/result.md` for
+the panel verdicts and the "model-lift wall" refinement of C-002.
+Remaining forward paths: (i) bounded-cancellation arithmetic models
+(the untested half of trigger (1)); (ii) the model-lift question
+itself (communication-complexity lifting theorems as the
+best-developed machinery — do they compose toward uniform models?).
 
 ## Dormancy details
 
