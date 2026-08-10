@@ -44,6 +44,12 @@ jobs:
       - name: Lake update
         working-directory: formalization
         run: lake update
+      - name: Fetch prebuilt mathlib oleans
+        working-directory: formalization
+        # Without this the job compiles all of mathlib from source, which does
+        # not finish inside the timeout. The cache is keyed to the pinned
+        # mathlib tag; if it is unavailable, lake falls back to building.
+        run: lake exe cache get
       - name: Lake build
         working-directory: formalization
         run: lake build
