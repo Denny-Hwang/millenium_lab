@@ -90,10 +90,13 @@ def pVsNP : Ledger.Plan where
     { num := 0
       goal :=
         "Literature trace on the psd rank / SDP extension complexity of the perfect matching "
-        ++ "polytope (K4-i); establish current status and what either resolution implies."
+        ++ "polytope (K4-i); establish current status and what either resolution implies. "
+        ++ "Discharged by A013 (2026-08-10): open and not being worked externally; kept as a "
+        ++ "monitored assumption, with the trace widened to all four cracks plus the 2025-2026 "
+        ++ "time-space/catalytic axis."
       targetLevel := .L1
       dependsOn := []
-      status := .planned
+      status := .achieved
       formalTarget := none },
     { num := 1
       goal :=
