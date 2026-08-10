@@ -35,6 +35,32 @@ key_insights:
   - "A3 (R^3 vs T^3 domain-swap) confirms T1b's substantive content is R^3-specific (sub-case (A)): on T^3 the BMO^{-1} ⊂ L^∞ ⊂ L^3 embedding trivializes L_T1b_3b. Program's focus is correctly placed; recommend explicit sub-case distinction in a future B-003 / A007 revision."
   - "A005 pivot trigger: criterion (b) achieved (A007 + A008 confirmation). Trigger does NOT fire. The (α) program continues per the committed route. 3 attempts used (A006-A008); 4 remain in the budget before dormancy."
   - "Window assessment vs dormant 03-p-vs-np A005-A007 equivalent: the (α) program is BETTER positioned — clean Duhamel decomposition with single named bottleneck G_T1b_1, vs the dormant program's dual obstruction + route-independent wall at the equivalent point. The early commitment + early audit discipline is paying off."
+claims:
+  - id: A008-K1
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Seven adversarial attacks were run on A006 and A007: five survive cleanly, two need patches, none is lethal, so the round verdict is partial."
+  - id: A008-K2
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "A6 (tao_barrier_resolution_audit, the substantive finding) flags that A007's Tao-barrier audit passed at the LEMMA-STATEMENT level, but G_T1b_1's eventual PROOF could use only paraproduct estimates that also work on averaged NSE — failing the audit at the RESOLUTION level."
+  - id: A008-K3
+    kind: finding
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "A3 (R^3 vs T^3 domain-swap) confirms T1b's substantive content is R^3-specific (sub-case (A))"
+  - id: A008-K4
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "A005 pivot trigger: criterion (b) achieved (A007 + A008 confirmation)."
+  - id: A008-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Window assessment vs dormant 03-p-vs-np A005-A007 equivalent"
 follow_ups:
   - "A009 (Patch 2, highest priority): specify the approach to G_T1b_1 (paraproduct / vorticity / direct energy method). REJECT paraproduct-only as barrier-blocked. Run statement-level audit on the specific choice; then attempt proof sketch of L_T1b_3b."
   - "A010 or parallel (Patch 1): literature audit for a possible L_T1a_5 counterexample (Albritton 2018+; Auscher-Frey-Monniaux; Bourgain-Pavlovic). If found, T1a-substantive fails and T1a's content shrinks to a Kato rephrasing."

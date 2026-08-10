@@ -32,6 +32,32 @@ key_insights:
   - "Cross-check: approach (ii) vorticity L^p energy method passes statement-level audit symmetrically (vorticity convection cancels by ∇·u = 0), but reduces to vortex stretching obstruction, requiring vorticity-direction Lipschitz (Constantin-Fefferman 1993 hypothesis) NOT given by L^∞_t BMO^{-1}. NEW GAP G_T1b_4 (major-but-not-lethal) symmetric to G_T1b_3."
   - "Cross-approach finding (substantive negative): BOTH non-barrier-blocked direct approaches degenerate — they relocate G_T1b_1 to a regularity-equivalent gap (G_T1b_3 or G_T1b_4) rather than closing it. Structurally similar in spirit to the route-independent wall A011 identified for 03-p-vs-np (conjecture C-002), though here tested on two approaches not all."
   - "A005 trigger does NOT fire: criterion (b) (lemma-graph consistent with audit) was achieved by A007 and remains. But A009 motivates A010 to either find a third approach (paraproduct-with-cancellation hybrid; spectral ladder; Albritton literature) or extract the relocation finding as a permanent asset (analog of C-001)."
+claims:
+  - id: A009-K1
+    kind: refutation
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "The direct L^p energy method on u passes the statement-level Tao-barrier audit, because the convection term cancels by div u = 0 while averaged NSE has no such cancellation."
+  - id: A009-K2
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "After the convection cancellation the pressure term remains, and Calderon-Zygmund plus Holder reduces closure to an L^infinity control that L^infinity_t BMO^{-1} does not give (new gap G_T1b_3)."
+  - id: A009-K3
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Cross-check: approach (ii) vorticity L^p energy method passes statement-level audit symmetrically (vorticity convection cancels by ∇·u = 0), but reduces to vortex stretching obstruction, requiring vorticity-direction Lipschitz (Constantin-Fefferman 1993 hypothesis) NOT given by L^∞_t BMO^{-1}."
+  - id: A009-K4
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Both non-barrier-blocked direct approaches degenerate: they relocate G_T1b_1 to a regularity-equivalent gap rather than closing it."
+  - id: A009-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "A005 trigger does NOT fire: criterion (b) (lemma-graph consistent with audit) was achieved by A007 and remains."
 follow_ups:
   - "A010: identify a candidate third approach — paraproduct-with-cancellation hybrid; Galerkin/spectral-projection ladder; Albritton 2018+ literature audit (also discharges A006 Patch 1)."
   - "A011 (if A010 fails): extract G_T1b_3 + G_T1b_4 as a formal conjecture C-003 (regularity-equivalence obstruction) — analog of C-001 for the dormant 03-p-vs-np program."

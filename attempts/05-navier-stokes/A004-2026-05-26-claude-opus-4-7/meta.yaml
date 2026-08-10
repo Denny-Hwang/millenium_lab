@@ -33,6 +33,32 @@ key_insights:
   - "Three transformations: T1 (continuum-limit theorem from DNS sequences); T2 (sub-Kolmogorov rigor: CFD-bounded → continuum-bounded in critical norms — couples directly to B-003); T3 (Hou-Luo-scenario rigor: convert axisymmetric high-Re near-blowup into Type-II or smoothness theorem)."
   - "False-bridge possibility: the continuum limit may be genuinely discontinuous beyond any CFD resolution — a sub-Kolmogorov feature could change qualitatively (smooth → singular) when Δx_k → 0, invisible to any finite simulation. Structurally analogous to a natural-proofs barrier on the CFD-PDE side. Even if it obtains, the bridge's content is the gap-delineation."
   - "Together with B-003, the 05-navier-stokes program now has the two-bridge scaffold covering both A001 C1 (HA-PDE direction) and C3 (CFD-PDE direction). Direction-commitment (A005) is the natural next step."
+claims:
+  - id: A004-K1
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Five candidate shared objects between CFD and nonlinear PDE are identified, from the Kolmogorov energy spectrum (established) to the continuum limit of finite-resolution simulations (speculative)."
+  - id: A004-K2
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "The COMPOSITE 'continuum-limit-from-finite-resolution' framing as a single B-### bridge object is new (the gap is widely recognized in informal discussions but not formalized as a bridge)."
+  - id: A004-K3
+    kind: finding
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Three transformations are proposed for bridge B-004: T1 (continuum-limit theorem from DNS sequences), T2 (sub-Kolmogorov rigor, coupling to B-003) and T3 (rigor for the Hou-Luo blowup scenario)."
+  - id: A004-K4
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "False-bridge possibility: the continuum limit may be genuinely discontinuous beyond any CFD resolution — a sub-Kolmogorov feature could change qualitatively (smooth → singular) when Δx_k → 0, invisible to any finite simulation."
+  - id: A004-K5
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Together with B-003, the 05-navier-stokes program now has the two-bridge scaffold covering both A001 C1 (HA-PDE direction) and C3 (CFD-PDE direction)."
 follow_ups:
   - "A005: direction-commitment attempt (per A001 follow-up #6 and 03-p-vs-np lesson). Commit to global-regularity (B-003 + T1/T2; B-004 + T2 + B-003) or blowup (B-004 + T3 Type-II) with explicit pivot trigger."
   - "bridges/_INDEX.md update: add B-004 entry."

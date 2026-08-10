@@ -33,6 +33,29 @@ key_insights:
   - "ESS 2003 is the keystone bridging theorem: L^∞_t L^3_x bound along smooth flow implies regularity. If we can bound L^∞_t L^3 from all decaying data, CMI (A) is resolved. The single-Φ hypothesis from A001 naturally collapses to 'Φ = L^3' as the operational target."
   - "Koch-Tataru's BMO^{-1} marks the upper edge of currently-tractable critical spaces; above it (Ḃ^{-1}_{∞,∞}) the equation is ill-posed. So the ladder has a meaningful interval (Ḣ^{1/2} through BMO^{-1}) where well-posedness questions live."
   - "A001's C1 refines from 'not equivalent' to 'strictly inclusion-ordered with the open question being WHICH ladder step admits a large-data L^∞_t bound along smooth flows.' The pairwise embedding-along-flow questions form the program's dependency-graph backbone."
+claims:
+  - id: A002-K1
+    kind: finding
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "The critical-norm ladder for 3D NSE is six steps from H^{1/2} up to B^{-1}_{inf,inf}, strictly inclusion-ordered, with the Ladyzhenskaya-Prodi-Serrin family transverse to it."
+    formal_target: "Ledger.Statements.NavierStokes.CriticalSpace"
+  - id: A002-K2
+    kind: cited-theorem
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "ESS 2003 is the keystone bridging theorem: an L^infinity_t L^3_x bound along a smooth flow implies regularity, so bounding L^3 from all decaying data would resolve CMI (A)."
+    formal_target: "Ledger.Statements.NavierStokes.ESS"
+  - id: A002-K3
+    kind: finding
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Koch-Tataru's BMO^{-1} marks the upper edge of currently-tractable critical spaces; above it (Ḃ^{-1}_{∞,∞}) the equation is ill-posed."
+  - id: A002-K4
+    kind: refutation
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "A001's C1 refines from 'not equivalent' to 'strictly inclusion-ordered with the open question being WHICH ladder step admits a large-data L^∞_t bound along smooth flows.' The pairwise embedding-along-flow questions form the program's dependency-graph backbone."
 follow_ups:
   - "A003: P02 bridge discovery for B-003 candidate (harmonic-analysis ↔ PDE on critical-norm embedding-along-flow questions). Formalize the ladder as a bridge."
   - "A004: P02 bridge discovery for B-004 candidate (CFD ↔ PDE on rigorous turbulence closure)."

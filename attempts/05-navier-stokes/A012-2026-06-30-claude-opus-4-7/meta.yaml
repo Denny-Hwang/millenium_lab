@@ -36,6 +36,32 @@ key_insights:
   - "New mini-trigger window A013-A015: A013 P03 on T2; A014 technical bottleneck; A015 P07 audit. Falsifiability criterion (b'): precise lemma-graph + gap labels for T2 consistent with BOTH Tao-barrier AND C-003-orthogonality (proof must NOT reduce to LP/Bony-local direct-PDE estimates)."
   - "Extended budget: 9 more attempts (A013-A021) max before dormancy is seriously on the table: 3 for Pivot 1, 3 for Pivot 2 if Pivot 1 fails, then dormancy."
   - "A005's 7-attempt budget closes with 7 partial-insight outcomes. Compared to dormant 03-p-vs-np A005-A011 equivalent span (7 partial-insight + dormancy enacted): 05-NS reaches the same structural point with one fewer pivot due to early-commitment discipline. Pattern is methodologically tighter."
+claims:
+  - id: A012-K1
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Pivot 1 selected: route change within (α) from B-003/T1 to B-004/T2 (sub-Kolmogorov / CFD-PDE bridge)."
+  - id: A012-K2
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Pivot 2 ((β) blowup) and Pivot 3 (dormancy) held in reserve."
+  - id: A012-K3
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "New mini-trigger window A013-A015: A013 P03 on T2; A014 technical bottleneck; A015 P07 audit."
+  - id: A012-K4
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Extended budget: 9 more attempts (A013-A021) max before dormancy is seriously on the table"
+  - id: A012-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "A005's 7-attempt budget closes with 7 partial-insight outcomes."
 follow_ups:
   - "A013 (next): P03 lemma-extraction on T2 (CFD sub-Kolmogorov rigor) per B-004 §4. First technical attempt on Pivot 1 route."
   - "A014-A015 per the new mini-trigger window plan."
