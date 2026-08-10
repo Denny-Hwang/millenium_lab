@@ -36,6 +36,28 @@ key_insights:
   - "Explicit Plücker equations are written: per fan-in-1 wire on inputs (a,b) ∈ {0,1}^2, the constraints p_a(p_a − 1) = 0 etc. give a 0-dimensional reduced subscheme of P^1, with the projective solution set being the two standard-basis-spanned wirings (1:0), (0:1)."
   - "Two strategic escape routes are now explicit: (R1) sheaf-on-ambient — define F_{AC^0} on the full Grassmannian product with Boolean locus encoded as support/vanishing, compute H^1 on the ambient; (R2) pivot to arithmetic / GCT moduli — drop the Boolean restriction, use a positive-dimensional moduli with AC^0-membership as a closed-subscheme or representation-theoretic condition. (R1) preserves B-002 directly; (R2) makes B-001 load-bearing."
   - "Equivariance subtlety surfaced (G011): the Boolean-evaluation equations are S_n-equivariant (input permutation) but not GL_n-equivariant (linear change of basis). A002 and A005 used GL_n; the H_AC^0 statement may need relaxing to S_n-equivariance or restating with a different ambient."
+claims:
+  - id: A006-K1
+    kind: refutation
+    status: shape-formalized
+    formalizability: shape-only
+    statement: "At (n, s, d) = (2, 3, 2) the Boolean-evaluation locus has dimension 0 in every topology and fan-in subcomponent, even though the ambient Grassmannian product is up to 2-dimensional: Boolean faithfulness forces rigidity."
+    formal_target: "Ledger.Statements.PvsNP.rigid_of_booleanFaithful"
+  - id: A006-K2
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Explicit Plücker equations are written: per fan-in-1 wire on inputs (a,b) ∈ {0,1}^2, the constraints p_a(p_a − 1) = 0 etc. give a 0-dimensional reduced subscheme of P^1, with the projective solution set being the two standard-basis-spanned wirings (1:0), (0:1)."
+  - id: A006-K3
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Two escape routes are made explicit: (R1) define the sheaf on the ambient Grassmannian product with the Boolean locus as support, or (R2) pivot to arithmetic circuit moduli."
+  - id: A006-K4
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "Equivariance subtlety surfaced (G011): the Boolean-evaluation equations are S_n-equivariant (input permutation) but not GL_n-equivariant (linear change of basis)."
 follow_ups:
   - "A007: discharge A003-A4 (L08 base case at n ∈ {0, 1}); independent of A006."
   - "A008: short strategic-decision attempt on (R1) vs (R2). Produce a commitment with justification; update B-001 and B-002 status accordingly."

@@ -37,6 +37,34 @@ key_insights:
   - "XOR / characteristic-2 boundary (new organizing principle): XOR sits on the wrong side of every algebraic encoding tried, in BOTH directions — char-0 arithmetic makes it too easy (G019); ordered-real static certificates make it too hard (Grigoriev/Schoenebeck); adaptive char-2 computation (Gaussian elimination) keeps it uniformly easy. Proposed as an explicit amendment path for C-002: any continuous encoding must survive the mod-2 test in both directions."
   - "Warren-duality: the same theorems (Warren 1968 / Milnor-Thom / o-minimal cell decomposition) simultaneously cap tame encoding power (the wall) and power every tame-model lower bound (Ben-Or; Steele-Yao). The trigger's o-minimal hope inverts — tameness is the wall axiomatized, and its productive use is restricted-model lower bounds, not wall-crossing."
   - "Four residual cracks named as forward paths: (i) psd rank of the perfect matching polytope (open; either resolution informative); (ii) Cook-Levin tableau-based spectrahedral encodings (unexplored; plausibly non-relativizing; no lower-bound technology exists); (iii) bounded-cancellation arithmetic models (the untested half of trigger (1)); (iv) GLS separation-vs-optimization names the escape hatch polytope-based moduli are blind to — a separation-complexity invariant is unexamined. Also recorded: Raghavendra's UGC-conditional SDP-optimality for Max-CSP approximation is the strongest surviving pro-H1 regime (approximation, not exact decision)."
+claims:
+  - id: A012-K1
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "The semialgebraic hypothesis H1 is refuted at theorem level twice independently: Rothvoss 2014 with Edmonds 1965 on the LP side, and Grigoriev / Schoenebeck with Gaussian elimination on the SOS side."
+  - id: A012-K2
+    kind: conjecture
+    status: shape-formalized
+    formalizability: shape-only
+    statement: "Model-lift wall (refining C-002): no positive-dimensional invariant on record is simultaneously model-faithful and uniform-faithful; the semialgebraic family is the fourth instance and the first that is both positive-dimensional and model-hardness-faithful."
+    formal_target: "Ledger.Statements.PvsNP.ModelLiftWall"
+  - id: A012-K3
+    kind: definition
+    status: shape-formalized
+    formalizability: shape-only
+    statement: "XOR / characteristic-2 boundary: any candidate encoding must place XOR on the same side as uniform computation in both directions, since char-0 arithmetic makes it too easy and ordered-real certificates make it too hard."
+    formal_target: "Ledger.Statements.PvsNP.PassesModTwoTest"
+  - id: A012-K4
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Warren-duality: the theorems that cap tame encoding power (Warren, Milnor-Thom, o-minimal cell decomposition) are the same ones that power every tame-model lower bound, so tameness is the wall rather than a way across it."
+  - id: A012-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Four residual cracks named as forward paths"
 follow_ups:
   - "A013 (highest information-per-effort): literature trace on the psd rank / SDP extension complexity of the perfect matching polytope; establish current status and what either resolution implies for the model-lift wall."
   - "A013/A014 (highest novelty): construct the Cook-Levin tableau spectrahedral encoding at the smallest non-trivial scale and audit its locality / relativization behavior — the one direction flagged as plausibly non-relativizing."

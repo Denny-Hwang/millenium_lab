@@ -39,6 +39,32 @@ key_insights:
   - "The (2, 3, 2) test is non-vacuous: XOR and XNOR each require 5 gates after counting NOT as a separate gate, exceeding s = 3. So 2 of 16 Boolean functions on 2 bits are not in AC^0_{(3,2)}, providing the first concrete f not in AC^0_{(s,d)} to test constructions against."
   - "The f-dependence must enter at the sheaf level, not only at the cocycle level. Two refinements proposed for next attempts: A' (twisted line bundle L_f = eval^* O(D_f) for an f-specific divisor D_f, giving c_1(L_f) in H^2); A'' (relative Ext^1(O_B, O_AMB) with f-dependence from restriction to the f-specific Boolean component)."
   - "Naturality is a new lethal-grade constraint (G013): any f-dependent twist must be canonical with respect to the symmetries of the problem; ad-hoc twists do not engage the Razborov-Rudich framework."
+claims:
+  - id: A007-K1
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Committing to route (R1) is justified by an asymmetry: (R1) failing still supplies evidence about B-002, whereas (R2) succeeding adds little to the existing GCT literature."
+  - id: A007-K2
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "Construction A (F^A_{AC^0} = eval^* I_N) has the right structural shape but gives trivial cohomology at (2, 3, 2), because the non-AC^0 set is disjoint from each topology's realizable locus."
+  - id: A007-K3
+    kind: definition
+    status: unformalized
+    formalizability: shape-only
+    statement: "The (2, 3, 2) test is non-vacuous: XOR and XNOR each require 5 gates after counting NOT as a separate gate, exceeding s = 3."
+  - id: A007-K4
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "The f-dependence must enter at the sheaf level, not only at the cocycle level."
+  - id: A007-K5
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "Naturality is a new lethal-grade constraint (G013): any f-dependent twist must be canonical for the problem's symmetries, or it does not engage Razborov-Rudich at all."
 follow_ups:
   - "A008: work out Construction A' (twisted line bundle) at (2, 3, 2); verify c_1(L_f) discriminates XOR from x_1 AND x_2."
   - "A009: parallel work on Construction A'' (relative Ext) at (2, 3, 2)."

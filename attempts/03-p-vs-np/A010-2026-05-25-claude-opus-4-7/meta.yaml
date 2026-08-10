@@ -32,6 +32,29 @@ key_insights:
   - "But it does NOT track AC^0-membership. XOR's representing polynomial p_XOR = x_1 + x_2 - 2 x_1 x_2 is arithmetic-realizable at size 2 / depth 2, while XOR is Boolean-AC^0-hard at (3,2) (needs >3 Boolean gates per A007). Arithmetic complexity of p_f does not track f's AC^0 complexity."
   - "The two routes face DUAL obstructions: (R1) Boolean moduli -> 0-dim rigidity (C-001); (R2) arithmetic moduli -> hardness-blindness (G019, the Boolean-vs-arithmetic gap). Any algebraic-geometric moduli either keeps Boolean structure (rigid) or relaxes to arithmetic (hardness-blind)."
   - "This is the known algebraic-vs-Boolean complexity gap, rediscovered internally with concrete small-case witnesses on both horns. Honest recommendation: consider moving the H_0 / H_AC^0 program to dormant, with reactivation conditioned on a monotone / bounded-cancellation moduli that escapes both C-001 and G019."
+claims:
+  - id: A010-K1
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "The arithmetic-circuit moduli (GCT-L02) escapes Boolean rigidity: edge scalar weights are continuous parameters, so it is honestly positive-dimensional."
+  - id: A010-K2
+    kind: refutation
+    status: shape-formalized
+    formalizability: shape-only
+    statement: "That same arithmetic moduli does not track AC^0-membership: XOR's representing polynomial is arithmetic-realizable at size 2 and depth 2 while XOR is Boolean-hard at (3, 2) (gap G019)."
+    formal_target: "Ledger.Statements.PvsNP.fails_test_of_disagreement"
+  - id: A010-K3
+    kind: conjecture
+    status: shape-formalized
+    formalizability: shape-only
+    statement: "The two routes face dual obstructions: Boolean moduli collapse to 0 dimensions (C-001) and arithmetic moduli go hardness-blind (G019), so no encoding tried keeps both properties."
+    formal_target: "Ledger.Statements.PvsNP.C002"
+  - id: A010-K4
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "This is the known algebraic-vs-Boolean complexity gap, rediscovered internally with concrete small-case witnesses on both horns."
 follow_ups:
   - "User decision on dormancy (charter §3 / R6 step 5). This attempt recommends dormant for the H_0 / H_AC^0 program; it does not enact it."
   - "If continuing: A011 — explore monotone-arithmetic moduli (idea (ii)); does restricting to monotone circuits give a moduli that is positive-dimensional AND tracks AC^0 hardness? Entry: Jerrum-Snir 1982, Valiant monotone lower bounds."

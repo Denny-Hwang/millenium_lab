@@ -27,6 +27,27 @@ key_insights:
   - "The GCT × homological circuit complexity hypothesis scores robustness 3/5; the two core bridges (C1, C2) are unproved."
   - "Redefining the usefulness arm of the natural-proofs barrier as sheaf H^1 vanishing can begin as a small-case study on AC^0."
   - "The quantum lens is sufficient as an auxiliary bridge here; quantumness is not the essence of the hypothesis."
+claims:
+  - id: A001-K1
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "03-p-vs-np target documents (statement/known-results/failed-approaches) are all placeholders; refinement must precede serious attempts."
+  - id: A001-K2
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "The GCT × homological circuit complexity hypothesis scores robustness 3/5; the two core bridges (C1, C2) are unproved."
+  - id: A001-K3
+    kind: definition
+    status: unformalized
+    formalizability: shape-only
+    statement: "Redefining the usefulness arm of the natural-proofs barrier as sheaf H^1 vanishing can begin as a small-case study on AC^0."
+  - id: A001-K4
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "The quantum lens is sufficient as an auxiliary bridge here; quantumness is not the essence of the hypothesis."
 follow_ups:
   - "Refine 03-p-vs-np's statement.md / known-results.md / failed-approaches.md (separate PR)."
   - "Bridge candidate B-001 (provisional): GCT ↔ homological circuit complexity — scripts/new-bridge.sh gct-homological-circuit."

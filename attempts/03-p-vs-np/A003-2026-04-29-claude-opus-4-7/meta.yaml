@@ -30,6 +30,32 @@ key_insights:
   - "H_AC⁰'s quantifier on (s, d) was implicit and ambiguous; the intended uniform reading (∃ s = poly(n), d = O(1) ∀ f) must be made explicit, otherwise existential-pointwise reading makes H_AC⁰ trivially true."
   - "Domain swap to AC⁰[2] does NOT over-prove: L02 moduli is gate-set-specific, so the scaffold is honest about what it claims."
   - "Single-model adversarial review surfaces concrete patches missed by the original author; genuine cross-model rounds remain required for any L4 verdict."
+claims:
+  - id: A003-K1
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "L11 (the natural-proofs barrier audit) is false as stated: under truth-table evaluation, deciding [F_AC^0]_f != 0 is itself decidable in 2^{O(n)} time, which trivially satisfies Razborov-Rudich constructiveness."
+  - id: A003-K2
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "A new lemma L11' (quantitative non-evaluation of F_AC⁰ from short program descriptions) is the rate-limiting open problem for the entire H_0 program."
+  - id: A003-K3
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "H_AC⁰'s quantifier on (s, d) was implicit and ambiguous; the intended uniform reading (∃ s = poly(n), d = O(1) ∀ f) must be made explicit, otherwise existential-pointwise reading makes H_AC⁰ trivially true."
+  - id: A003-K4
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "The domain swap to AC^0[2] does not over-prove: the L02 moduli is gate-set-specific, so the scaffold claims only what it can."
+  - id: A003-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Single-model adversarial review surfaces concrete patches missed by the original author; genuine cross-model rounds remain required for any L4 verdict."
 follow_ups:
   - "A004: rewrite H_AC⁰ with explicit quantifier structure (∃ uniform s, d ∀ f). Smallest, highest-priority repair."
   - "A005: state and attempt to prove L11' quantitative non-evaluation lemma. May spawn sub-attempts."
