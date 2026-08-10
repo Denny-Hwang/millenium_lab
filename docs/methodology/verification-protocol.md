@@ -21,6 +21,11 @@ and candidate measures progress against the table below.
    (including whether the axiom of choice is used).
 5. Every known gap is labeled in `gaps.md` with `severity`:
    minor/major/lethal.
+6. The candidate is in the Lean ledger and
+   `formalization/ledger` builds: `origin_attempts` and `cited_bridges` are
+   non-empty, and every claim the candidate rests on has a ledger entry
+   with an honest `status`
+   ([`lean-ledger.md`](lean-ledger.md)).
 
 **Deliverable**: a `verify(L1): PC-### pass` commit and PR.
 
@@ -57,8 +62,14 @@ and candidate measures progress against the table below.
 4. Any use of `axiom` or `sorry` is restricted to explicitly cited
    external theorems or to known, labeled gaps.
 
+5. Every claim backing the core lemmas has ledger `status` `stated` or
+   `proved`, with a `formal_target` naming the declaration. A claim still
+   at `shape-formalized` means the analytic content is a parameter, which
+   is not L3.
+
 > L3 may be passed without 100% formalization, but the submission package
-> must include the list of un-formalized parts.
+> must include the list of un-formalized parts. That list is not written by
+> hand: it is the set of claims whose ledger status is below `proved`.
 
 ---
 
@@ -126,6 +137,16 @@ and candidate measures progress against the table below.
 | L7 passed | peer-reviewable | published |
 
 ---
+
+## Where Each Level Is Recorded
+
+Levels are not asserted in prose. `verification_status` in the artifact's
+`meta.yaml` is projected into the Lean ledger, where the gates above are
+decidable predicates (`Verification.cumulative`, `Attempt.outcomeGate`,
+`Candidate.valid`). A PR that records L3 `pass` with
+`formalization_progress` below 80, or an outcome label ahead of its level,
+fails `lean-ledger` CI rather than review. See
+[`lean-ledger.md`](lean-ledger.md).
 
 ## Verification PR Convention
 

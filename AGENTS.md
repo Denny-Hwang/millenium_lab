@@ -32,6 +32,7 @@ Skip items already in context.
 | `conjectures/` | Preserve valuable conjectures even when they do not directly contribute to the main proof. |
 | `bridges/` | A single Markdown document connecting two or more fields. |
 | `formalization/` | Lean 4 + mathlib only. Adopting another formal system requires a charter-amendment PR. |
+| `formalization/ledger/` | The repository's records and plans, in dependency-free Lean 4. Never edit `Ledger/Generated/**` by hand — run `python scripts/gen-ledger.py`. |
 | `adversarial/` | Where attempts to break our own work land. Candidate authors should not fill this themselves. |
 | `reviews/` | External submissions cannot be added without a human maintainer signature. |
 | `analysis/` | Auto-updated. Do not edit directly (only via scripts). |
@@ -72,6 +73,9 @@ uniqueness, automatic metadata population, and correct template copying.
 # New attempt
 scripts/new-attempt.sh <problem-id> <model-name>
 # e.g.: scripts/new-attempt.sh 02-riemann claude-opus-4-7
+
+# Project metadata into the Lean ledger (required after any metadata change)
+python scripts/gen-ledger.py
 
 # New candidate (requires at least one source attempt)
 scripts/new-candidate.sh <attempt-id> [<attempt-id> ...]
@@ -175,6 +179,11 @@ Definitions: [`docs/methodology/outcome-taxonomy.md`](docs/methodology/outcome-t
    from the official CMI statement.
 7. Bypassing CI on merge (`--no-verify` etc.).
 8. Editing files under `analysis/` directly.
+9. Editing `formalization/ledger/Ledger/Generated/**` by hand.
+10. Weakening a predicate in `Ledger/Invariants.lean` without moving the
+    charter or AGENTS.md sentence it restates, in the same PR.
+11. Recording a claim as `stated` or `proved` when no Lean declaration
+    carries it.
 
 ---
 
@@ -212,3 +221,38 @@ Scope and exceptions:
 
 PRs that introduce non-English content are subject to a request for
 re-authoring.
+
+---
+
+## 11. Lean Ledger Policy
+
+Charter §4.7: the repository's plans and progress are expressed in Lean and
+checked by CI. Full specification:
+[`docs/methodology/lean-ledger.md`](docs/methodology/lean-ledger.md).
+
+What this requires of you, per area:
+
+| When you… | You must also… |
+|-----------|----------------|
+| finish an attempt | fill in the `claims:` block of its `meta.yaml` — at least one claim, each with `kind`, `status`, `formalizability`, and a one-sentence `statement` |
+| register a conjecture | set `lean_status`, and `lean_statement` once it leaves `none` |
+| register a candidate | list `cited_bridges` (charter §4.1) as well as `origin_attempts` |
+| change a problem's direction or status | update `Ledger/Plan.lean` in the same PR as `docs/problems/<id>/status.md` |
+| add or move a Lean statement | update the `formal_target` and `status` of every claim that points at it |
+| change any metadata above | run `python scripts/gen-ledger.py` and commit the regenerated files |
+
+Two commands gate the PR:
+
+```bash
+python scripts/gen-ledger.py --check     # generated ledger matches the metadata
+cd formalization/ledger && lake build    # Ledger.repo_valid still holds
+```
+
+Honesty rules that the checks cannot enforce, and that reviewers should:
+
+- A claim's `status` describes the Lean artefact that exists, not the
+  ambition. `unformalized` is the correct answer far more often than not.
+- A claim that cannot be formalized with today's mathlib says what is
+  missing, in its statement. Naming the gap is the deliverable.
+- The ledger checks bookkeeping. Never arrange it so it appears to verify
+  mathematics that has not been verified (charter §4.7).

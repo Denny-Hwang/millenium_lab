@@ -49,7 +49,14 @@ empty.
 ## Checklist
 
 - [ ] `python scripts/validate-meta.py` passes
-- [ ] (if applicable) `lake build` passes
+- [ ] `python scripts/gen-ledger.py --check` passes (regenerated files
+  committed)
+- [ ] `cd formalization/ledger && lake build` passes (`Ledger.repo_valid`)
+- [ ] Every attempt touched has a `claims:` block whose statuses describe
+  Lean artefacts that exist
+- [ ] (if the direction moved) `Ledger/Plan.lean` updated alongside
+  `docs/problems/<id>/status.md`
+- [ ] (if applicable) the mathlib `lake build` passes
 - [ ] The `_INDEX.md` or `README.md` of the touched area is updated
 - [ ] No edits to merged transcripts / external reviews / publication-track
 - [ ] Outcome label matches the taxonomy (`claimed-solution` /

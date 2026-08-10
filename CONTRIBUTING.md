@@ -54,8 +54,11 @@ When opening a PR, complete every item in
 The essentials are:
 
 - [ ] `python scripts/validate-meta.py` passes.
+- [ ] `python scripts/gen-ledger.py --check` passes, with the regenerated
+  ledger files committed.
+- [ ] `cd formalization/ledger && lake build` passes.
 - [ ] The `_INDEX.md` or `README.md` of the touched area is updated.
-- [ ] (If applicable) Lean build passes locally.
+- [ ] (If applicable) the mathlib Lean build passes locally.
 - [ ] (If applicable) The outcome label matches the taxonomy definition.
 - [ ] Commit messages follow the convention.
 - [ ] No modifications to merged transcripts or reviews.
@@ -84,6 +87,15 @@ Read [`formalization/README.md`](formalization/README.md) first.
   slow to merge.
 - Common infrastructure under `formalization/shared/` should follow
   mathlib conventions where possible.
+
+There is a second, dependency-free Lean package,
+[`formalization/ledger/`](formalization/ledger/), which holds the
+repository's own plans and progress and the charter's rules about them
+(charter §4.7). Every contribution that touches a record — an attempt, a
+conjecture, a bridge, a candidate, a problem's status — also lands there,
+via `python scripts/gen-ledger.py`. It builds in about a minute and does
+not need mathlib. The spec is
+[`docs/methodology/lean-ledger.md`](docs/methodology/lean-ledger.md).
 
 ---
 
