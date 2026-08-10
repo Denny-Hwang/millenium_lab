@@ -37,7 +37,10 @@ jobs:
                 fail=1
               fi
             fi
-          done < <(find candidates -mindepth 2 -maxdepth 2 -name 'main-proof.md' -type f)
+          # _TEMPLATE is excluded: its placeholder prose explains the rule
+          # ("do not write QED before L3"), which otherwise trips the rule.
+          done < <(find candidates -mindepth 2 -maxdepth 2 -name 'main-proof.md' -type f \
+                     -not -path 'candidates/_TEMPLATE/*')
           if [[ $fail -ne 0 ]]; then
             echo "claim-integrity violation: see messages above." >&2
             exit 1
