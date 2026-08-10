@@ -1,14 +1,20 @@
 name: lean-build
 
+# The mathlib half of the Lean side. The dependency-free ledger has its own
+# workflow (lean-ledger.yml) and is excluded here, so a metadata change does
+# not pay for a mathlib build.
+
 on:
   pull_request:
     paths:
       - 'formalization/**'
+      - '!formalization/ledger/**'
       - 'candidates/**/*.lean'
   push:
     branches: [main]
     paths:
       - 'formalization/**'
+      - '!formalization/ledger/**'
       - 'candidates/**/*.lean'
 
 jobs:

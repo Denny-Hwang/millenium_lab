@@ -7,6 +7,7 @@
 | [`new-conjecture.sh`](new-conjecture.sh) | Create a new conjecture folder | `scripts/new-conjecture.sh <problem-id>` |
 | [`new-bridge.sh`](new-bridge.sh) | Create a new bridge document | `scripts/new-bridge.sh <slug>` |
 | [`validate-meta.py`](validate-meta.py) | Validate all `meta.yaml` files | `python scripts/validate-meta.py` |
+| [`gen-ledger.py`](gen-ledger.py) | Project the metadata into the Lean ledger | `python scripts/gen-ledger.py [--check]` |
 | [`update-dashboard.py`](update-dashboard.py) | Refresh the README progress table | `python scripts/update-dashboard.py [--check]` |
 | [`build-data.py`](build-data.py) | Build CSVs from metadata | `python scripts/build-data.py` |
 
@@ -14,7 +15,11 @@
 
 - Bash 5+
 - Python 3.10+
-- PyPI: `pyyaml`, `jsonschema` (used by `validate-meta.py`)
+- PyPI: `pyyaml`, `jsonschema` (used by `validate-meta.py`);
+  `gen-ledger.py` needs only `pyyaml`
+- Lean 4 via elan, to build the ledger package
+  (`cd formalization/ledger && lake build`). No mathlib download is
+  involved — that package has no dependencies.
 
 ## Friendly-error Policy
 

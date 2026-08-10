@@ -1,0 +1,65 @@
+name: lean-ledger
+
+# The ledger is the fast half of the Lean side: no dependencies, so it can
+# be required on every pull request that touches the repository's records.
+# It answers one question — is the recorded state still one the charter
+# allows? — and it answers it in about a minute.
+
+on:
+  pull_request:
+    paths:
+      - 'formalization/ledger/**'
+      - 'attempts/**/meta.yaml'
+      - 'candidates/**/meta.yaml'
+      - 'conjectures/**/meta.yaml'
+      - 'bridges/**'
+      - 'docs/problems/**/status.md'
+      - 'scripts/gen-ledger.py'
+      - '.github/workflows/lean-ledger.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'formalization/ledger/**'
+      - 'attempts/**/meta.yaml'
+      - 'candidates/**/meta.yaml'
+      - 'conjectures/**/meta.yaml'
+      - 'bridges/**'
+      - 'docs/problems/**/status.md'
+      - 'scripts/gen-ledger.py'
+      - '.github/workflows/lean-ledger.yml'
+
+jobs:
+  ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+      - name: Generated ledger matches the metadata
+        run: python scripts/gen-ledger.py --check
+      - name: Install elan (Lean toolchain manager)
+        run: |
+          set -euxo pipefail
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf -o elan-init.sh
+          chmod +x elan-init.sh
+          ./elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Show Lean version
+        working-directory: formalization/ledger
+        run: lean --version
+      - name: Cache the ledger build
+        uses: actions/cache@v4
+        with:
+          path: formalization/ledger/.lake
+          key: ledger-${{ runner.os }}-${{ hashFiles('formalization/ledger/lean-toolchain', 'formalization/ledger/lakefile.lean') }}
+          restore-keys: |
+            ledger-${{ runner.os }}-
+      - name: Lake build (checks Ledger.repo_valid)
+        working-directory: formalization/ledger
+        run: lake build
