@@ -1,0 +1,106 @@
+# attempt meta — follows schemas/attempt-meta.schema.yaml.
+# scripts/new-attempt.sh fills in id/problem/date/model automatically.
+id: A013
+problem: 03-p-vs-np
+date: "2026-08-10"
+model: claude-fable-5
+strategy: |
+  Plan milestone 0 (literature trace), triggered by explicit user
+  direction to re-engage 03-p-vs-np after checking prior work. Web
+  survey of 2025-01 through 2026-08 along the five consilient axes of
+  the problem README, keyed to A012's four residual cracks and the
+  re-activation triggers: (i) psd rank / SDP extension complexity of
+  the perfect matching polytope; (ii) spectrahedral encodings of
+  computation tableaux; (iii) bounded-cancellation arithmetic models;
+  (iv) lifting theorems toward uniform models; plus GCT /
+  representation theory, meta-complexity, and structural time-space
+  complexity. No hypothesis under test, so no P01 panel; the deviation
+  (no survey prompt exists in the library) is surfaced in prompt.md
+  with a P10 proposal as follow-up. Out of scope: any technical attack
+  on a crack (A014+); registering the candidate catalytic/time-space
+  bridge (needs a P02 run); the C-002 statement-revision PR.
+duration_minutes: 45
+outcome: survey
+verification_status:
+  L1: n/a
+  L2: n/a
+  L3: n/a
+  L4: n/a
+  L5: n/a
+  L6: n/a
+  L7: n/a
+key_insights:
+  - "No residual crack from A012 was resolved externally between 2026-07 and 2026-08: the psd rank of the perfect matching polytope remains explicitly open (only fixed-block-size SDP lower bounds for the cut polytope and LP-approximation lower bounds for matching are known); Cook-Levin tableau spectrahedral encodings are untouched in the literature; bounded-cancellation arithmetic models are unmoved beyond Hrubes's standing program; and no lifting theorem composes upward to uniform models."
+  - "The model-lift wall gained a sharper witness inside the monotone family: de Rezende-Vinyals (CCC 2025, Lifting with Colourful Sunflowers) prove an exp(Omega(n^(1/3-eps))) monotone circuit lower bound for a function in P via DAG-like lifting over non-binary alphabets, surpassing the approximation method - a model-restricted invariant assigning near-maximal hardness to a uniformly-easy function, obtained by the very lifting machinery crack (iv) asks about."
+  - "Lifting technology advanced (colourful-sunflower DAG lifting; deterministic one-way NOF lifting, ECCC TR25-073) and still composes only between restricted models, consistent with A012 K2's sideways-never-upward characterization."
+  - "Algebraic natural proofs are WLOG isotypic at quasipolynomial cost (van den Berg-Dutta-Gesmundo-Ikenmeyer-Lysikov, CCC 2025, via PBW + Gelfand-Tsetlin), closing the symmetry loophole in barrier audits relevant to B-002 and to any future C-002-style route."
+  - "The largest genuine movement adjacent to the problem is on an axis outside C-002's quantification: Williams (STOC 2025) TIME[t] in SPACE[sqrt(t log t)] with explicit n^2/polylog time lower bounds for O(n)-space problems, and the catalytic TreeEval follow-up (Henzinger-Pyne-Ragavan, ECCC TR26-022) with O(log n) free space - targeting P vs PSPACE, bridge-shaped for this repository but not yet registered."
+claims:
+  - id: A013-K1
+    kind: finding
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "As of 2026-08, none of A012's four residual cracks is resolved in the external literature: the psd rank of the perfect matching polytope is explicitly open, spectrahedral encodings of computation tableaux are unstudied, bounded-cancellation arithmetic models are unmoved, and no lifting theorem reaches uniform models."
+  - id: A013-K2
+    kind: cited-theorem
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "de Rezende and Vinyals (CCC 2025) prove an exp(Omega(n^(1/3-eps))) monotone circuit lower bound for a function in P via DAG-like lifting over non-binary alphabets, a stronger model-faithful-but-not-uniform-faithful witness than the approximation method provides; a Boolean and monotone circuit model is not in mathlib."
+  - id: A013-K3
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "The 2025-2026 lifting theorems (colourful-sunflower DAG lifting, one-way NOF lifting) compose between restricted models and not upward to uniform ones, leaving A012's model-lift characterization unrefuted."
+  - id: A013-K4
+    kind: cited-theorem
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Williams (STOC 2025) shows TIME[t] is contained in SPACE[sqrt(t log t)] on multitape machines, and Henzinger-Pyne-Ragavan (ECCC TR26-022) give catalytic TreeEval with O(log n) free space and polynomial time; this time-space axis lies outside the encoding family C-002 quantifies over and targets P vs PSPACE; mathlib has no machine model."
+  - id: A013-K5
+    kind: cited-theorem
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "van den Berg, Dutta, Gesmundo, Ikenmeyer and Lysikov (CCC 2025) show isotypic decomposition of metapolynomials costs only a quasipolynomial circuit-size blowup, so algebraic natural proofs are WLOG isotypic; mathlib has no algebraic circuit or metapolynomial infrastructure."
+  - id: A013-K6
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "The prompt library has no literature-trace prompt; this survey used the problem README's five consilient axes as its organizing frame, surfaced the deviation in prompt.md, and proposes a P10-literature-trace prompt in its own PR."
+follow_ups:
+  - "A014 (highest novelty, unchanged from A012): construct the Cook-Levin tableau spectrahedral encoding at the smallest non-trivial scale (crack ii) - still absent from the external literature."
+  - "P02 run deciding whether Williams 2025 + ECCC TR26-022 constitutes a registrable bridge (candidate B-005: catalytic/space-bounded computation <-> complexity barrier landscape) or is out of scope because its target is P vs PSPACE."
+  - "P10-literature-trace prompt PR, so future surveys need no deviation note."
+  - "Fold the de Rezende-Vinyals witness into the C-002 statement-revision PR alongside A012's model-lift and XOR/char-2 amendments (evidence row added in this PR)."
+  - "Keep crack (i) (psd rank of matching) as a monitored assumption rather than an attempt target: the external community is not moving it, and this trace already established the either-answer implications."
+references:
+  - kind: attempt
+    ref: "attempts/03-p-vs-np/A012-2026-07-04-claude-fable-5/"
+  - kind: conjecture
+    ref: "conjectures/C-002-discrete-continuous-wall/"
+  - kind: bridge
+    ref: "bridges/B-002-natural-proofs-sheaf-cohomology.md"
+  - kind: paper
+    ref: "Williams, Simulating Time With Square-Root Space, STOC 2025 (best paper); ECCC TR25-017."
+  - kind: paper
+    ref: "Henzinger, Pyne, Ragavan, catalytic TreeEval with logarithmic free space, ECCC TR26-022 (2026)."
+  - kind: paper
+    ref: "Cook, Mertz, Tree Evaluation is in space O(log n log log n), STOC 2024."
+  - kind: paper
+    ref: "de Rezende, Vinyals, Lifting with Colourful Sunflowers, CCC 2025 (LIPIcs 339, 36)."
+  - kind: paper
+    ref: "Deterministic Lifting Theorems for One-Way Number-on-Forehead Communication, ECCC TR25-073."
+  - kind: paper
+    ref: "van den Berg, Dutta, Gesmundo, Ikenmeyer, Lysikov, Algebraic metacomplexity and representation theory, CCC 2025; arXiv:2411.03444."
+  - kind: paper
+    ref: "Dutta, Gesmundo, Ikenmeyer, Jindal, Lysikov, Geometric complexity theory for product-plus-power, J. Symbolic Computation 2026."
+  - kind: paper
+    ref: "Huang, Ilango, Ren, NP-Hardness of Approximating Meta-Complexity: A Cryptographic Approach, SIAM J. Computing 2025."
+  - kind: paper
+    ref: "Rothvoss, The matching polytope has exponential extension complexity, J. ACM 64 (2017)."
+  - kind: paper
+    ref: "Exponential lower bounds on fixed-size psd rank and semidefinite extension complexity, arXiv:1311.2571."
+  - kind: paper
+    ref: "Lower Bounds for Approximating the Matching Polytope, arXiv:1711.10145."
+  - kind: web
+    ref: "https://www.claymath.org/events/p-vs-np-and-complexity-lower-bounds/ (Sept 2025 workshop; egress-blocked, search snippets only)"
+novel_bridges: []
