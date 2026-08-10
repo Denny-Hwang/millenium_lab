@@ -31,9 +31,15 @@ curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf 
 
 # 2) Build from this directory
 cd formalization
-lake update           # fetch mathlib (a few minutes to tens of minutes)
+lake exe cache get    # fetch mathlib's prebuilt oleans at the pinned revision
 lake build            # full build
 ```
+
+Do **not** run `lake update` here. `lake-manifest.json` is committed and
+pins mathlib and its transitive dependencies to exact revisions;
+`lake update` re-resolves the whole graph, which takes hours and silently
+moves the pin. To bump mathlib, change the tag in `lakefile.lean`,
+`lean-toolchain`, and `lake-manifest.json` together in one PR.
 
 ## CI Build
 

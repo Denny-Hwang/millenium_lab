@@ -28,6 +28,10 @@ on:
       - 'scripts/gen-ledger.py'
       - '.github/workflows/lean-ledger.yml'
 
+concurrency:
+  group: lean-ledger-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ledger:
     runs-on: ubuntu-latest

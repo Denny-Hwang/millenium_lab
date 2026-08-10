@@ -17,6 +17,10 @@ on:
       - '!formalization/ledger/**'
       - 'candidates/**/*.lean'
 
+concurrency:
+  group: lean-build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,17 +42,17 @@ jobs:
         with:
           path: |
             formalization/.lake
-          key: lake-${{ runner.os }}-${{ hashFiles('formalization/lean-toolchain', 'formalization/lakefile.lean') }}
+          key: lake-${{ runner.os }}-${{ hashFiles('formalization/lean-toolchain', 'formalization/lakefile.lean', 'formalization/lake-manifest.json') }}
           restore-keys: |
             lake-${{ runner.os }}-
-      - name: Lake update
-        working-directory: formalization
-        run: lake update
       - name: Fetch prebuilt mathlib oleans
         working-directory: formalization
-        # Without this the job compiles all of mathlib from source, which does
-        # not finish inside the timeout. The cache is keyed to the pinned
-        # mathlib tag; if it is unavailable, lake falls back to building.
+        # `lake update` is deliberately NOT used: it re-resolves the whole
+        # dependency graph on every run, which took hours and never finished
+        # inside the timeout. lake-manifest.json is committed, so lake clones
+        # exactly the revisions it names, and this step downloads mathlib's
+        # prebuilt oleans instead of compiling them. Bump the manifest in the
+        # same PR as the tag in lakefile.lean.
         run: lake exe cache get
       - name: Lake build
         working-directory: formalization
