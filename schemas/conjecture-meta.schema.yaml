@@ -38,6 +38,13 @@ properties:
   lean_status:
     type: string
     enum: [none, partial, complete]
+  lean_statement:
+    type: string
+    minLength: 3
+    description: |
+      Fully-qualified Lean declaration stating this conjecture, e.g.
+      Ledger.Statements.PvsNP.C002. Required once lean_status leaves `none`;
+      checked against the ledger by scripts/gen-ledger.py.
   references:
     type: array
     items:
@@ -48,3 +55,11 @@ properties:
         ref:  { type: string, minLength: 1 }
     default: []
 additionalProperties: false
+allOf:
+  # A conjecture that claims any Lean progress has to say where it lives.
+  - if:
+      required: [lean_status]
+      properties:
+        lean_status: { enum: [partial, complete] }
+    then:
+      required: [lean_statement]

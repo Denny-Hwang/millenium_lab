@@ -1,12 +1,18 @@
 /-
   Lemma L01 — TODO
 
-  본 파일은 placeholder입니다. 실제 후보가 만들어질 때, 다음을 채웁니다.
-  - import 절: Mathlib 의존
-  - 명제 선언: theorem L01 : ... := by sorry
-  - 증명: 점진적으로 sorry 를 제거
+  Placeholder. When a real candidate is created, fill in:
+  - the import lines (mathlib dependencies);
+  - the statement: `theorem L01 : ... := by sorry`;
+  - the proof, removing `sorry` incrementally.
 
-  TODO: 추후 정밀 작성.
+  Keep the natural-language statement in `L01.md` and this file in step;
+  L1 requires every lemma cited by `main-proof.md` to have both.
+
+  If this lemma carries a claim already recorded in the ledger, point that
+  claim's `formal_target` here once the statement exists.
+
+  TODO: write the real version.
 -/
 
 -- import Mathlib

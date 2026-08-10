@@ -93,6 +93,11 @@ lemma_count: 1
 formalization_progress: 0
 gaps_known: []
 origin_attempts:${ORIGINS_YAML}
+# Charter §4.1: a candidate cites at least one inter-field bridge.
+# Replace the placeholder before opening the PR; both validate-meta.py and
+# the Lean ledger (Ledger.Candidate.valid) reject an empty list.
+cited_bridges:
+  - TODO
 verification_status:
   L1: pending
   L2: n/a
