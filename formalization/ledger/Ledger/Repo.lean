@@ -25,6 +25,11 @@ import Ledger.Generated.Candidates
 
 namespace Ledger
 
+-- The proofs below reduce the whole recorded state in the kernel; the
+-- default recursion depth is not enough once the ledger has a few dozen
+-- attempts.
+set_option maxRecDepth 8000
+
 /-- Everything the repository currently records. -/
 def repo : Repo where
   problems := Generated.Problems.all
@@ -36,18 +41,15 @@ def repo : Repo where
 
 /-- The repository's recorded state satisfies every rule in
     `Ledger.Invariants`. Checked by the kernel on every build. -/
-set_option maxRecDepth 8000 in
 theorem repo_valid : repo.valid = true := by decide
 
 /-- No attempt claims a solution. Charter §2 and AGENTS.md §7 forbid the
     label before L6; this is the standing check that nobody has slipped. -/
-set_option maxRecDepth 8000 in
 theorem no_claimed_solution :
     repo.attempts.all (fun a => !(a.outcome == Outcome.claimedSolution)) = true := by
   decide
 
 /-- Nothing in this repository has been peer reviewed. -/
-set_option maxRecDepth 8000 in
 theorem no_peer_reviewable :
     repo.attempts.all (fun a => !(a.outcome == Outcome.peerReviewable)) = true := by
   decide
@@ -55,7 +57,6 @@ theorem no_peer_reviewable :
 /-- No attempt has passed L3: not one line of this repository's mathematics
     is machine-checked yet. The ledger checks the bookkeeping, not the
     mathematics, and this theorem is what keeps the difference visible. -/
-set_option maxRecDepth 8000 in
 theorem no_formal_verification :
     repo.attempts.all (fun a => !a.verification.l3.isPass) = true := by
   decide
