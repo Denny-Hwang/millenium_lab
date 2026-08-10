@@ -34,6 +34,32 @@ key_insights:
   - "Therefore: a paraproduct-with-cancellation hybrid that satisfies both A008-A6 (Tao-barrier pass) AND escapes A009 degeneration DOES NOT EXIST in the surveyed family. Paraproduct-only fails A008-A6; paraproduct-with-aggregate-cancellation reduces to energy/vorticity which A009 showed degenerates."
   - "STRUCTURAL INSIGHT: the ∇·u = 0 cancellation is global-in-frequency; the BMO^{-1} → L^q implication requires a local per-frequency-block estimate. The mismatch makes T1b structurally hard. This is the (α)-program analog of the route-independent C-002 wall (03-p-vs-np)."
   - "A005 trigger does NOT literally fire (criterion (b) lemma graph still correct), but the program's viability is significantly weakened. Honest recommendation: A011 registers C-003 (regularity-equivalence / non-local-cancellation wall); A012 selects Pivot."
+claims:
+  - id: A010-K1
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "A literature audit finds no published BMO^{-1} to L^q result for large data, so gap G_T1b_3 is genuinely open and A006's Patch 1 is discharged."
+  - id: A010-K2
+    kind: refutation
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "In a Bony paraproduct decomposition the div u = 0 cancellation does not enter per-frequency-block estimates, so a paraproduct hybrid cannot inherit it."
+  - id: A010-K3
+    kind: refutation
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Therefore: a paraproduct-with-cancellation hybrid that satisfies both A008-A6 (Tao-barrier pass) AND escapes A009 degeneration DOES NOT EXIST in the surveyed family."
+  - id: A010-K4
+    kind: finding
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Structural source of the difficulty: the div u = 0 cancellation is global in frequency while the BMO^{-1} to L^q implication needs a local per-block estimate."
+  - id: A010-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "A005 trigger does NOT literally fire (criterion (b) lemma graph still correct), but the program's viability is significantly weakened."
 follow_ups:
   - "A011: register conjecture C-003 (regularity-equivalence / non-local-cancellation wall) as the formal asset — analog of C-001 for the dormant 03-p-vs-np program. Generalize G_T1b_3 + G_T1b_4 + the global-vs-local finding into a unified statement."
   - "A012: Pivot evaluation. Pivot 1 (B-004 + T2 sub-Kolmogorov rigor) is most plausible — structurally orthogonal to direct PDE. Pivot 2 ((β) blowup, B-004/T3). Pivot 3 (dormancy recommendation) — user decision required."

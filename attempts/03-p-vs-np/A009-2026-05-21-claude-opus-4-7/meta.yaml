@@ -33,6 +33,27 @@ key_insights:
   - "Three responses considered: (a) flip the biconditional in L05, but this loses the natural-proofs motivation since Razborov-Rudich is about hard-detection properties not easy-detection; (b) complementary construction on AMB minus B, possibly the right direction but with open f-dependent cocycle assignment; (c) trigger (R2) abandonment. Decision: (c)."
   - "Five consecutive (R1) attempts (A005-A009) have failed to produce a coherent-sheaf class with A002 L05's biconditional direction. The accumulated evidence is sufficient to formalize the (R1) negative finding as a B-002 status revision (downgrade to 'explored-with-negative-findings') and pivot to (R2)."
   - "G017 (new, major): the natural cohomology class supported on the Boolean locus has inverted biconditional direction. G018 (new, lethal-if-unresolved): the (R2) pivot requires a fresh statement of AC^0-membership as a representation-theoretic obstruction in the Mulmuley-Sohoni framework specialized to AC^0; no published formulation exists."
+claims:
+  - id: A009-K1
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "The Ext^2 construction at T3 does discriminate f, but with the biconditional inverted: the class is non-zero exactly when f IS in AC^0, which is the opposite of what the natural-proofs framing needs."
+  - id: A009-K2
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Three responses considered: (a) flip the biconditional in L05, but this loses the natural-proofs motivation since Razborov-Rudich is about hard-detection properties not easy-detection; (b) complementary construction on AMB minus B, possibly the right direction but with open f-dependent cocycle assignment; (c) trigger (R2) abandonment."
+  - id: A009-K3
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Five consecutive (R1) attempts (A005-A009) have failed to produce a coherent-sheaf class with A002 L05's biconditional direction."
+  - id: A009-K4
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "G017 (new, major): the natural cohomology class supported on the Boolean locus has inverted biconditional direction."
 follow_ups:
   - "A010 (first (R2) attempt): state GCT-L02 — the arithmetic-circuit moduli for (n, s, d) = (2, 3, 2), with explicit representation-theoretic identification of the AC^0 sub-moduli. Mulmuley-Sohoni framework specialized to AC^0."
   - "B-002 status revision: downgrade from ai-discovered to explored-with-negative-findings; attach A005-A009 as evidence."

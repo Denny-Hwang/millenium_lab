@@ -35,6 +35,34 @@ key_insights:
   - "G_T2_1 (lethal-if-unresolved): establish L_T2_2 critical-norm compactness for discrete-NSE sequences. Comparable to or harder than Gallagher-Iftimie-Planchon 2003 profile decomposition for NSE. G_T2_2 (major): uniform CFD hypothesis sup_k ||u_{Δx_k}||_X ≤ M is empirical, not derived; downstream of T2's role. G_T2_3 (major): discretization scheme choice affects convergence."
   - "Tao-barrier audit: PASS at statement level (∇·u_{Δx} = 0 preserved by construction; limit inherits). Approaches (i), (ii) pass at resolution. C-003-orthogonality: VERIFIED — T2 is a discrete → continuum TRANSFER theorem, NOT a BMO^{-1} → L^q implication. C-003's quantification does not apply to T2. Pivot 1 is on solid structural footing."
   - "A012 mini-trigger criterion (b') ACHIEVED: precise lemma graph + gap labels + Tao-barrier audit + C-003-orthogonality verification. Pivot 1's mini-trigger does NOT fire at A013. First attempt to satisfy a new-route trigger criterion WITHOUT prior wall-like obstructions (contrast favorably with A006-A011 arc on B-003/T1)."
+claims:
+  - id: A013-K1
+    kind: definition
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "T2 decomposes along a discrete-to-continuum backbone: discrete NSE setup preserving div u = 0, critical-norm compactness (the crux), limit identification, and transfer of the bound."
+    formal_target: "Ledger.Statements.NavierStokes.T2"
+  - id: A013-K2
+    kind: definition
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "The compactness step admits three approaches — concentration-compactness, Aubin-Lions, and a spectral Littlewood-Paley-local one — of which the first two are Tao-barrier compatible."
+  - id: A013-K3
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "G_T2_1 (lethal-if-unresolved): establish L_T2_2 critical-norm compactness for discrete-NSE sequences."
+  - id: A013-K4
+    kind: finding
+    status: shape-formalized
+    formalizability: shape-only
+    statement: "T2 passes the Tao-barrier audit at statement level and is C-003-orthogonal: it is a discrete-to-continuum transfer theorem, not a member of the direct-PDE family C-003 quantifies over."
+    formal_target: "Ledger.Statements.NavierStokes.smooth_of_T2_ESS"
+  - id: A013-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "A012 mini-trigger criterion (b') ACHIEVED"
 follow_ups:
   - "A014 (next per A012's mini-window): technical attempt on G_T2_1 (critical-norm compactness). Choose between (i) concentration-compactness and (ii) Aubin-Lions; sketch the proof."
   - "A015: P07 adversarial audit on A013 + A014 against verification-bar §7. Analog of A008 for the new route."

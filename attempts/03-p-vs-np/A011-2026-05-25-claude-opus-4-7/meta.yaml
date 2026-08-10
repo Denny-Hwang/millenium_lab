@@ -32,6 +32,28 @@ key_insights:
   - "The discrete-vs-continuous obstruction is route-independent (G020): across Boolean (R1), arithmetic (R2), and monotone (R2') encodings, the moduli is either 0-dimensional (faithful to Boolean hardness, rigid) or positive-dimensional (hardness-blind). No encoding tried is simultaneously positive-dimensional and Boolean-hardness-faithful."
   - "Structural source: Boolean complexity is intrinsically discrete; algebraic-geometric tools are intrinsically continuous; faithfully bridging them is itself the open problem. The H_0 / H_AC^0 program rediscovered this wall from three angles with explicit small-case witnesses (OR, XOR)."
   - "No forward route is currently identified. A010's dormancy recommendation is strongly reinforced and made route-independent. The reactivation condition sharpens to: a moduli that is simultaneously positive-dimensional and faithful to Boolean hardness."
+claims:
+  - id: A011-K1
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "The monotone-arithmetic moduli reproduces the dilemma instead of escaping it: over Q it mis-tracks monotone-Boolean hardness, and over the Boolean semiring it is discrete again."
+  - id: A011-K2
+    kind: conjecture
+    status: shape-formalized
+    formalizability: shape-only
+    statement: "The discrete-vs-continuous obstruction is route-independent (G020): across Boolean, arithmetic and monotone encodings the moduli is either 0-dimensional and faithful, or positive-dimensional and hardness-blind."
+    formal_target: "Ledger.Statements.PvsNP.C002"
+  - id: A011-K3
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "Structural source: Boolean complexity is intrinsically discrete; algebraic-geometric tools are intrinsically continuous; faithfully bridging them is itself the open problem."
+  - id: A011-K4
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "No forward route is currently identified."
 follow_ups:
   - "User decision on dormancy (charter §3 / R6 step 5). A010 and A011 both recommend it; A011 makes it route-independent."
   - "Register C-002 (G020, the discrete-vs-continuous wall) as a conjecture generalizing C-001. Recommended regardless of the dormancy decision, to preserve the negative-knowledge asset."

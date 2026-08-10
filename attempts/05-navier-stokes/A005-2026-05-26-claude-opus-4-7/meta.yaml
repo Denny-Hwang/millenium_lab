@@ -33,6 +33,34 @@ key_insights:
   - "Stage A006 (T1a, P03), A007 (T1b, P03), A008 (P07 adversarial audit). Falsifiable 3-attempt pivot trigger: if none of (a) T1a proof, (b) precise T1b lemma-graph, (c) T1 falsification is produced by A008, switch route or direction. Max budget before dormancy: 7 attempts (A006-A012)."
   - "Applies 03-p-vs-np late-commitment lesson EARLY: H_AC^0 reached A007 before route-committing; here A005. Triggers set for A008 rather than after 5-attempt accumulation."
   - "Verification-bar §7 pre-audit: T1 consistent with all four NSE barriers (supercriticality; Tao 2016 averaged-NSE; Buckmaster-Vicol non-uniqueness; CFD-continuum gap). A006-A008 must close in detail."
+claims:
+  - id: A005-K1
+    kind: finding
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "The program commits to direction (alpha), global regularity targeting L^3 via bridge B-003 and transformation T1 (BMO^{-1} to L^3 along the flow), composed with ESS."
+    formal_target: "Ledger.Statements.NavierStokes.cmiA_of_program"
+  - id: A005-K2
+    kind: definition
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "T1 splits into T1a (small data, plausibly provable in the Koch-Tataru regime), T1b (large data, the genuinely open case) and T1c (a Tao-barrier audit)."
+    formal_target: "Ledger.Statements.NavierStokes.T1_of_parts"
+  - id: A005-K3
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Stage A006 (T1a, P03), A007 (T1b, P03), A008 (P07 adversarial audit)."
+  - id: A005-K4
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Applies 03-p-vs-np late-commitment lesson EARLY"
+  - id: A005-K5
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Verification-bar §7 pre-audit: T1 consistent with all four NSE barriers (supercriticality; Tao 2016 averaged-NSE; Buckmaster-Vicol non-uniqueness; CFD-continuum gap)."
 follow_ups:
   - "A006: P03 lemma extraction on T1a (small-data BMO^{-1} → L^3 along-flow). First concrete technical step on the committed route."
   - "A007: P03 lemma extraction on T1b (large-data)."

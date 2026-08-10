@@ -8,7 +8,8 @@ statement: |
 parent_problem: 03-p-vs-np
 parent_attempt: A009
 numerical_evidence_status: partial
-lean_status: none
+lean_status: partial
+lean_statement: Ledger.Statements.PvsNP.C001
 references:
   - kind: attempt
     ref: "attempts/03-p-vs-np/A005-2026-05-20-claude-opus-4-7/"

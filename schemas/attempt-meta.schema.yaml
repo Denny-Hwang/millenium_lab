@@ -13,6 +13,7 @@ required:
   - duration_minutes
   - outcome
   - verification_status
+  - claims
 properties:
   id:
     type: string
@@ -68,6 +69,61 @@ properties:
     type: array
     items: { type: string }
     default: []
+  claims:
+    type: array
+    minItems: 1
+    description: |
+      The attempt's knowledge units, in the form the Lean ledger consumes
+      (`formalization/ledger/Ledger/Generated/Attempts.lean`). One claim per
+      thing the attempt asserts, so that a later session can check it rather
+      than re-read it. See docs/methodology/lean-ledger.md.
+    items:
+      type: object
+      required: [id, kind, status, formalizability, statement]
+      properties:
+        id:
+          type: string
+          pattern: '^A\d{3}-K\d+$'
+          description: Scoped to the owning attempt, numbered from K1 without gaps.
+        kind:
+          type: string
+          enum:
+            - finding
+            - proposition
+            - cited-theorem
+            - refutation
+            - conjecture
+            - definition
+            - methodological
+            - open-question
+        status:
+          type: string
+          enum:
+            - unformalized
+            - shape-formalized
+            - stated
+            - proved
+            - refuted
+            - retracted
+        formalizability:
+          type: string
+          enum:
+            - mathlib-ready
+            - needs-infrastructure
+            - shape-only
+            - not-mathematical
+        statement:
+          type: string
+          minLength: 8
+          description: The claim in one English sentence, not a summary of it.
+        formal_target:
+          type: string
+          minLength: 3
+          description: |
+            Fully-qualified Lean declaration carrying this claim, e.g.
+            Ledger.Statements.NavierStokes.T1. Required once status is
+            shape-formalized or stronger; checked by scripts/gen-ledger.py.
+      additionalProperties: false
   follow_ups:
     type: array
     items: { type: string }

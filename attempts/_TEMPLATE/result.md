@@ -22,6 +22,18 @@ TODO: one-line summary.
 
 - TODO
 
+## Claims (ledger)
+
+Each key insight above becomes one claim in `meta.yaml`'s `claims:` block,
+with its kind, formalization status, and whether formalizing it is
+reachable today. Use prompt
+[`P09`](../../prompts/P09-ledger-entry.md); the spec is
+[`docs/methodology/lean-ledger.md`](../../docs/methodology/lean-ledger.md).
+
+| Claim | Kind | Status | Formalizability | Lean target |
+|-------|------|--------|-----------------|-------------|
+| TODO-K1 | TODO | TODO | TODO | — |
+
 ## Follow-ups
 
 - TODO

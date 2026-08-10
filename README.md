@@ -54,6 +54,7 @@ Status label definitions live in
 | [`routines/`](routines/) | Claude Code standard routines (R1–R6) |
 | [`scripts/`](scripts/) | Scaffolding, validation, and dashboard scripts |
 | [`formalization/`](formalization/) | Lean 4 + mathlib formalization environment |
+| [`formalization/ledger/`](formalization/ledger/) | The repository's plans and progress as machine-checked Lean (charter §4.7) |
 | [`adversarial/`](adversarial/) | Self-refutation track (counterexample search, proof attacks) |
 | [`reviews/`](reviews/) | Internal, external, and journal review records |
 | [`analysis/`](analysis/) | Longitudinal meta analysis (auto-updated) |
@@ -75,14 +76,18 @@ start work.
    journal pipeline.
 4. [`docs/methodology/verification-protocol.md`](docs/methodology/verification-protocol.md)
    — verification levels L1–L7.
-5. [`docs/problems/_INDEX.md`](docs/problems/_INDEX.md) — which problems
+5. [`docs/methodology/lean-ledger.md`](docs/methodology/lean-ledger.md) —
+   how plans, attempts, claims and progress are written in Lean so that CI
+   can check them.
+6. [`docs/problems/_INDEX.md`](docs/problems/_INDEX.md) — which problems
    are active vs dormant.
-6. Start work:
+7. Start work:
    - New attempt: `scripts/new-attempt.sh <problem-id> <model-name>`
    - Promote to candidate: `scripts/new-candidate.sh <attempt-id>`
    - New conjecture: `scripts/new-conjecture.sh <problem-id>`
    - New bridge: `scripts/new-bridge.sh <slug>`
-7. Look up [`prompts/_INDEX.md`](prompts/_INDEX.md) when you need a
+   - After any metadata change: `python scripts/gen-ledger.py`
+8. Look up [`prompts/_INDEX.md`](prompts/_INDEX.md) when you need a
    standard prompt.
 
 ---

@@ -2,8 +2,18 @@ import Lake
 open Lake DSL
 
 -- millennium-lab formalization package.
--- 본 패키지는 7개 문제 공통 인프라(shared)와 문제별 프로젝트(projects)를 묶는다.
--- mathlib4 의존성은 lake-manifest.json 으로 잠긴다(필요 시 lake update).
+--
+-- This package bundles the shared infrastructure for the seven problems
+-- (`shared`) and the per-problem projects (`projects`). mathlib is pinned to
+-- a released tag rather than `master`: the tag and `lean-toolchain` are a
+-- matched pair, so a build is reproducible and a mathlib change upstream
+-- cannot break a pull request that did not touch Lean.
+--
+-- Bumping the pin means changing both `lean-toolchain` and the tag below to
+-- the same version, in one PR.
+--
+-- The repository's plans and progress live in the separate, dependency-free
+-- package under `ledger/`; keep records out of this one.
 package «millennium-lab» where
   leanOptions := #[
     ⟨`pp.unicode.fun, true⟩,
@@ -11,9 +21,9 @@ package «millennium-lab» where
   ]
 
 require mathlib from git
-  "https://github.com/leanprover-community/mathlib4" @ "master"
+  "https://github.com/leanprover-community/mathlib4" @ "v4.29.0"
 
 @[default_target]
 lean_lib «MillenniumLab» where
-  -- 모든 모듈은 MillenniumLab/ 하위에서 발견됨.
+  -- Every module is discovered under MillenniumLab/.
   globs := #[.submodules `MillenniumLab]

@@ -13,6 +13,7 @@ required:
   - lemma_count
   - formalization_progress
   - origin_attempts
+  - cited_bridges
 properties:
   id:
     type: string
@@ -60,6 +61,15 @@ properties:
     items:
       type: string
       pattern: '^A\d{3}$'
+  cited_bridges:
+    type: array
+    minItems: 1
+    description: |
+      Inter-field bridges this candidate rests on. Charter §4.1 requires at
+      least one; the Lean ledger enforces it (Ledger.Candidate.valid).
+    items:
+      type: string
+      pattern: '^B-\d{3}$'
   verification_status:
     type: object
     required: [L1, L2, L3, L4, L5, L6, L7]

@@ -1,6 +1,6 @@
 # routines/ — Claude Code Standard Routines
 
-This directory holds the standardized routines (R1–R6) for multi-step
+This directory holds the standardized routines (R1–R7) for multi-step
 work. A Claude Code session checks this index at the start of any
 multi-step task and follows the appropriate routine. Other agents may
 reference these freely.
@@ -13,6 +13,7 @@ reference these freely.
 | [R4](R4-formalizer.md) | Formalizer | Lemma → Lean | P04 |
 | [R5](R5-weekly-report.md) | Weekly Report | Weekly progress summary | (none) |
 | [R6](R6-cross-attempt-synthesis.md) | Cross-attempt Synthesis | Find patterns across attempts | P02 (optional) |
+| [R7](R7-ledger-sync.md) | Ledger Sync | Keep the Lean ledger in step with the records | P09, P04 (optional) |
 
 ## Calling Convention
 

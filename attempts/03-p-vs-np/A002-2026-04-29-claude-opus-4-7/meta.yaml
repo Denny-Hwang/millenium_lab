@@ -28,6 +28,27 @@ key_insights:
   - "Natural-proofs barrier audit (L11) is not free — explicit quantification of evaluation-algorithm failure mode is required to avoid circularity."
   - "Equivariant cohomology stability (L08) is the bottleneck for lifting small-n numerical evidence to all n."
   - "Dependency graph closes symbolically under assumption that L02 and L04 are constructed; this is the prerequisite gate for candidate promotion."
+claims:
+  - id: A002-K1
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "AC⁰ pilot's hardest pieces are L02 (moduli construction) and L04 (sheaf F_AC⁰); both are open problems in their own right."
+  - id: A002-K2
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Natural-proofs barrier audit (L11) is not free — explicit quantification of evaluation-algorithm failure mode is required to avoid circularity."
+  - id: A002-K3
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "Equivariant cohomology stability (L08) is the bottleneck for lifting small-n numerical evidence to all n."
+  - id: A002-K4
+    kind: definition
+    status: unformalized
+    formalizability: shape-only
+    statement: "Dependency graph closes symbolically under assumption that L02 and L04 are constructed; this is the prerequisite gate for candidate promotion."
 follow_ups:
   - "A003: discharge L02 — construct C^AC⁰_{n,s,d} as a quasi-projective scheme with explicit equations."
   - "A004 (deferred, requires Macaulay2/SageMath): compute H¹ for n ≤ 4 and verify L05 ∧ L06 case-by-case."

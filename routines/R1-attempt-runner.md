@@ -32,16 +32,23 @@ Or in natural language: "start a new attempt on 02-riemann."
      `novel_bridges`, `duration_minutes`, `verification_status` (only
      applicable levels).
 8. Invoke R2 (Result Classifier) to validate the outcome label.
-9. State the prompt ID and the outcome in the PR body before opening
-   the PR.
+9. Fill in `claims:` — one claim per thing the attempt asserts — using
+   prompt `P09-ledger-entry` against the finished `result.md`. An attempt
+   with no claims does not build (charter §4.7).
+10. Invoke R7 (Ledger Sync): regenerate the ledger, update the problem's
+    plan if this attempt changed the direction, and run the three checks.
+11. State the prompt ID and the outcome in the PR body before opening
+    the PR.
 
 ## Output
 
 - A new attempt folder (all five files).
+- Regenerated `formalization/ledger/Ledger/Generated/Attempts.lean`, and an
+  updated `Ledger/Plan.lean` if the direction moved.
 - One PR (commit message convention:
   `attempt(<problem>): A### {summary}`).
 
 ## Prompts Used
 
-- Required: `P01-multi-perspective`
+- Required: `P01-multi-perspective`, `P09-ledger-entry`
 - Optional: `P02-bridge-discovery`, `P03-lemma-extraction`

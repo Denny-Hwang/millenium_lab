@@ -33,6 +33,32 @@ key_insights:
   - "Weakened reformulation survives: regularity is decided by SOME element of an ordered family of critical functionals; the question is which family member is bounded along smooth flows. This organizes a refined next attempt."
   - "Two future bridge candidates surface: B-003 (harmonic-analysis ↔ PDE on critical-norm equivalences, resolves C1); B-004 (CFD ↔ PDE on rigorous turbulence closure, resolves C3). Neither registered yet (P02 deferred)."
   - "Methodology lesson FROM 03-p-vs-np dormancy: before opening many attempts on this problem, set a direction-commitment protocol + pivot trigger early (analogous to A007's belated route commitment in the dormant program)."
+claims:
+  - id: A001-K1
+    kind: finding
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Each of the five consilient fields produces a coherent candidate critical functional in its own vocabulary (L^3, BMO^{-1}, enstrophy dissipation, and so on)."
+  - id: A001-K2
+    kind: refutation
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Those candidates are not equivalent norms (finding C1): they are critical but strictly inclusion-ordered, so controlling one does not control the others."
+  - id: A001-K3
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Weakened reformulation survives: regularity is decided by SOME element of an ordered family of critical functionals; the question is which family member is bounded along smooth flows."
+  - id: A001-K4
+    kind: definition
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Two future bridge candidates surface: B-003 (harmonic-analysis ↔ PDE on critical-norm equivalences, resolves C1); B-004 (CFD ↔ PDE on rigorous turbulence closure, resolves C3)."
+  - id: A001-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Methodological lesson carried over from the 03-p-vs-np dormancy: set a direction-commitment protocol and a pivot trigger early, rather than after five attempts."
 follow_ups:
   - "A002: tighten the hypothesis to 'regularity is decided by some element of an ordered family of critical functionals'; enumerate the strict-inclusion ladder of critical norms with current best bounds. Either refined P01 or P03 lemma extraction."
   - "A003: P02 bridge discovery for the B-003 candidate (harmonic-analysis ↔ PDE, critical-norm equivalence ladder)."

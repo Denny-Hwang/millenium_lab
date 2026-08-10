@@ -32,6 +32,34 @@ key_insights:
   - "Strength/weakness: if C-003 is TRUE, the (α)-route via B-003/T1 cannot succeed without a fundamentally new technique outside the surveyed family; pivot is justified. If FALSE, the disproof IS a proof of the implication, which combined with ESS 2003 closes CMI (A) on R^3 — exact-equivalent in strength to '(A) is provable via the (α) family.'"
   - "Operationally, C-003 controls A012's Pivot evaluation. If taken seriously (surveyed family exhausted), Pivot 1 (B-004 + T2) or Pivot 3 (dormancy recommendation) are realistic options."
   - "The 7-attempt budget logic from A005 worked. A005-A007 produced clean lemma graph; A008-A010 exhausted direct techniques; A011 registers the asset; A012 closes with Pivot selection. Discipline contrasts with 03-p-vs-np which committed late and reached dormancy via a longer arc."
+claims:
+  - id: A011-K1
+    kind: conjecture
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "C-003 is registered: no proof of the large-data BMO^{-1} to L^q implication in the surveyed family both passes the Tao-barrier audit and avoids reducing to a regularity-equivalent gap."
+    formal_target: "Ledger.Statements.NavierStokes.C003"
+  - id: A011-K2
+    kind: conjecture
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "C-003 absorbs G_T1b_1 (A007), G_T1b_3 (A009), G_T1b_4 (A009), and A010's paraproduct-hybrid non-existence finding into a single statement."
+  - id: A011-K3
+    kind: finding
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "If C-003 is true, the (alpha) route through B-003 / T1 cannot succeed without a technique outside the surveyed family, which is what justifies a pivot."
+    formal_target: "Ledger.Statements.NavierStokes.no_clean_direct_proof"
+  - id: A011-K4
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Operationally, C-003 controls A012's Pivot evaluation."
+  - id: A011-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "The 7-attempt budget logic from A005 worked."
 follow_ups:
   - "A012: Pivot evaluation. Three options: Pivot 1 (route change to B-004 + T2 sub-Kolmogorov / CFD-PDE); Pivot 2 ((β) blowup via B-004/T3 Hou-Luo Type-II); Pivot 3 (dormancy recommendation, user-approval-required)."
   - "Mid-arc R6 (strongly motivated): 11 attempts on 05-navier-stokes (A001-A011); methodological-contrast R6 with dormant 03-p-vs-np. Could combine with A012's Pivot evaluation in a single PR."

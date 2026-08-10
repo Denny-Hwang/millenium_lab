@@ -33,6 +33,32 @@ key_insights:
   - "G015 (lethal-if-unresolved): A002 L05's H^1 framing is dimension-1-specific; in 2-dim ambient the right cohomological degree is Ext^2. L05 (and consequently L06, L10, B-002) needs restating with k-dependent cohomological degree."
   - "G016 (major): if discrimination uses divisor-component invariants rather than Picard classes, the natural-proofs framework (targeting coherent-sheaf cohomology) does not automatically engage. A separate analysis of Razborov-Rudich applicability to richer-invariant escapes is required."
   - "Abandonment trigger NOT activated: the failures are at the wrong cohomological degree, not at the route level. A009 should test the Ext^2 / richer-invariant variant; if that also fails to produce a discriminating coherent-sheaf class in any degree, then (R2) abandonment is triggered."
+claims:
+  - id: A008-K1
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "All four (refinement, ambient) combinations fail to discriminate XOR from x_1 AND x_2 at the first-cohomology / first-Chern-class level"
+  - id: A008-K2
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "Discrimination does exist at richer invariants: at T3, construction A' gives an irreducible (1,1) curve for XOR against a reducible one for x_1 AND x_2, and A'' has nontrivial Ext^2 = Q^4 supporting f-dependent classes."
+  - id: A008-K3
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "G015 (lethal-if-unresolved): A002 L05's H^1 framing is dimension-1-specific; in 2-dim ambient the right cohomological degree is Ext^2."
+  - id: A008-K4
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "G016 (major): if discrimination uses divisor-component invariants rather than Picard classes, the natural-proofs framework (targeting coherent-sheaf cohomology) does not automatically engage."
+  - id: A008-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "Abandonment trigger NOT activated: the failures are at the wrong cohomological degree, not at the route level."
 follow_ups:
   - "A009 (sharpened, critical for abandonment trigger): test Ext^2 variant of A'' at T3 with f-dependence via restriction to f-specific Boolean component; also test divisor-component invariants formalized via intermediate Jacobian or codimension-2 Chow groups."
   - "L05 restatement in light of G015: replace 'H^1' with 'Ext^k' for k matching ambient dimension; propagate to L06, L10, B-002."

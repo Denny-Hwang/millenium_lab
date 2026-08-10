@@ -6,4 +6,7 @@ parent_problem: TODO   # e.g., 02-riemann
 parent_attempt: TODO   # e.g., A012
 numerical_evidence_status: none   # none | partial | strong | contradicted
 lean_status: none                 # none | partial | complete
+# Fully-qualified Lean declaration stating this conjecture, e.g.
+# Ledger.Statements.PvsNP.C002. Required once lean_status leaves `none`.
+# lean_statement: TODO
 references: []

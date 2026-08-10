@@ -39,6 +39,27 @@ key_insights:
   - "L02 v2 is realized as a closed subscheme of a finite product of Grassmannians (the wiring data) cut out by polynomial Boolean-evaluation equations on Plücker coordinates, then quotiented by gate-relabeling. Quasi-projectivity follows from ambient projectivity + closed subscheme + finite-group GIT quotient. A003-A1 is closed at proof-sketch level."
   - "Irreducible components of L02 v2 are indexed by DAG topologies. GL_n preserves each component but does not permute them transitively. A003-A2's suggested patch (component-uniformity of eval) is provably false; the correct replacement is Boolean-output-uniformity of the Čech 1-cocycle, which is itself a subordinate open lemma."
   - "G009 supersedes G001 (A002's original reducibility gap) in importance. The question is no longer 'is the moduli irreducible' but 'does the chosen non-discrete scheme structure support a coherent sheaf with non-vanishing H^1 that tracks AC^0-membership'."
+claims:
+  - id: A005-K1
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "The naive discrete reading of L02 v1 makes H^1(C, F) = 0 identically (0-dimensional affine plus Hartshorne III.3.5) and so collapses H_AC^0; any scheme structure the program uses must be non-discrete."
+  - id: A005-K2
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "L02 v2 is realized as a closed subscheme of a finite product of Grassmannians (the wiring data) cut out by polynomial Boolean-evaluation equations on Plücker coordinates, then quotiented by gate-relabeling."
+  - id: A005-K3
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "Irreducible components of L02 v2 are indexed by DAG topologies and GL_n does not permute them transitively, which refutes A003-A2's suggested component-uniformity patch."
+  - id: A005-K4
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "G009 supersedes G001 (A002's original reducibility gap) in importance."
 follow_ups:
   - "A006 (next sequential): make G010 concrete — compute explicit Plücker equations for the smallest non-trivial case (n, s, d) = (2, 3, 2). Discharges in part A002's deferred numerical-attempt plan."
   - "A007: discharge A003-A4 (L08 base case at n ∈ {0, 1}); independent of A005."

@@ -29,6 +29,27 @@ key_insights:
   - "The COMPOSITE framing 'spatial-embedding X ⊂ Y in the critical-norm ladder ↦ along-flow implication L^∞_t X ⇒ L^∞_t Y' is ai-discovered in this session (implicit in literature but not explicit as a bridge object). Registered as B-003."
   - "Three concrete transformations T1-T3 proposed: T1 (BMO^{-1} → L^3 along-flow closes CMI(A) via ESS); T2 (small-large data interpolation via HA tools); T3 (HA-language quantification of the Tao 2016 barrier). T1 is the highest-leverage open transformation."
   - "False-bridge possibility identified: Bourgain-Pavlovic 2008 ill-posedness in Ḃ^{-1}_{∞,∞} caps the ladder; the bridge could collapse to ESS 2003 alone if large-data along-flow bounds fail uniformly above L^3. Even in that worst case the bridge's content is the barrier itself — analogous to relativization on the P-vs-NP side."
+claims:
+  - id: A003-K1
+    kind: definition
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Five candidate shared objects between harmonic-analysis and nonlinear-PDE on 05-navier-stokes"
+  - id: A003-K2
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "The COMPOSITE framing 'spatial-embedding X ⊂ Y in the critical-norm ladder ↦ along-flow implication L^∞_t X ⇒ L^∞_t Y' is ai-discovered in this session (implicit in literature but not explicit as a bridge object)."
+  - id: A003-K3
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Three concrete transformations are proposed: T1 (BMO^{-1} to L^3 along the flow, which would close CMI (A) via ESS), T2 (small-to-large data interpolation) and T3 (harmonic-analysis quantification of the Tao 2016 barrier)."
+  - id: A003-K4
+    kind: finding
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "False-bridge possibility identified: Bourgain-Pavlovic 2008 ill-posedness in Ḃ^{-1}_{∞,∞} caps the ladder; the bridge could collapse to ESS 2003 alone if large-data along-flow bounds fail uniformly above L^3."
 follow_ups:
   - "A004: register B-004 (CFD ↔ PDE on rigorous turbulence closure; resolves A001 C3)."
   - "A005: direction-commitment attempt per A001 follow-up #6."

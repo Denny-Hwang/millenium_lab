@@ -38,6 +38,33 @@ key_insights:
   - "G_T1b_1 (lethal-if-unresolved): establishing L_T1b_3b. Heuristic: BMO^{-1} is the LARGEST critical Banach space; L^q for q > 3 is STRICTLY smaller; so the implication is a regularity strengthening at the critical scale, lacking a known bootstrap mechanism. Albritton-style borderline criteria attack this but have not closed it. G_T1b_2 (major): ESS iteration to close (A) requires uniform-in-T constants."
   - "Tao-barrier audit satisfied at the lemma-statement level: Duhamel uses P + ∇·u = 0 explicitly (pressure cancellation), structural ingredients absent from averaged NSE. Caveat: G_T1b_1's resolution must continue to use these non-trivially; A008 (P07) must verify."
   - "A005 trigger criterion (b) — 'a precise lemma-graph + gap labels for T1b consistent with the Tao-barrier audit' — is ACHIEVED. The pivot trigger does NOT fire. The 05-navier-stokes program continues per the committed (α) route. First attempt to bring the (α) commitment into satisfactory trigger territory."
+claims:
+  - id: A007-K1
+    kind: definition
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "T1b decomposes via Duhamel into a trivial formula step, a trivial linear step, and the bilinear crux L_T1b_3; the decomposition uses the Leray projector and div u = 0 explicitly."
+    formal_target: "Ledger.Statements.NavierStokes.T1b"
+  - id: A007-K2
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "L_T1b_3 sub-decomposes into L_T1b_3a (routine time-integral via heat-kernel estimate + Hölder, given an auxiliary L^q control with q ∈ (3,6]) and L_T1b_3b (THE auxiliary L^q control, derived from the L^∞_t BMO^{-1} hypothesis plus smoothness + energy)."
+  - id: A007-K3
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "G_T1b_1 (lethal-if-unresolved): establishing L_T1b_3b."
+  - id: A007-K4
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "Tao-barrier audit satisfied at the lemma-statement level"
+  - id: A007-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "A005 trigger criterion (b) — 'a precise lemma-graph + gap labels for T1b consistent with the Tao-barrier audit' — is ACHIEVED."
 follow_ups:
   - "A008: P07 adversarial review of A006 + A007 against verification-bar §7. Specifically verify that possible G_T1b_1 resolutions cannot bypass the Leray-projector requirement (audit at resolution level)."
   - "A009+: pick G_T1b_1 and attempt direct technical attack — paraproduct decomposition on BMO^{-1} scale, or Beale-Kato-Majda-style vorticity bridge from BMO^{-1} to L^q."

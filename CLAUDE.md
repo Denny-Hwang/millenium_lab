@@ -14,9 +14,13 @@
 3. Read the `README.md` or `_INDEX.md` of the directory you will work in.
 4. If a target problem is in scope, read
    `docs/problems/<problem>/README.md`.
+5. If the work will touch any record (an attempt, conjecture, bridge,
+   candidate, plan, or problem status), read
+   [`docs/methodology/lean-ledger.md`](docs/methodology/lean-ledger.md) —
+   those changes have to land in the Lean ledger in the same PR.
 
-In the first reply of the session, report in a single line that the four
-steps above are complete. (Example: "Confirmed: AGENTS.md / charter.md /
+In the first reply of the session, report in a single line that the steps
+above are complete. (Example: "Confirmed: AGENTS.md / charter.md /
 docs/problems/02-riemann/.")
 
 ---
@@ -85,9 +89,17 @@ python scripts/validate-meta.py
 
 # Dashboard reflects actual state
 python scripts/update-dashboard.py --check
+
+# Lean ledger matches the metadata (charter §4.7)
+python scripts/gen-ledger.py --check
+
+# The recorded state still satisfies the charter's rules
+cd formalization/ledger && lake build
 ```
 
-If both commands exit with code 0, you pass.
+If all four exit with code 0, you pass. The last one is the only Lean build
+you are expected to run locally; the mathlib package under
+`formalization/` is CI's job.
 
 ---
 

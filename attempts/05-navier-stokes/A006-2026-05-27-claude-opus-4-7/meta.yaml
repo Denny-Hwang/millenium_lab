@@ -34,6 +34,33 @@ key_insights:
   - "L_T1a_5 is OPEN. The bilinear estimate ||B(u,v)||_{L^∞_t L^3} ≲ ||u||_{X_KT} ||v||_{X_KT} (or similar) bridging the Koch-Tataru class X_KT to L^3 is not in the literature in the form needed (G_T1a_1)."
   - "G_T1a_3 (NEW program-level concern): T1a + ESS yields only 'small BMO^{-1} ⇒ regularity', a Koch-Tataru-style statement already known in form. T1a's leverage for the (α) program is LIMITED. The genuine payoff target is T1b (large-data) — A007. A005's commitment statement did not anticipate this leverage limit."
   - "A006 does NOT fire the A005 pivot trigger: criterion (a) is partially met (trivial sub-case proved); criteria (b) and (c) await A007/A008. The 3-attempt trigger window remains open. G_T1a_3 motivates prioritizing A007 over additional T1a work."
+claims:
+  - id: A006-K1
+    kind: definition
+    status: shape-formalized
+    formalizability: needs-infrastructure
+    statement: "Inside the CMI initial-data class, T1a splits into a trivial sub-case (data small in both BMO^{-1} and L^3) and the substantive L_T1a_5 (small in BMO^{-1}, large in L^3)."
+    formal_target: "Ledger.Statements.NavierStokes.T1a"
+  - id: A006-K2
+    kind: definition
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "L_T1a_5 has non-trivial CMI examples (widely-separated bump construction)"
+  - id: A006-K3
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "L_T1a_5 is OPEN. The bilinear estimate ||B(u,v)||_{L^∞_t L^3} ≲ ||u||_{X_KT} ||v||_{X_KT} (or similar) bridging the Koch-Tataru class X_KT to L^3 is not in the literature in the form needed (G_T1a_1)."
+  - id: A006-K4
+    kind: open-question
+    status: unformalized
+    formalizability: needs-infrastructure
+    statement: "G_T1a_3 (NEW program-level concern): T1a + ESS yields only 'small BMO^{-1} ⇒ regularity', a Koch-Tataru-style statement already known in form."
+  - id: A006-K5
+    kind: methodological
+    status: unformalized
+    formalizability: not-mathematical
+    statement: "A006 does NOT fire the A005 pivot trigger"
 follow_ups:
   - "A007 (the prioritized payoff target per G_T1a_3): P03 lemma extraction on T1b (large-data BMO^{-1} → L^3 along-flow). Given G_T1a_3, A007 carries the program's real load."
   - "A008: P07 adversarial review per verification-bar §7 (Tao-barrier audit on whatever A006/A007 produced)."

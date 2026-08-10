@@ -26,15 +26,23 @@ user: R4 <candidate-id> <lemma-id>
      `pending`.
    - Fail: preserve the failure log under the lemmas folder; decide
      whether `sorry` or additional auxiliary lemmas are needed.
-6. If the change is meaningful, open a PR:
+6. Move every claim this lemma carries forward in the ledger: set
+   `formal_target` to the new declaration and raise `status`
+   (`unformalized` → `shape-formalized` → `stated` → `proved`). A statement
+   whose analytic content is still a parameter is `shape-formalized`, not
+   `stated` — see `docs/methodology/lean-ledger.md` §4.
+7. Run R7 (Ledger Sync) to regenerate and check.
+8. If the change is meaningful, open a PR:
    `formal(<problem>): <lemma-id> {progress}`.
 
 ## Output
 
 - Updated `.lean` file.
-- Updated `meta.yaml` (`formalization_progress`).
+- Updated `meta.yaml` (`formalization_progress`, claim statuses).
+- Regenerated ledger.
 - (If needed) PR splitting out a new auxiliary lemma.
 
 ## Prompts Used
 
 - Required: `P04-formalization`
+- Follow-up: R7 (Ledger Sync)

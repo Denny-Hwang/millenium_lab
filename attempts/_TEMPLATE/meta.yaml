@@ -17,6 +17,23 @@ verification_status:
   L6: n/a
   L7: n/a
 key_insights: []
+# One claim per thing this attempt asserts. Required — the Lean ledger
+# refuses an attempt with none (AGENTS.md §11).
+#   kind:            finding | proposition | cited-theorem | refutation |
+#                    conjecture | definition | methodological | open-question
+#   status:          unformalized | shape-formalized | stated | proved |
+#                    refuted | retracted
+#   formalizability: mathlib-ready | needs-infrastructure | shape-only |
+#                    not-mathematical
+#   formal_target:   required once status is shape-formalized or stronger.
+# See docs/methodology/lean-ledger.md; prompt P09 fills this in from result.md.
+claims:
+  - id: TODO          # <attempt-id>-K1, numbered from 1 without gaps
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: |
+      TODO: the claim itself, in one sentence.
 follow_ups: []
 references: []
 novel_bridges: []

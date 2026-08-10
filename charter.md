@@ -82,6 +82,10 @@ At charter level:
 
 Only candidates that pass L7 are eligible to attempt a CMI prize claim.
 
+The level recorded for an attempt or a candidate is not a matter of
+judgement at review time: the gates above are decidable predicates in the
+Lean ledger (§4.7), and a record that violates one fails CI.
+
 ---
 
 ## 4. Core Principles
@@ -149,6 +153,34 @@ A candidate is not trusted until it survives attempts to break itself.
   press release) goes through a human-maintainer-signed PR.
 - Anything an AI agent produces records that fact in the metadata
   (`model` field). Authorship credit follows a separate procedure.
+
+### 4.7 Lean-expressibility of Plans and Progress
+
+Formalization (§4.2) applies to the mathematics. This principle applies to
+the **record**: every plan and every piece of progress this repository
+holds must also be expressed in a form a machine can check.
+
+- Problem statuses, attempts, the claims attempts make, conjectures,
+  bridges, candidates and forward plans are Lean values in the ledger
+  package (`formalization/ledger/`), projected from their metadata by
+  `scripts/gen-ledger.py`.
+- The rules in this charter that constrain those records — the outcome
+  gates of §3, the citation requirements of §4.1, the preservation
+  requirements of §4.4 — are decidable predicates in the same package, and
+  the current state carries a kernel-checked proof that it satisfies them
+  (`Ledger.repo_valid`). CI runs this on every pull request that touches a
+  record.
+- Every claim an attempt makes declares how far its formalization has got
+  and whether a full formalization is reachable with today's mathlib. A
+  claim that cannot be formalized yet must name what is missing. "Not
+  formalizable" is an acceptable answer; "unstated" is not.
+- The ledger checks bookkeeping, not mathematics. It must never be
+  arranged so that it appears to verify a mathematical claim that has not
+  been verified. Where the analytic objects do not exist in mathlib, the
+  logical *shape* of a program is formalized and the gap is recorded as a
+  gap.
+
+Details: [`docs/methodology/lean-ledger.md`](docs/methodology/lean-ledger.md).
 
 ---
 
@@ -225,6 +257,10 @@ section (duplication risk).
 ## 9. Glossary (Brief)
 
 - **attempt**: a single-session AI attempt. ID format `A###`.
+- **claim**: one knowledge unit an attempt asserts, recorded with its kind,
+  formalization status, and formalizability. ID format `A###-K#`.
+- **ledger**: the Lean package holding the repository's records and the
+  charter's rules about them (`formalization/ledger/`).
 - **candidate**: a formal proof candidate. ID format `PC-###`.
 - **conjecture**: a conjecture distinct from the main problem. ID format
   `C-###`.

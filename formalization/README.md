@@ -5,12 +5,23 @@ lemmas of candidates into **machine-checkable Lean 4 theorems**. This
 repository does not use other formal systems (Coq, Isabelle, etc.) —
 charter §4.2.
 
+> **Two packages.** This one carries the *mathematics* and depends on
+> mathlib, so it is slow. The repository's *records* — plans, attempts,
+> claims, progress — live in [`ledger/`](ledger/), which depends on nothing
+> and is required on every pull request (charter §4.7,
+> [`../docs/methodology/lean-ledger.md`](../docs/methodology/lean-ledger.md)).
+> Keep records out of this package and mathematics out of that one.
+
 ## Environment
 
-- **Lean**: stable version pinned in `lean-toolchain` (currently
-  `leanprover/lean4:v4.29.1`).
+- **Lean**: pinned in `lean-toolchain` (currently
+  `leanprover/lean4:v4.29.0`).
 - **Build tool**: [Lake](https://github.com/leanprover/lean4/tree/master/src/lake).
-- **Standard library**: [mathlib4](https://github.com/leanprover-community/mathlib4).
+- **Standard library**: [mathlib4](https://github.com/leanprover-community/mathlib4),
+  pinned to the matching release tag (`v4.29.0`) rather than `master`, so
+  that a build is reproducible and an upstream change cannot break a PR
+  that did not touch Lean. Bumping the pin means moving `lean-toolchain`
+  and the tag in `lakefile.lean` together, in one PR.
 
 ## Local Setup
 
@@ -20,9 +31,15 @@ curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf 
 
 # 2) Build from this directory
 cd formalization
-lake update           # fetch mathlib (a few minutes to tens of minutes)
+lake exe cache get    # fetch mathlib's prebuilt oleans at the pinned revision
 lake build            # full build
 ```
+
+Do **not** run `lake update` here. `lake-manifest.json` is committed and
+pins mathlib and its transitive dependencies to exact revisions;
+`lake update` re-resolves the whole graph, which takes hours and silently
+moves the pin. To bump mathlib, change the tag in `lakefile.lean`,
+`lean-toolchain`, and `lake-manifest.json` together in one PR.
 
 ## CI Build
 
@@ -38,7 +55,7 @@ lake build            # full build
 ```
 formalization/
   README.md
-  lakefile.lean          # this package's configuration
+  lakefile.lean          # this package's configuration (mathlib)
   lean-toolchain         # pinned Lean version
   shared/                # shared infrastructure for the seven problems (definitions, notation, tools)
     README.md
@@ -48,6 +65,11 @@ formalization/
     02-riemann/
     ...
     07-bsd/
+  ledger/                # separate package: the repository's records, no dependencies
+    README.md
+    lakefile.lean
+    lean-toolchain
+    Ledger/
 ```
 
 ## Where Candidate Lemmas Live
@@ -71,3 +93,5 @@ formalization/
    `formalization_progress`.
 4. For unfinished pieces, mark `sorry` and add a one-line comment
    explaining the reason.
+5. Move the ledger claims this lemma carries: set their `formal_target` to
+   the new declaration, raise their `status`, and run R7 (Ledger Sync).

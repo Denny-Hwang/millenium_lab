@@ -30,6 +30,27 @@ key_insights:
   - "L11 (truth-table evaluator) is provably false; L11' restricts the input domain to succinct program descriptions of length poly(n), excluding the trivial AC⁰-enumeration evaluator by length."
   - "G008 (L11' open at meta-complexity grade) replaces G006 as the rate-limiting bottleneck of the H_0 program."
   - "L06 difficulty upgrades from low to medium because the proof must hold for the chosen uniform (s, d), not an f-specific choice."
+claims:
+  - id: A004-K1
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "H_AC⁰ v2: ∃ s = n^{O(1)}, d = O(1), ∀ n, f — quantifier order is load-bearing; the ∀∃ reading is a tautology and is now explicitly excluded."
+  - id: A004-K2
+    kind: refutation
+    status: unformalized
+    formalizability: shape-only
+    statement: "L11 (truth-table evaluator) is provably false; L11' restricts the input domain to succinct program descriptions of length poly(n), excluding the trivial AC⁰-enumeration evaluator by length."
+  - id: A004-K3
+    kind: open-question
+    status: unformalized
+    formalizability: shape-only
+    statement: "G008 (L11' open at meta-complexity grade) replaces G006 as the rate-limiting bottleneck of the H_0 program."
+  - id: A004-K4
+    kind: finding
+    status: unformalized
+    formalizability: shape-only
+    statement: "L06 difficulty upgrades from low to medium because the proof must hold for the chosen uniform (s, d), not an f-specific choice."
 follow_ups:
   - "A005: state and begin to prove L11' (succinct-input non-evaluation of F_AC⁰)."
   - "A006: discharge L02 quasi-projectivity (A003-A1) and irreducibility / component-uniformity (A003-A2)."
